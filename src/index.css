@@ -1,0 +1,11 @@
+/* Global styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+/* Link reset */
+a {
+  text-decoration: none;
+  color: inherit;
+}
