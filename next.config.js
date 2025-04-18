@@ -1,9 +1,11 @@
+// MDX configuration
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
   options: {
     providerImportSource: "@mdx-js/react",
+    // Standard minimal configuration that works reliably
     remarkPlugins: [],
-    rehypePlugins: [],
+    rehypePlugins: []
   }
 });
 

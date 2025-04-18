@@ -13,11 +13,6 @@
   "rootMainFiles": [],
   "rootMainFilesTree": {},
   "pages": {
-    "/": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/index.js"
-    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -33,145 +28,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/core-axioms.js"
     ],
-    "/extensions": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/extensions.js"
-    ],
-    "/extensions/beyondIntegers": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/extensions/beyondIntegers.js"
-    ],
-    "/extensions/ensuringUniqueFactorization": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/extensions/ensuringUniqueFactorization.js"
-    ],
-    "/extensions/formalGeneralization": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/extensions/formalGeneralization.js"
-    ],
-    "/extensions/formalSupplement": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/extensions/formalSupplement.js"
-    ],
-    "/extensions/hiddenSymphony": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/extensions/hiddenSymphony.js"
-    ],
     "/extensions/incompletenessTheorem": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/extensions/incompletenessTheorem.js"
-    ],
-    "/extensions/philosophicalImplications": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/extensions/philosophicalImplications.js"
-    ],
-    "/extensions/physicsInterpretation": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/extensions/physicsInterpretation.js"
-    ],
-    "/extensions/practicalTranscendence": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/extensions/practicalTranscendence.js"
-    ],
-    "/extensions/recentExtensions": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/extensions/recentExtensions.js"
-    ],
-    "/extensions/ultimateImplication": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/extensions/ultimateImplication.js"
-    ],
-    "/foundations": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/foundations.js"
-    ],
-    "/foundations/coherenceNorm": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/foundations/coherenceNorm.js"
-    ],
-    "/foundations/intrinsicPrimes": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/foundations/intrinsicPrimes.js"
-    ],
-    "/foundations/primeCoordinates": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/foundations/primeCoordinates.js"
-    ],
-    "/foundations/primeFormula": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/foundations/primeFormula.js"
-    ],
-    "/foundations/uniqueFactorization": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/foundations/uniqueFactorization.js"
-    ],
-    "/uor": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/uor.js"
-    ],
-    "/uor/algebraicTopologicalEnhancements": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/uor/algebraicTopologicalEnhancements.js"
-    ],
-    "/uor/canonicalRepresentation": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/uor/canonicalRepresentation.js"
-    ],
-    "/uor/categoryTheoreticPerspective": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/uor/categoryTheoreticPerspective.js"
-    ],
-    "/uor/fiberBundle": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/uor/fiberBundle.js"
-    ],
-    "/uor/generalization": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/uor/generalization.js"
-    ],
-    "/uor/geometryOfPrimeSpaces": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/uor/geometryOfPrimeSpaces.js"
-    ],
-    "/uor/observerCoherence": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/uor/observerCoherence.js"
-    ],
-    "/uor/overview": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/uor/overview.js"
-    ],
-    "/uor/spectralInterpretation": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/uor/spectralInterpretation.js"
     ]
   },
   "ampFirstPages": []
