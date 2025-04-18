@@ -1,13 +1,10 @@
 {
   "extends": [
     "next/core-web-vitals",
-    "plugin:@typescript-eslint/recommended"
-  ],
-  "plugins": [
-    "@typescript-eslint"
+    "eslint:recommended"
   ],
   "rules": {
-    "@typescript-eslint/no-empty-object-type": "off",
+    "react/no-unescaped-entities": "off",
     "jsx-a11y/anchor-is-valid": "off"
   }
 }

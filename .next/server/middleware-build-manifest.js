@@ -1,1 +1,180 @@
-globalThis.__BUILD_MANIFEST={polyfillFiles:["static/chunks/polyfills-42372ed130431b0a.js"],devFiles:[],ampDevFiles:[],lowPriorityFiles:[],rootMainFiles:[],rootMainFilesTree:{},pages:{"/":["static/chunks/webpack-8cac0b4b405cede1.js","static/chunks/framework-abdc4aba868ab652.js","static/chunks/main-a14e61405718473b.js","static/chunks/pages/index-51edb2cd5a12cee3.js"],"/_app":["static/chunks/webpack-8cac0b4b405cede1.js","static/chunks/framework-abdc4aba868ab652.js","static/chunks/main-a14e61405718473b.js","static/css/da2a47fec300a648.css","static/chunks/pages/_app-08b9a48a637e6260.js"],"/_error":["static/chunks/webpack-8cac0b4b405cede1.js","static/chunks/framework-abdc4aba868ab652.js","static/chunks/main-a14e61405718473b.js","static/chunks/pages/_error-42b0c614284de2dc.js"],"/core-axioms":["static/chunks/webpack-8cac0b4b405cede1.js","static/chunks/framework-abdc4aba868ab652.js","static/chunks/main-a14e61405718473b.js","static/chunks/pages/core-axioms-8d2885cbad3688cf.js"],"/extensions":["static/chunks/webpack-8cac0b4b405cede1.js","static/chunks/framework-abdc4aba868ab652.js","static/chunks/main-a14e61405718473b.js","static/chunks/pages/extensions-3df0b6f257ce3641.js"],"/extensions/beyondIntegers":["static/chunks/webpack-8cac0b4b405cede1.js","static/chunks/framework-abdc4aba868ab652.js","static/chunks/main-a14e61405718473b.js","static/chunks/pages/extensions/beyondIntegers-6bd452339163d462.js"],"/extensions/ensuringUniqueFactorization":["static/chunks/webpack-8cac0b4b405cede1.js","static/chunks/framework-abdc4aba868ab652.js","static/chunks/main-a14e61405718473b.js","static/chunks/pages/extensions/ensuringUniqueFactorization-9833450b7c9e0ae3.js"],"/extensions/formalGeneralization":["static/chunks/webpack-8cac0b4b405cede1.js","static/chunks/framework-abdc4aba868ab652.js","static/chunks/main-a14e61405718473b.js","static/chunks/pages/extensions/formalGeneralization-b31c2b3d0dd7511a.js"],"/extensions/formalSupplement":["static/chunks/webpack-8cac0b4b405cede1.js","static/chunks/framework-abdc4aba868ab652.js","static/chunks/main-a14e61405718473b.js","static/chunks/pages/extensions/formalSupplement-de8dc9201af15e49.js"],"/extensions/hiddenSymphony":["static/chunks/webpack-8cac0b4b405cede1.js","static/chunks/framework-abdc4aba868ab652.js","static/chunks/main-a14e61405718473b.js","static/chunks/pages/extensions/hiddenSymphony-b537920e9e2a2d80.js"],"/extensions/incompletenessTheorem":["static/chunks/webpack-8cac0b4b405cede1.js","static/chunks/framework-abdc4aba868ab652.js","static/chunks/main-a14e61405718473b.js","static/chunks/pages/extensions/incompletenessTheorem-8757bbbf95226535.js"],"/extensions/philosophicalImplications":["static/chunks/webpack-8cac0b4b405cede1.js","static/chunks/framework-abdc4aba868ab652.js","static/chunks/main-a14e61405718473b.js","static/chunks/pages/extensions/philosophicalImplications-96effd0c668f4d87.js"],"/extensions/physicsInterpretation":["static/chunks/webpack-8cac0b4b405cede1.js","static/chunks/framework-abdc4aba868ab652.js","static/chunks/main-a14e61405718473b.js","static/chunks/pages/extensions/physicsInterpretation-b17004607b2fc692.js"],"/extensions/practicalTranscendence":["static/chunks/webpack-8cac0b4b405cede1.js","static/chunks/framework-abdc4aba868ab652.js","static/chunks/main-a14e61405718473b.js","static/chunks/pages/extensions/practicalTranscendence-489c763465fca9f4.js"],"/extensions/recentExtensions":["static/chunks/webpack-8cac0b4b405cede1.js","static/chunks/framework-abdc4aba868ab652.js","static/chunks/main-a14e61405718473b.js","static/chunks/pages/extensions/recentExtensions-0dd6b7ebfc01f753.js"],"/extensions/ultimateImplication":["static/chunks/webpack-8cac0b4b405cede1.js","static/chunks/framework-abdc4aba868ab652.js","static/chunks/main-a14e61405718473b.js","static/chunks/pages/extensions/ultimateImplication-bb9d99fa68f63e27.js"],"/foundations":["static/chunks/webpack-8cac0b4b405cede1.js","static/chunks/framework-abdc4aba868ab652.js","static/chunks/main-a14e61405718473b.js","static/chunks/pages/foundations-f5cac60a4367bd01.js"],"/foundations/coherenceNorm":["static/chunks/webpack-8cac0b4b405cede1.js","static/chunks/framework-abdc4aba868ab652.js","static/chunks/main-a14e61405718473b.js","static/chunks/pages/foundations/coherenceNorm-f75bc481eec78a42.js"],"/foundations/intrinsicPrimes":["static/chunks/webpack-8cac0b4b405cede1.js","static/chunks/framework-abdc4aba868ab652.js","static/chunks/main-a14e61405718473b.js","static/chunks/pages/foundations/intrinsicPrimes-11435ae64c286e6c.js"],"/foundations/primeCoordinates":["static/chunks/webpack-8cac0b4b405cede1.js","static/chunks/framework-abdc4aba868ab652.js","static/chunks/main-a14e61405718473b.js","static/chunks/pages/foundations/primeCoordinates-e2ad6b7bb00873f2.js"],"/foundations/primeFormula":["static/chunks/webpack-8cac0b4b405cede1.js","static/chunks/framework-abdc4aba868ab652.js","static/chunks/main-a14e61405718473b.js","static/chunks/pages/foundations/primeFormula-98d09741627deceb.js"],"/foundations/uniqueFactorization":["static/chunks/webpack-8cac0b4b405cede1.js","static/chunks/framework-abdc4aba868ab652.js","static/chunks/main-a14e61405718473b.js","static/chunks/pages/foundations/uniqueFactorization-088dcbbfaf9daa93.js"],"/uor":["static/chunks/webpack-8cac0b4b405cede1.js","static/chunks/framework-abdc4aba868ab652.js","static/chunks/main-a14e61405718473b.js","static/chunks/pages/uor-1f9eccf602369c67.js"],"/uor/algebraicTopologicalEnhancements":["static/chunks/webpack-8cac0b4b405cede1.js","static/chunks/framework-abdc4aba868ab652.js","static/chunks/main-a14e61405718473b.js","static/chunks/pages/uor/algebraicTopologicalEnhancements-76fc72d477ffb6b7.js"],"/uor/canonicalRepresentation":["static/chunks/webpack-8cac0b4b405cede1.js","static/chunks/framework-abdc4aba868ab652.js","static/chunks/main-a14e61405718473b.js","static/chunks/pages/uor/canonicalRepresentation-ee05fe3aa6d0cf5f.js"],"/uor/categoryTheoreticPerspective":["static/chunks/webpack-8cac0b4b405cede1.js","static/chunks/framework-abdc4aba868ab652.js","static/chunks/main-a14e61405718473b.js","static/chunks/pages/uor/categoryTheoreticPerspective-7b62a564455071b2.js"],"/uor/fiberBundle":["static/chunks/webpack-8cac0b4b405cede1.js","static/chunks/framework-abdc4aba868ab652.js","static/chunks/main-a14e61405718473b.js","static/chunks/pages/uor/fiberBundle-3f789ca7e2f4d5e1.js"],"/uor/generalization":["static/chunks/webpack-8cac0b4b405cede1.js","static/chunks/framework-abdc4aba868ab652.js","static/chunks/main-a14e61405718473b.js","static/chunks/pages/uor/generalization-8b1e74e24d2e7f2e.js"],"/uor/geometryOfPrimeSpaces":["static/chunks/webpack-8cac0b4b405cede1.js","static/chunks/framework-abdc4aba868ab652.js","static/chunks/main-a14e61405718473b.js","static/chunks/pages/uor/geometryOfPrimeSpaces-f2e0bf24feb74db4.js"],"/uor/observerCoherence":["static/chunks/webpack-8cac0b4b405cede1.js","static/chunks/framework-abdc4aba868ab652.js","static/chunks/main-a14e61405718473b.js","static/chunks/pages/uor/observerCoherence-bfc52a3275d62a30.js"],"/uor/overview":["static/chunks/webpack-8cac0b4b405cede1.js","static/chunks/framework-abdc4aba868ab652.js","static/chunks/main-a14e61405718473b.js","static/chunks/pages/uor/overview-b73cdacb895e0ae3.js"],"/uor/spectralInterpretation":["static/chunks/webpack-8cac0b4b405cede1.js","static/chunks/framework-abdc4aba868ab652.js","static/chunks/main-a14e61405718473b.js","static/chunks/pages/uor/spectralInterpretation-4007fdaa84b85274.js"]},ampFirstPages:[]},globalThis.__BUILD_MANIFEST.lowPriorityFiles=["/static/"+process.env.__NEXT_BUILD_ID+"/_buildManifest.js",,"/static/"+process.env.__NEXT_BUILD_ID+"/_ssgManifest.js"];
+globalThis.__BUILD_MANIFEST = {
+  "polyfillFiles": [
+    "static/chunks/polyfills.js"
+  ],
+  "devFiles": [
+    "static/chunks/react-refresh.js"
+  ],
+  "ampDevFiles": [],
+  "lowPriorityFiles": [],
+  "rootMainFiles": [],
+  "rootMainFilesTree": {},
+  "pages": {
+    "/": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/index.js"
+    ],
+    "/_app": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/_app.js"
+    ],
+    "/_error": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/_error.js"
+    ],
+    "/core-axioms": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/core-axioms.js"
+    ],
+    "/extensions": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/extensions.js"
+    ],
+    "/extensions/beyondIntegers": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/extensions/beyondIntegers.js"
+    ],
+    "/extensions/ensuringUniqueFactorization": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/extensions/ensuringUniqueFactorization.js"
+    ],
+    "/extensions/formalGeneralization": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/extensions/formalGeneralization.js"
+    ],
+    "/extensions/formalSupplement": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/extensions/formalSupplement.js"
+    ],
+    "/extensions/hiddenSymphony": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/extensions/hiddenSymphony.js"
+    ],
+    "/extensions/incompletenessTheorem": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/extensions/incompletenessTheorem.js"
+    ],
+    "/extensions/philosophicalImplications": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/extensions/philosophicalImplications.js"
+    ],
+    "/extensions/physicsInterpretation": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/extensions/physicsInterpretation.js"
+    ],
+    "/extensions/practicalTranscendence": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/extensions/practicalTranscendence.js"
+    ],
+    "/extensions/recentExtensions": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/extensions/recentExtensions.js"
+    ],
+    "/extensions/ultimateImplication": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/extensions/ultimateImplication.js"
+    ],
+    "/foundations": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/foundations.js"
+    ],
+    "/foundations/coherenceNorm": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/foundations/coherenceNorm.js"
+    ],
+    "/foundations/intrinsicPrimes": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/foundations/intrinsicPrimes.js"
+    ],
+    "/foundations/primeCoordinates": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/foundations/primeCoordinates.js"
+    ],
+    "/foundations/primeFormula": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/foundations/primeFormula.js"
+    ],
+    "/foundations/uniqueFactorization": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/foundations/uniqueFactorization.js"
+    ],
+    "/uor": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/uor.js"
+    ],
+    "/uor/algebraicTopologicalEnhancements": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/uor/algebraicTopologicalEnhancements.js"
+    ],
+    "/uor/canonicalRepresentation": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/uor/canonicalRepresentation.js"
+    ],
+    "/uor/categoryTheoreticPerspective": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/uor/categoryTheoreticPerspective.js"
+    ],
+    "/uor/fiberBundle": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/uor/fiberBundle.js"
+    ],
+    "/uor/generalization": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/uor/generalization.js"
+    ],
+    "/uor/geometryOfPrimeSpaces": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/uor/geometryOfPrimeSpaces.js"
+    ],
+    "/uor/observerCoherence": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/uor/observerCoherence.js"
+    ],
+    "/uor/overview": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/uor/overview.js"
+    ],
+    "/uor/spectralInterpretation": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/uor/spectralInterpretation.js"
+    ]
+  },
+  "ampFirstPages": []
+};
+globalThis.__BUILD_MANIFEST.lowPriorityFiles = [
+"/static/" + process.env.__NEXT_BUILD_ID + "/_buildManifest.js",
+,"/static/" + process.env.__NEXT_BUILD_ID + "/_ssgManifest.js",
+
+];

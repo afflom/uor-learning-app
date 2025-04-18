@@ -1,5 +1,6 @@
-import { incompletenessTheorem } from '../../src/content/sections/metadata'
-import Layout from '../../components/Layout'
+export const metadata = {
+  title: "Gödel's Incompleteness Theorem"
+};
 
 # Gödel's Incompleteness Theorem
 
@@ -41,4 +42,3 @@ If T could prove its own consistency, then by internalizing the argument from th
 
 Within the Prime Framework, each syntactic object and proof sequence is assigned a unique prime-coordinate spectrum via the UOR map. Gödel's construction exhibits that no finite, coherent bundle of axioms can capture the full intrinsic spectrum of its own provability relation. The unprovable sentence G is a prime-spectrum signature that transcends the axiomatic bundle of T, illustrating the inherent limits of trilateral coherence when self-reference is admitted.
 
-export default ({ children }) => <Layout>{children}</Layout>
