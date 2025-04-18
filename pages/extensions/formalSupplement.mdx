@@ -1,0 +1,45 @@
+import { formalSupplement } from '../../src/content/sections/metadata'
+import Layout from '../../components/Layout'
+
+# Formal Supplement
+
+## Unique Factorization Domain Axiom
+
+**Axiom (UFD):** Let `𝒰` be a category with finite products and a distinguished set of irreducible objects `P`. We require:
+
+1. Every non‑unit object `X∈𝒰` admits a finite decomposition `X ≅ p₁∘…∘pₖ` with `pᵢ∈P`.
+2. This decomposition is unique: if `X ≅ q₁∘…∘qₘ` is another, then m=k and there is a permutation σ with `qᵢ≅p₍σ(i)₎`.
+
+## Category-Theoretic Formalization
+
+Model `𝒰` as a monoidal category (with ∘ as tensor product). Intrinsic primes are the atoms in its subobject lattice. The prime coordinate map φ is a strong monoidal functor `φ: (𝒰,∘,1) → (ℤ^(P),+,0)`, preserving tensor and unit.
+
+Precisely, φ(X∘Y)=φ(X)+φ(Y), φ(1)=0, and φ is initial among all such homomorphisms (universal property): any other functor to an abelian group factors uniquely through φ.
+
+## Sheaf & Stack Perspective
+
+Observers form a fibered category (stack) over 𝒰: assign to each X the groupoid of frames R. The total category E₂ has objects (X,r) and morphisms only in frames. The canonical frame section σ: X↦(X,r₀) exhibits E₂ as a trivial torsor, ensuring global coherence and flatness of the bundle.
+
+## Extensions to Dedekind Domains
+
+In a domain lacking unique factorization (e.g., ℤ[√−5]), one refines primes to prime ideals. Working in the category of fractional ideals restores the UFD axiom: every ideal factors uniquely. The UOR coordinate extends to the ideal class group, encoding ideal exponents in the prime ideal basis.
+
+## Base‑Absolute Prime Coordinates
+
+**Definition:** A coordinate system is *base‑absolute* if it is canonical and independent of any chosen basis or chart. The UOR prime coordinate φ is base‑absolute: it does not depend on numeral base, vector space basis, or presentation. It is intrinsic to the object's structure.
+
+## Primary Decomposition in Modules
+
+For modules over Noetherian rings, primary decomposition generalizes prime factorization. Each submodule decomposes into intersections of primary submodules, yielding coordinates in the lattice of primary components. A coherence metric may rank decompositions by simplicity.
+
+## Universal Properties & Limits of UOR
+
+φ enjoys a universal mapping property: any functor from 𝒰 to a graded abelian group preserving composition factors through φ. UOR is the terminal coordinate system under this constraint.
+
+## Case Studies in Pure Math
+
+- **Polynomial Rings:** φ maps f(x) to exponent vector of irreducible factors, enabling gcd/lcm of polynomials by componentwise min/max.
+- **Algebraic Number Theory:** φ on ideals tracks ramification exponents in Galois extensions, unifying decomposition groups and Frobenius actions.
+- **Group Representation:** Decompose representations into irreducibles; assign coordinate of multiplicities, turning tensor products into vector addition.
+
+export default ({ children }) => <Layout>{children}</Layout>

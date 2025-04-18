@@ -15,7 +15,8 @@ export default defineConfig({
     trace: 'on-first-retry',
   },
   webServer: {
-    command: 'npm run build && npm run preview -- --port 4173 --strictPort',
+    // Build and start Next.js on port 4173 for end-to-end tests
+    command: 'npm run build && npm run preview -- --port 4173',
     port: 4173,
     reuseExistingServer: !process.env.CI,
     timeout: 120000,

@@ -1,0 +1,44 @@
+import { incompletenessTheorem } from '../../src/content/sections/metadata'
+import Layout from '../../components/Layout'
+
+# Gödel's Incompleteness Theorem
+
+We present the formal arithmetization of syntax using prime-coordinate encoding (a special case of the UOR map) and derive Gödel's First and Second Incompleteness Theorems for any consistent, effectively axiomatizable theory extending a minimal arithmetic.
+
+## 1. Arithmetization via Prime Encoding
+
+Let L be the first-order language of arithmetic with a finite alphabet of symbols. Fix an effective Gödel coding that assigns to each symbol a unique natural number. Extend this to finite strings using the prime formula:
+
+For a string s₁s₂...sₙ, encode it as a product of powers of successive primes, where the exponents are the codes for each symbol.
+
+By unique factorization, each string has a unique code in the natural numbers. More generally, any finite sequence of syntactic objects can be encoded unambiguously.
+
+## 2. Provability Predicate
+
+Let T be a consistent, recursively axiomatizable theory. Define a binary predicate that checks if a given sequence is a valid proof of a formula in the theory.
+
+The provability predicate expresses that a given formula is provable in T.
+
+## 3. Diagonal Lemma
+
+For any formula with one free variable, there exists a sentence G that asserts about itself that it has the property expressed by the formula.
+
+This follows from the diagonalization (fixed-point) construction using the uniqueness of prime encoding and the representability of primitive recursive functions in T.
+
+## 4. First Incompleteness Theorem
+
+Instantiating the diagonal lemma with the negation of the provability predicate yields a sentence G that essentially says "I am not provable in T."
+
+If T is consistent, T cannot prove G (else it would be inconsistent). Also T cannot prove ¬G (which would contradict G's unprovability). Thus G is independent of T, proving its essential incompleteness.
+
+## 5. Second Incompleteness Theorem
+
+Define the consistency statement for theory T as "There is no proof of a contradiction in T."
+
+If T could prove its own consistency, then by internalizing the argument from the First Incompleteness Theorem, T would prove that the unprovable sentence G is unprovable, contradicting the First Incompleteness Theorem. Hence, if T is consistent, it cannot prove its own consistency.
+
+## 6. Transcendence via UOR
+
+Within the Prime Framework, each syntactic object and proof sequence is assigned a unique prime-coordinate spectrum via the UOR map. Gödel's construction exhibits that no finite, coherent bundle of axioms can capture the full intrinsic spectrum of its own provability relation. The unprovable sentence G is a prime-spectrum signature that transcends the axiomatic bundle of T, illustrating the inherent limits of trilateral coherence when self-reference is admitted.
+
+export default ({ children }) => <Layout>{children}</Layout>

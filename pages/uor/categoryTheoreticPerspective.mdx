@@ -1,0 +1,42 @@
+import { categoryTheoryPerspective } from '../../src/content/sections/metadata'
+import Layout from '../../components/Layout'
+
+# Category-Theoretic Perspective
+
+The Universal Object Reference framework can be elegantly formulated in the language of category theory, revealing deep structural connections and universal properties.
+
+## Categorical Formulation
+
+In categorical terms, UOR can be described as:
+
+- A functor φ from the category of objects with composition to the category of graded modules
+- A natural transformation between the compositional and additive structures
+- An adjunction between the object domain and its prime-coordinate representation
+
+## Universal Mapping Property
+
+The prime-coordinate map φ satisfies a universal property:
+
+- For any functor F from objects to an abelian category preserving composition
+- There exists a unique natural transformation from φ to F
+- This makes φ the universal linearization of the object domain
+
+## Functorial Properties
+
+The functoriality of φ reveals important structural aspects:
+
+- Composition becomes addition: φ(x⊗y) = φ(x) + φ(y)
+- Inverses become negatives: φ(x⁻¹) = -φ(x)
+- Units map to zero: φ(1) = 0
+
+## Monoidal Structure
+
+The relationship between composition and prime coordinates can be seen as:
+
+- A monoidal functor between (Objects, ⊗, 1) and (Modules, ⊕, 0)
+- Preserving the monoidal structure and coherence conditions
+- Transforming multiplicative monoids into additive groups
+
+This category-theoretic perspective places UOR within the broader context of modern mathematics, connecting it to homological algebra, representation theory, and algebraic geometry through the universal properties of the prime-coordinate functor.
+
+export default ({ children }) => <Layout>{children}</Layout>

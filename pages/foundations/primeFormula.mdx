@@ -1,0 +1,41 @@
+import { primeFormula } from '../../src/content/sections/metadata'
+import Layout from '../../components/Layout'
+
+# Prime Formula
+
+The Prime Formula provides a formal mathematical definition of the prime decomposition and valuation process in a Unique Factorization Domain.
+
+## Canonical Factorization
+
+For any non-zero non-unit element x in a Unique Factorization Domain D, the canonical prime factorization is given by:
+
+x = u · p₁^e₁ · p₂^e₂ · ... · pₙ^eₙ
+
+where:
+- u is a unit in D
+- Each pᵢ is a distinct prime in D
+- eᵢ is the exponent (valuation) of prime pᵢ
+- The product is finite (only finitely many primes have non-zero exponents)
+
+## Prime Valuation
+
+The prime valuation function v_p(x) returns the highest power of prime p that divides x.
+
+For example, v_2(12) = 2 because 2² divides 12, but 2³ does not.
+
+This function has several important properties:
+
+1. v_p(xy) = v_p(x) + v_p(y) for all x, y
+2. v_p(x+y) ≥ min(v_p(x), v_p(y)) with equality when v_p(x) ≠ v_p(y)
+3. v_p(1) = 0 for all primes p
+4. v_p(p) = 1 for prime p
+
+## The Prime-Coordinate Map
+
+The valuation function extends to define the prime-coordinate map φ:
+
+φ(x) = (v_p(x))_p
+
+This maps each element to its vector of prime exponents, forming the mathematical basis for the UOR framework's representation system.
+
+export default ({ children }) => <Layout>{children}</Layout>

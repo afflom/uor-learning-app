@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { sections } from '../src/content/sections';
+import { sectionsData as sections } from '../src/content/sections/sectionsData';
 
 // Helper to collect console and page errors
 function collectErrors(page) {

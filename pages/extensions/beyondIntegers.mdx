@@ -1,0 +1,31 @@
+import { beyondIntegers } from '../../src/content/sections/metadata'
+import Layout from '../../components/Layout'
+
+# Beyond Integers
+
+**Extension Theorem:** Let D be a UFD or a Dedekind domain
+with unique factorization of ideals. Then φ extends to:
+
+- **Rationals ℚ:**
+  Negative exponents encode denominators.
+  For example, `φ(1/3) = -φ(3)`, so
+  `φ(3/4) = [(2,-2),(3,1)]`.
+
+- **Polynomials k[x]:**
+  Irreducible polynomials serve as primes; exponents represent factor multiplicity.
+
+- **Algebraic Number Fields:** 
+  In the ring of integers of a number field K, nonzero prime ideals act as primes,
+  and φ maps each element to its ideal factor exponents.
+
+- **Combinatorial domains:**
+  In set unions, singletons are primes; in graph unions, connected
+  components are primes.
+
+In each domain, φ assigns a finite exponent vector
+consistent with UOR's axioms. The coherence norm, spectral
+interpretation, and fiber bundle formalism remain valid, showcasing
+the uniform applicability of UOR across algebraic, combinatorial,
+and arithmetic landscapes.
+
+export default ({ children }) => <Layout>{children}</Layout>

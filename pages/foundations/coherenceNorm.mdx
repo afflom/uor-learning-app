@@ -1,0 +1,43 @@
+import { coherenceNorm } from '../../src/content/sections/metadata'
+import Layout from '../../components/Layout'
+
+# Coherence Norm & Metric
+
+The coherence norm provides a fundamental measure of representational complexity in prime-coordinate space.
+
+## Definition and Properties
+
+For an object x with prime-coordinate representation φ(x), the coherence norm is defined as the Euclidean norm of the exponent vector. This norm has several key properties:
+
+- **Non-negativity:** The norm is always positive for non-unit elements
+- **Triangle Inequality:** The norm of a product is bounded by the sum of norms
+- **Invariance:** The norm is invariant under canonical transformations
+
+## Minimality Theorem
+
+Among all possible factorizations of an object, the prime factorization minimizes the coherence norm. This can be proven through the Cauchy-Schwarz inequality and establishes prime representation as the most efficient encoding.
+
+## Metric Space Structure
+
+The coherence norm induces a metric on the space of objects, defined as the norm of the quotient. This metric satisfies:
+
+- **Identity:** d(x,y) = 0 if and only if x = y
+- **Symmetry:** d(x,y) = d(y,x)
+- **Triangle Inequality:** d(x,z) ≤ d(x,y) + d(y,z)
+
+## Euclidean Structure
+
+Prime-coordinate space inherits a full Euclidean structure through the inner product of exponent vectors. This allows for notions of angles, projections, and orthogonality between object representations.
+
+## Applications
+
+The coherence norm and metric enable:
+
+- Measuring information content of mathematical objects
+- Quantifying similarity between structures
+- Defining notions of complexity and simplicity
+- Establishing optimization criteria for representations
+
+Through the coherence norm, UOR provides a rigorous foundation for comparing and analyzing mathematical objects based on their intrinsic prime structure.
+
+export default ({ children }) => <Layout>{children}</Layout>

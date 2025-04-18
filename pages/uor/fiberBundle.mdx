@@ -1,0 +1,30 @@
+import { fiberBundle } from '../../src/content/sections/metadata'
+import Layout from '../../components/Layout'
+
+# Fiber Bundle Structure
+
+**Definition (Fiber Bundle Structure):** UOR employs two nested fiber bundles to integrate object structure and observer context. A fiber bundle (E,B,π,F,G) consists of a total space E, a base space B, a projection π: E→B, a typical fiber F, and a structure group G acting on F with local trivializations of E.
+
+## Level 1: Prime Structure Bundle
+
+- **Base:** The set of intrinsic primes P.
+- **Fiber:** The valuation group ℤ given by p-adic exponents, or ℤ₊ in purely integral contexts.
+- **Total Space:** E₁, containing pairs (p,a).
+- **Projection:** π₁(p,a)=p, forgetting the exponent.
+- **Section for X:** s_X(p) = (p,φ(X)(p)) for each prime.
+
+## Level 2: Observer (Frame) Bundle
+
+- **Base:** The set of all objects 𝒰.
+- **Fiber:** The set R of all admissible reference frames, each encoding a choice of coordinate conventions, normalization, or grouping rules.
+- **Total Space:** E₂ = 𝒰 × R, pairs (X,r).
+- **Projection:** π₂(X,r)=X, forgetting the frame.
+- **Canonical Frame Section:** A global section σ(X)=(X,r₀) picks the intrinsic prime frame for each object.
+
+The canonical map Φ takes each global section s_x of the prime bundle (where s_x(p)=(p,v_p(x))) to x. This reconstruction is functorial and defines an isomorphism between the section space and the monoid of objects. Both bundles are trivial in standard UOR: level‑1 has no monodromy, level‑2's frame bundle is globally framed by the intrinsic prime frame, implying zero curvature (all transition functions are identity).
+
+**Curvature & Gauge Analogy:** Nontrivial frame bundles (with G₂ non‑abelian) would exhibit curvature, modeling observer transformations that do not commute—analogous to gauge fields in principal bundles. Such enhancements lead to rich geometry and potential physical applications in quantum reference frames.
+
+In more elaborate contexts, nontrivial frame bundles with path-dependent transition functions can model curvature or gauge-like effects, capturing how observer transformations might fail to commute and enriching the UOR geometry.
+
+export default ({ children }) => <Layout>{children}</Layout>

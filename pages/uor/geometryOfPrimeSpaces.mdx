@@ -1,0 +1,46 @@
+import { geometryOfPrimeSpaces } from '../../src/content/sections/metadata'
+import Layout from '../../components/Layout'
+
+# Geometry of Prime Spaces
+
+The prime-coordinate representation induces a rich geometric structure that reveals deep patterns in object composition and relationships.
+
+## Euclidean Structure
+
+The prime-coordinate space inherits a natural Euclidean structure from the coherence norm and inner product:
+
+- The coherence norm ||φ(x)|| measures the intrinsic complexity of an object
+- The inner product ⟨φ(x),φ(y)⟩ quantifies the degree of prime-factor similarity
+- Angles between coordinate vectors represent compositional relationships
+- Orthogonal objects have no common prime factors
+
+## Lattice Geometry
+
+Objects with integer exponents form a discrete lattice in prime-coordinate space:
+
+- Each lattice point represents a unique factorization
+- Lines through the origin correspond to powers of the same object
+- Convex regions define families of objects with bounded prime exponents
+- Walking along lattice paths corresponds to sequential multiplication by primes
+
+## Spectral Interpretation
+
+The prime-coordinate representation can be viewed as a spectral decomposition:
+
+- Each prime contributes a "frequency" component to the object
+- The exponent vector forms the object's spectrum across prime frequencies
+- Composition combines spectra through vector addition
+- Decomposition separates an object into its spectral components
+
+## Metric Geometry
+
+The coherence metric defines notions of distance and proximity between objects:
+
+- d(x,y) = ||φ(x) - φ(y)|| measures compositional distance
+- Neighborhoods contain objects with similar prime factorization
+- Geodesics represent minimal paths between objects in prime-coordinate space
+- Curvature appears when considering non-Euclidean coherence measures
+
+These geometric structures provide powerful tools for analyzing patterns, relationships, and transformations across mathematical domains.
+
+export default ({ children }) => <Layout>{children}</Layout>

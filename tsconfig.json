@@ -2,9 +2,13 @@
   "compilerOptions": {
     "target": "ESNext",
     "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
     "skipLibCheck": true,
-    "esModuleInterop": false,
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -12,19 +16,23 @@
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "react-jsx",
-    // Use the MDX JSX import source for MDX files
-    "jsxImportSource": "@mdx-js/react",
+    "jsx": "preserve",
     "noEmit": true,
     "baseUrl": ".",
-    "paths": {
-      "~/*": ["src/*"]
-    }
+    // Removed unused path aliases
+    "allowJs": true,
+    "incremental": true
   },
-  "include": ["src"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.mdx"
+  ],
   "exclude": [
     "node_modules",
-    "dist",
-    "src/content/sections/**/*"
+    "tests",
+    "test",
+    "test-results"
   ]
 }

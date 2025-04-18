@@ -1,0 +1,36 @@
+import { primeCoordinates } from '../../src/content/sections/metadata'
+import Layout from '../../components/Layout'
+
+# Prime Coordinates
+
+Prime coordinates provide a powerful mapping system that transforms objects into vectors in an exponent space, revealing their intrinsic structure.
+
+## The Prime-Coordinate Map
+
+For any object x in a domain with unique factorization, the prime-coordinate map φ assigns to x its vector of prime exponents:
+
+- φ(x) maps each prime p to its exponent in the factorization of x
+- The result is a vector in the exponent space (typically Z^P for finite products)
+- This mapping is a homomorphism: φ(x·y) = φ(x) + φ(y)
+
+## Properties of Prime Coordinates
+
+The prime-coordinate representation has several remarkable properties:
+
+- **Injectivity:** Distinct objects map to distinct coordinate vectors
+- **Linearization:** Multiplication becomes vector addition in coordinate space
+- **Dimension reduction:** Infinite objects represented by finite vectors
+- **Base independence:** Representation is intrinsic, not tied to numeral systems
+
+## Geometric Interpretation
+
+Viewing prime coordinates geometrically reveals deep structure:
+
+- Each prime corresponds to an orthogonal dimension
+- Objects become points in a discrete lattice
+- Divisibility relations become geometric containment
+- Prime powers trace rays along coordinate axes
+
+This coordinate system transforms the multiplicative structure into an additive vector space, making complex patterns of factorization visually and algebraically accessible.
+
+export default ({ children }) => <Layout>{children}</Layout>

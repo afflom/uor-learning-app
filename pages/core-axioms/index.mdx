@@ -1,0 +1,110 @@
+import { coreAxioms } from '../../src/content/sections/metadata'
+import Layout from '../../components/Layout'
+
+# Core UOR Axioms
+
+The Seven Core UOR Axioms codify the essential properties ensuring
+that any Unique Factorization Domain (UFD) supports a fully coherent,
+observer‐aware, prime‐coordinate representation. These axioms act as
+the logical scaffolding underpinning the entire Prime Framework:
+
+1. ### Intrinsic Primes
+   
+   **Statement.** A set `P` of atomic elements
+   exists such that no element in `P` factors further under
+   composition in the domain.
+   
+   **Analysis.** These primes serve as the alphabet for
+   every object's unique decomposition. Units (identity elements) are
+   excluded from `P`, leaving irreducible generators of the
+   composition monoid.
+
+2. ### Unique Factorization (UFD Axiom)
+   
+   **Statement.** Every non‑unit object admits a finite
+   product decomposition into primes, and this decomposition is unique
+   up to reordering of factors.
+   
+   **Analysis.** Guarantees each object has one and only
+   one prime signature—essential for defining unambiguous coordinates.
+
+3. ### Prime-Coordinate Homomorphism
+   
+   **Statement.** There exists an injective homomorphism
+   `φ: 𝒰 → ℤ^P` mapping each object to its exponent
+   vector over primes, satisfying `φ(X∘Y)=φ(X)+φ(Y)`.
+   
+   **Analysis.** This functorial map linearizes
+   composition, turning multiplicative relations into vector addition
+   and enabling algebraic and geometric techniques.
+
+4. ### Canonical Representation
+   
+   **Statement.** The image `φ(X)` is a unique,
+   lossless encoding that does not depend on numeral base or observer
+   frame and achieves the minimal coherence norm among all
+   representations.
+   
+   **Analysis.** Establishes the fully factored prime form
+   as the intrinsic normal form for every object.
+
+5. ### Coherence Norm
+   
+   **Statement.** Equip `ℤ^P` with the
+   norm measuring simplicity of the prime exponent vector.
+   
+   **Analysis.** Any non‑prime grouping increases this
+   norm, making the prime decomposition the shortest (most coherent)
+   vector.
+
+6. ### Coherence Inner Product
+   
+   **Statement.** Define
+   an inner product, making the exponent space a
+   Euclidean vector space with orthonormal prime axes.
+   
+   **Analysis.** Enables distances, angles, and
+   projections in prime-coordinate geometry, underpinning spectral and
+   geometric interpretations.
+
+7. ### Trilateral Coherence
+   
+   **Statement.** Every valid description of an object
+   incorporates three coherent aspects: its intrinsic prime-coordinate
+   structure, the dynamics (composition rules), and the observer
+   reference frame.
+   
+   **Analysis.** By formalizing observers as a bundle with
+   frame transformations preserving φ, UOR ensures invariant intrinsic
+   data while accommodating perspective shifts.
+
+8. ### Universal Mapping Property
+   
+   **Statement.** The prime-coordinate homomorphism is the initial object among all monoid homomorphisms to abelian groups that send units to zero.
+   
+   **Proof Sketch.** Since φ is surjective onto the free abelian
+   group and units lie in its kernel, any ψ factors through the quotient
+   using a suitable mapping. Uniqueness follows from the fact that the p-th
+   basis element must map to ψ(p), fixing the homomorphism on generators.
+   
+   #### Examples of Factorization through φ
+   
+   - **Liouville Function λ:** Multiplicative function assigning +1 or -1 based on number of prime factors
+   
+   - **p-adic Valuation:** For fixed prime p₀, measures its exponent in factorization
+   
+   - **Totient Function φ₀:** Euler's function counting numbers coprime to n
+
+   These illustrate that any classical multiplicative arithmetic function
+   arises via composition with φ. The Universal Mapping Property thus
+   characterizes φ as the *source of all multiplicative invariants*.
+
+Together, these axioms guarantee that every object can be
+assigned an unambiguous prime‐coordinate spectrum, situated in a
+Euclidean lattice and coherently contextualized by an observer frame.
+This trilogy of structure, dynamics, and perspective forms a robust
+foundation for exploring deep connections—from number theory to quantum
+geometry—and for forging new mathematical and physical vistas beyond
+the classical horizon.
+
+export default ({ children }) => <Layout>{children}</Layout>
