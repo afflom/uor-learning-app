@@ -1,0 +1,43 @@
+import React from 'react'
+import SubsectionTemplate from '../../../templates/SubsectionTemplate'
+import { geometryOfPrimeSpaces } from '../metadata'
+
+/**
+ * Subsection: Geometry of Prime Spaces
+ */
+function GeometryOfPrimeSpacesSubsection() {
+  return (
+    <SubsectionTemplate metadata={geometryOfPrimeSpaces}>
+      <p>
+        By viewing the prime-coordinate space <code>ℤ^{(P)}</code> as a geometric
+        lattice, we gain new insights into factorization.
+      </p>
+      <ul>
+        <li>
+          <strong>Lattice Geometry:</strong> The infinite-dimensional integer grid
+          of prime exponents, where distances reflect representational complexity.
+        </li>
+        <li>
+          <strong>Convexity & Factorization:</strong> The divisibility relations
+          among objects form convex sublattices, with minimal paths corresponding
+          to multiplicative decompositions.
+        </li>
+        <li>
+          <strong>Symmetries & Automorphisms:</strong> Permutations and rotations
+          of prime axes yield automorphisms modeling dualities and invariants in
+          the factorization monoid.
+        </li>
+        <li>
+          <strong>Discrete Curvature:</strong> Local deviations from flat Euclidean
+          structure reveal clustering and composite patterns in prime space.
+        </li>
+      </ul>
+      <p>
+        This geometric perspective unifies algebraic factorization with combinatorial
+        geometry and suggests novel applications in optimization and number theory.
+      </p>
+    </SubsectionTemplate>
+  )
+}
+
+export default GeometryOfPrimeSpacesSubsection

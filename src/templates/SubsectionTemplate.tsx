@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { PropsWithChildren } from 'react'
+
+interface SubsectionTemplateProps {
+  metadata: {
+    title: string
+    description?: string
+  }
+}
 
 /**
  * A template wrapper for subsection pages.
- * Displays subtitle, optional description, and content area.
  */
-function SubsectionTemplate({ metadata, children }) {
+function SubsectionTemplate({
+  metadata,
+  children
+}: PropsWithChildren<SubsectionTemplateProps>) {
   const { title, description } = metadata
   return (
     <div className="subsection">

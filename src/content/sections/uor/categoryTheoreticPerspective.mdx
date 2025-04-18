@@ -1,0 +1,48 @@
+import React from 'react'
+import SubsectionTemplate from '../../../templates/SubsectionTemplate'
+import { categoryTheoryPerspective } from '../metadata'
+
+/**
+ * Subsection: Category-Theoretic Perspective
+ */
+function CategoryTheoreticPerspectiveSubsection() {
+  return (
+    <SubsectionTemplate metadata={categoryTheoryPerspective}>
+      <p>
+        <strong>Definition (UOR as a Functor):</strong> Let 𝒞 be the category
+        whose objects are UFDs and whose morphisms are unit-preserving ring
+        homomorphisms. The prime-coordinate map φ extends to a functor
+        φ: 𝒞 → Ab, sending each UFD D to the free abelian group
+        ⨁_{p∈P(D)}ℤ, and each homomorphism f: D→E to the induced group homomorphism
+        on exponent lattices.
+      </p>
+      <ul>
+        <li>
+          <strong>Objects:</strong> Elements of a Unique Factorization Domain.
+        </li>
+        <li>
+          <strong>Morphisms:</strong> Multiplicative homomorphisms corresponding to
+          additive maps on exponent vectors.
+        </li>
+        <li>
+          <strong>Fibration of Primes:</strong> The assignment D ↦ P(D) (set of primes)
+          defines a fibration Pd → UFD, whose fiber over D is the discrete category P(D).
+        </li>
+        <li>
+          <strong>Descent and Sheaves:</strong> The presheaf U ↦ φ(U) on the Zariski-like site
+          of a UFD (with opens specified by localization at primes) satisfies the sheaf axioms,
+          ensuring compatibility of local factorizations and existence of global sections.
+        </li>
+      </ul>
+      <p>
+        Through this lens, UOR becomes a study in monoidal categories, fibered functors,
+        and natural isomorphisms. One can analyze coherence via Mac Lane’s pentagon
+        and triangle identities, and explore higher-categorical generalizations (2-functors,
+        infinity-stacks) for objects beyond classical UFDs, extending UOR into the realm
+        of homotopy type theory and derived algebraic geometry.
+      </p>
+    </SubsectionTemplate>
+  )
+}
+
+export default CategoryTheoreticPerspectiveSubsection

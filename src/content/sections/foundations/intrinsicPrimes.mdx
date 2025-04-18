@@ -1,0 +1,66 @@
+import React from 'react'
+import SubsectionTemplate from '../../../templates/SubsectionTemplate'
+import { intrinsicPrimes } from '../metadata'
+
+/**
+ * Subsection: Intrinsic Primes
+ * Definition and role of intrinsic primes as irreducible building blocks.
+ */
+function IntrinsicPrimesSubsection() {
+  return (
+    <SubsectionTemplate metadata={intrinsicPrimes}>
+      <p>
+        <strong>Definition (Irreducibles):</strong> Let (𝒰, ∘) be a commutative
+        monoid with identity element 1 and group of units U(𝒰). An element
+        p ∉ U(𝒰) is called <em>irreducible</em> (or an <em>intrinsic prime</em>) if
+        whenever p = a ∘ b with a,b ∈ 𝒰, then either a ∈ U(𝒰) or b ∈ U(𝒰).
+        These irreducibles serve as the fundamental atoms for factorization.
+      </p>
+      <p>Intrinsic primes satisfy the following axioms in any Unique
+      Factorization Domain (UFD) setting:</p>
+      <ul>
+        <li>
+          <strong>Irreducibility:</strong> If p = a ∘ b then a or b is a unit
+          in U(𝒰).
+        </li>
+        <li>
+          <strong>Non‑unit status:</strong> p is not invertible (
+          p ∉ U(𝒰)), ensuring p contributes nontrivially to factorization.
+        </li>
+        <li>
+          <strong>Atomic generation:</strong> Every x ∉ U(𝒰) can be expressed as
+          a finite ∘‑product of irreducibles, establishing the generating set
+          P(𝒰).
+        </li>
+      </ul>
+      <p><strong>Illustrative instances:</strong></p>
+      <ul>
+        <li>
+          ℤ under multiplication: P = {2,3,5,…}; the Fundamental Theorem of
+          Arithmetic gives both existence and uniqueness of their factorization.
+        </li>
+        <li>
+          k[x], the polynomial ring over a field k: irreducible monic
+          polynomials act as primes; analogous factorization holds.
+        </li>
+        <li>
+          Monoids of combinatorial objects (e.g. graphs under disjoint union):
+          connected components play the role of irreducibles.
+        </li>
+        <li>
+          More exotic UFDs: coordinate rings of affine varieties, cyclotomic
+          integers, and domains arising in category-theoretic spectra.
+        </li>
+      </ul>
+      <p>
+        One excludes units U(𝒰) (objects with two‑sided inverses) from the set
+        P(𝒰). The resulting prime set P(𝒰) forms the *alphabet* of the Prime
+        Framework. Every x ∈ 𝒰	extbackslash U(𝒰) has a unique multiset of
+        irreducibles (its “prime signature”) under the UFD axiom, yielding the
+        intrinsic coordinate \(φ(x) ∈ ℕ^{(P(𝒰))}\).
+      </p>
+    </SubsectionTemplate>
+  )
+}
+
+export default IntrinsicPrimesSubsection

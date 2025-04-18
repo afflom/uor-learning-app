@@ -1,0 +1,31 @@
+import React from 'react'
+import SubsectionTemplate from '../../../templates/SubsectionTemplate'
+import { algebraicEnhancements } from '../metadata'
+
+/**
+ * Subsection: Algebraic & Topological Enhancements
+ */
+function AlgebraicTopologicalEnhancementsSubsection() {
+  return (
+    <SubsectionTemplate metadata={algebraicEnhancements}>
+      <p>
+        The UOR framework admits richer algebraic and topological structures beyond
+        its Euclidean foundation:
+      </p>
+      <ul>
+        <li>
+          <strong>Clifford Algebra Structure:</strong> Extending the prime-coordinate
+          vector space with a product respecting the coherence inner product yields
+          a prime-based Clifford algebra encoding rotations and interactions.
+        </li>
+        <li>
+          <strong>Quantum-like Reference Frames:</strong> Observer bundles support
+          superpositions of frame transformations, endowing measurements with
+          quantum-like indeterminacy and collapse dynamics.
+        </li>
+      </ul>
+    </SubsectionTemplate>
+  )
+}
+
+export default AlgebraicTopologicalEnhancementsSubsection

@@ -1,0 +1,65 @@
+import React from 'react'
+import SubsectionTemplate from '../../../templates/SubsectionTemplate'
+import { primeFormula } from '../metadata'
+
+/**
+ * Subsection: Prime Formula
+ * Formal definition of prime valuations and canonical prime factorization.
+ */
+function PrimeFormulaSubsection() {
+  return (
+    <SubsectionTemplate metadata={primeFormula}>
+      <p>
+        Let \(D\) be a Unique Factorization Domain (UFD) with group of units \(U(D)\).
+        Denote by \(P\) the set of equivalence classes of irreducible elements (primes)
+        of \(D\) modulo units. For each nonzero \(x\in D\), define the
+        <strong>valuation</strong> at a prime \(p\in P\) by:
+      </p>
+      <p style={{ textAlign: 'center' }}>
+        \[v_p(x) = \max\{n\in\mathbb{N}: p^n \mid x\},\]
+      </p>
+      <p>
+        By the UFD property, \(v_p(x)\) is finite and zero for all but finitely
+        many \(p\in P\). The <strong>Prime Formula</strong> states the unique
+        decomposition
+      </p>
+      <p style={{ textAlign: 'center' }}>
+        \[x = u\cdot \prod_{p\in P} p^{v_p(x)},\]
+      </p>
+      <p>
+        where \(u\in U(D)\) is the unique unit making the equality hold,
+        and the infinite product is effectively finite due to vanishing valuations.
+      </p>
+      <p>
+        Equivalently, define the <em>prime-coordinate map</em>
+      </p>
+      <p style={{ textAlign: 'center' }}>
+        \[\varphi: D\setminus\{0\} \to \bigoplus_{p\in P}\mathbb{Z},
+          \quad \varphi(x) = (v_p(x))_{p\in P}.\]
+      </p>
+      <p>
+        The valuations satisfy for all \(x,y\in D\setminus\{0\},\,p\in P\):
+      </p>
+      <ol>
+        <li><em>Multiplicativity:</em> \(v_p(xy)=v_p(x)+v_p(y)\).</li>
+        <li><em>Triangle inequality:</em> \(v_p(x+y)\ge\min\{v_p(x),v_p(y)\}\).</li>
+        <li><em>Power law:</em> \(v_p(x^n)=n\,v_p(x)\) for all \(n\in\mathbb{N}\).</li>
+        <li><em>Normalization:</em> \(v_p(p)=1\) and \(v_q(p)=0\) for \(q\neq p\).</li>
+        <li><em>Units:</em> \(v_p(u)=0\) for each \(u\in U(D)\).</li>
+      </ol>
+      <p>
+        Hence, \(\varphi\) induces a group isomorphism
+      </p>
+      <p style={{ textAlign: 'center' }}>
+        \[D^\times / U(D) \cong \bigoplus_{p\in P} \mathbb{Z},\]
+      </p>
+      <p>
+        where \(D^\times = D\setminus\{0\}\) is the multiplicative monoid.
+        This canonical factorization furnishes the algebraic backbone for the
+        Prime Framework's coordinate, geometric, and spectral structures.
+      </p>
+    </SubsectionTemplate>
+  )
+}
+
+export default PrimeFormulaSubsection

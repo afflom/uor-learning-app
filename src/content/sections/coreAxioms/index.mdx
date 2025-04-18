@@ -1,0 +1,181 @@
+import React from 'react'
+import SectionTemplate from '../../../templates/SectionTemplate'
+import { coreAxioms } from '../metadata'
+
+/**
+ * Section: Seven Core UOR Axioms
+ */
+function CoreAxiomsSection() {
+  return (
+    <SectionTemplate metadata={coreAxioms}>
+      <p>
+        The Seven Core UOR Axioms codify the essential properties ensuring
+        that any Unique Factorization Domain (UFD) supports a fully coherent,
+        observer‐aware, prime‐coordinate representation. These axioms act as
+        the logical scaffolding underpinning the entire Prime Framework:
+      </p>
+      <ol>
+        <li>
+          <h3>Intrinsic Primes</h3>
+          <p>
+            <strong>Statement.</strong> A set <code>P</code> of atomic elements
+            exists such that no element in <code>P</code> factors further under
+            composition in the domain.
+          </p>
+          <p>
+            <strong>Analysis.</strong> These primes serve as the alphabet for
+            every object’s unique decomposition. Units (identity elements) are
+            excluded from <code>P</code>, leaving irreducible generators of the
+            composition monoid.
+          </p>
+        </li>
+        <li>
+          <h3>Unique Factorization (UFD Axiom)</h3>
+          <p>
+            <strong>Statement.</strong> Every non‑unit object admits a finite
+            product decomposition into primes, and this decomposition is unique
+            up to reordering of factors.
+          </p>
+          <p>
+            <strong>Analysis.</strong> Guarantees each object has one and only
+            one prime signature—essential for defining unambiguous coordinates.
+          </p>
+        </li>
+        <li>
+          <h3>Prime-Coordinate Homomorphism</h3>
+          <p>
+            <strong>Statement.</strong> There exists an injective homomorphism
+            <code>{'φ: 𝒰 → ℤ^{(P)}'}</code> mapping each object to its exponent
+            vector over primes, satisfying <code>φ(X∘Y)=φ(X)+φ(Y)</code>.
+          </p>
+          <p>
+            <strong>Analysis.</strong> This functorial map linearizes
+            composition, turning multiplicative relations into vector addition
+            and enabling algebraic and geometric techniques.
+          </p>
+        </li>
+        <li>
+          <h3>Canonical Representation</h3>
+          <p>
+            <strong>Statement.</strong> The image <code>φ(X)</code> is a unique,
+            lossless encoding that does not depend on numeral base or observer
+            frame and achieves the minimal coherence norm among all
+            representations.
+          </p>
+          <p>
+            <strong>Analysis.</strong> Establishes the fully factored prime form
+            as the intrinsic normal form for every object.
+          </p>
+        </li>
+        <li>
+          <h3>Coherence Norm</h3>
+          <p>
+            <strong>Statement.</strong> Equip <code>{'ℤ^{(P)}'}</code> with the
+            norm
+            <code>‖φ(X)‖ = √(∑_p φ(X)(p)²)</code>, measuring simplicity of the
+            prime exponent vector.
+          </p>
+          <p>
+            <strong>Analysis.</strong> Any non‑prime grouping increases this
+            norm, making the prime decomposition the shortest (most coherent)
+            vector.
+          </p>
+        </li>
+        <li>
+          <h3>Coherence Inner Product</h3>
+          <p>
+            <strong>Statement.</strong> Define
+            <code>⟨v,w⟩ = ∑_p v(p)·w(p)</code>, making the exponent space a
+            Euclidean vector space with orthonormal prime axes.
+          </p>
+          <p>
+            <strong>Analysis.</strong> Enables distances, angles, and
+            projections in prime-coordinate geometry, underpinning spectral and
+            geometric interpretations.
+          </p>
+        </li>
+        <li>
+          <h3>Trilateral Coherence</h3>
+          <p>
+            <strong>Statement.</strong> Every valid description of an object
+            incorporates three coherent aspects: its intrinsic prime-coordinate
+            structure, the dynamics (composition rules), and the observer
+            reference frame.
+          </p>
+          <p>
+            <strong>Analysis.</strong> By formalizing observers as a bundle with
+            frame transformations preserving φ, UOR ensures invariant intrinsic
+            data while accommodating perspective shifts.
+          </p>
+        </li>
+        <li>
+          <h3>Universal Mapping Property</h3>
+          <p>
+            <strong>Statement.</strong> Let (𝒰^×,∘) be the multiplicative monoid of
+            nonzero objects in a Unique Factorization Domain, and let φ:𝒰^×→⊕_{p∈P}ℤ
+            be the prime-coordinate homomorphism sending x↦(v_p(x))_{p∈P}. Consider
+            any abelian group (G,+) and monoid homomorphism ψ:𝒰^×→G such that ψ(u)=0
+            for all units u∈U(𝒰). Then there exists a unique group homomorphism
+            h:⊕_{p∈P}ℤ→G satisfying
+          </p>
+          <p style={{ textAlign: 'center' }}>
+            ψ = h ∘ φ.
+          </p>
+          <p>
+            Equivalently, φ is the <em>initial object</em> in the comma category
+            (Mon → Ab) ↓ 0, where units map to the zero element. In categorical
+            diagram form:
+          </p>
+          <pre>
+            𝒰^×
+            | ψ        \
+            v           \ h
+            G <--- ⊕_{p∈P}ℤ
+            ^
+            | φ
+            𝒰^×
+          </pre>
+          <p>
+            <strong>Proof Sketch.</strong> Since φ is surjective onto the free abelian
+            group and units lie in its kernel, any ψ factors through the quotient
+            𝒰^×/U(𝒰) ≅ ⊕_{p}ℤ. Uniqueness of h follows from the fact that the p-th
+            basis element e_p in ⊕_{p}ℤ must map to ψ(p), fixing h on generators.
+          </p>
+          <h4>Examples of Factorization through φ</h4>
+          <ul>
+            <li>
+              <strong>Liouville Function λ:</strong> Define ψ(n)=(-1)^{∑_p v_p(n)}.
+              Then ψ is multiplicative and ψ(±1)=1. It factors via h( (a_p) ) =
+              (-1)^{∑_p a_p}, so λ = h ◦ φ.
+            </li>
+            <li>
+              <strong>p-adic Valuation:</strong> Fix p₀∈P, let ψ(x)=v_{p₀}(x)∈ℤ.
+              Then ψ=proj_{p₀}∘φ, with h projecting the exponent vector.
+            </li>
+            <li>
+              <strong>Totient Function φ₀:</strong> Euler φ₀(n)=∏_p p^{v_p(n)-1}(p-1)
+              is multiplicative; its log ψ(n)=∑_p [v_p(n)ln p + ln(p-1)] factors
+              through φ by a suitable h( (a_p) ) = ∑_p [a_p ln p + ln(p-1)].
+            </li>
+          </ul>
+          <p>
+            These illustrate that any classical multiplicative arithmetic function
+            arises via composition with φ. The Universal Mapping Property thus
+            characterizes φ as the <em>source of all multiplicative invariants</em>.
+          </p>
+        </li>
+      </ol>
+      <p>
+        Together, these axioms guarantee that every object x ∈ 𝒰^× can be
+        assigned an unambiguous prime‐coordinate spectrum φ(x), situated in a
+        Euclidean lattice and coherently contextualized by an observer frame.
+        This trilogy of structure, dynamics, and perspective forms a robust
+        foundation for exploring deep connections—from number theory to quantum
+        geometry—and for forging new mathematical and physical vistas beyond
+        the classical horizon.
+      </p>
+    </SectionTemplate>
+  )
+}
+
+export default CoreAxiomsSection

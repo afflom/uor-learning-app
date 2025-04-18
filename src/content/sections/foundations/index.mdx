@@ -1,0 +1,53 @@
+import React from 'react';
+import SectionTemplate from '../../../templates/SectionTemplate';
+import { foundations } from '../metadata';
+function FoundationsSection() {
+  return (
+    <SectionTemplate metadata={foundations}>
+      <p>
+        The <strong>Prime Foundations</strong> delineate the axiomatic and
+        algebraic prerequisites for UOR. At their heart lies the Unique
+        Factorization Domain (UFD) structure, which ensures an unambiguous
+        prime-based coordinate system. Key foundational pillars are:
+      </p>
+      <ul>
+        <li>
+          <strong>Irreducible Primes (P):</strong> In a commutative monoid
+          (𝒰,∘) with unit group U(𝒰), the set P of irreducibles is defined by
+          p ∉ U(𝒰) such that p = a∘b ⇒ a∈U or b∈U. These primes generate
+          𝒰^× under ∘ and serve as the basis for φ’s coordinate axes.
+        </li>
+        <li>
+          <strong>UFD Axiom (Existence & Uniqueness):</strong> Every
+        non‑unit x∈𝒰^× factors as x = u∘∏_&#123;i=1&#125;^k p_i with p_i∈P,
+          u∈U(𝒰), and this factorization is unique up to reorder and unit
+          adjustments. This ensures φ is bijective and well-defined.
+        </li>
+        <li>
+        <strong>Coordinate Isomorphism φ:</strong> Define φ: 𝒰^×→⨁_&#123;p∈P&#125;ℤ via
+          φ(x)=(v_p(x))_p, where v_p(x) is the p‑adic valuation. Theorem:
+          φ is a group isomorphism mapping ∘ to +, granting access to linear
+          algebraic methods.
+        </li>
+        <li>
+          <strong>Coherence Geometry:</strong> Equip φ’s image with ℓ^p-norms
+          ∥·∥_p, notably the coherence norm ∥φ(x)∥₂ = √∑|v_p(x)|², and the inner
+          product ⟨φ(x),φ(y)⟩ = ∑v_p(x)v_p(y). This Euclidean structure yields
+          geometric insights into simplicity, orthogonality, and spectral
+          properties.
+        </li>
+      </ul>
+      <p>
+        In summary, the Prime Foundations guarantee that any UFD supports a
+        canonical, Euclidean prime-coordinate embedding. This confluence of
+        algebraic rigour and geometric structure is the soil from which
+        UOR’s higher concepts—spectral analysis, fibered perspectives, and
+        observer coherence—naturally germinate.
+      </p>
+    </SectionTemplate>
+  )
+}
+
+export default FoundationsSection;
+
+export default FoundationsSection

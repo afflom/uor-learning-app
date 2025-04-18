@@ -1,0 +1,70 @@
+import React from 'react'
+import SectionTemplate from '../../../templates/SectionTemplate'
+import { uor } from '../metadata'
+
+<SectionTemplate metadata={uor}>
+      <p>
+        The <strong>Universal Object Reference (UOR)</strong> is a formalism that
+        associates to every element x in a Unique Factorization Domain (UFD) a
+        canonical coordinate φ(x) in the free abelian group \(\bigoplus_{p\in P}\mathbb{Z}\) of prime
+        valuations. UOR integrates algebraic, geometric, and observer-oriented
+        perspectives into a single coherent framework.
+      </p>
+      <p>
+        Formally, UOR comprises:
+      </p>
+      <ul>
+        <li>
+          <strong>Prime Generators P:</strong> The set of irreducibles in 𝒰,
+          defined by p ∉ U(𝒰) and p irreducible. These form the basis directions
+          of UOR’s coordinate lattice.
+        </li>
+        <li>
+          <strong>UFD Axiom:</strong> 𝒰 satisfies existence and uniqueness of prime
+          factorizations: every x ∈ 𝒰^× decomposes as a product of primes up to ν,
+          and this decomposition is unique (modulo units and order).
+        </li>
+        <li>
+          <strong>Coordinate Functor φ:</strong> The group isomorphism φ:
+          \(𝒰^×,∘\)→\(\bigoplus_{p\in P}\mathbb{Z},+\), with φ(x)=(v_p(x))_p and φ(x∘y)=φ(x)+φ(y),
+          φ(x^n)=n·φ(x).
+        </li>
+        <li>
+          <strong>Canonical Normal Form:</strong> φ(x) is injective, minimal
+          in ℓ2-norm, independent of numeral base, and invariant under UFD
+          automorphisms. This normal form is the unique data-preserving
+          representative of x.
+        </li>
+        <li>
+          <strong>Coherence Norm & Metric:</strong> By endowing prime space with an
+          ℓ²‑norm ‖φ(X)‖ = √(∑_p φ(X)(p)²) and inner product ⟨v,w⟩ = ∑_p v(p)·w(p),
+          we impose a Euclidean geometry on factorizations. This metric measures
+          representational simplicity (smaller norm = more coherent) and defines
+          distances and angles between objects.
+        </li>
+        <li>
+          <strong>Fiber Bundle Structure:</strong> A two‑level bundle formalism:
+          Level 1 fibers over each prime capture exponent values, while Level 2
+          fibers over each object capture observer reference frames. Sections of
+          these bundles correspond to prime factorizations and frame selections,
+          unifying structure and perspective.
+        </li>
+        <li>
+          <strong>Trilateral Coherence:</strong> The axiom that any complete
+          description of an object intertwines three aspects—intrinsic structure
+          (prime coordinates), dynamics (composition laws), and observer context—
+          with frame transformations preserving φ and coherence norms.
+        </li>
+      </ul>
+      <p>
+        Together, these components yield a universal coordinate geometry: prime
+        space is endowed with an inner-product ⟨φ(x),φ(y)⟩ = ∑_p v_p(x)v_p(y),
+        a coherence norm ‖φ(x)‖₂, and a hierarchical bundle structure that
+        respects object and observer. UOR not only recasts arithmetic in a
+        Euclidean setting but also paves the way for higher‑order generalizations—
+        to noncommutative primes, categorical primes, and spectral stacks—
+        suggesting a universal ontology of coherence across mathematics and
+        beyond.
+      </p>
+    </SectionTemplate>
+

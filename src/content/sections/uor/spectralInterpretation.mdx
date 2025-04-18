@@ -1,0 +1,95 @@
+import React from 'react'
+import SubsectionTemplate from '../../../templates/SubsectionTemplate'
+import { spectralInterpretation } from '../metadata'
+
+/**
+ * Subsection: Spectral Interpretation
+ * Viewing prime decomposition as a frequency spectrum.
+ */
+function SpectralInterpretationSubsection() {
+  return (
+    <SubsectionTemplate metadata={spectralInterpretation}>
+      <p>
+        <strong>Definition (Prime Spectrum):</strong> For x ∈ 𝒰^× with prime-
+        valuation vector φ(x) = (a_p)_{p∈P}, we define the <em>prime spectrum</em>
+        σ_x: P → ℤ by σ_x(p) = a_p. The support supp(σ_x) is finite, and
+        σ_x is a discrete spectral measure on the primes.
+      </p>
+      <p>
+        In this analogy, each prime p plays the role of a fundamental frequency
+        and a_p the intensity (amplitude) at that frequency. The function σ_x
+        is the exact spectral decomposition of x, with no continuous component
+        and no information loss.
+      </p>
+      <p>
+        Because φ is injective, no two distinct objects share the same prime-
+        frequency spectrum, making this analogy a perfect fingerprinting
+        mechanism. This spectral view invites techniques from signal
+        processing—filtering, convolution, harmonic analysis—to enrich number
+        theory and beyond.
+      </p>
+      <h4>Analogue Dictionary</h4>
+      <ul>
+        <li>
+          <strong>Domain Element ↔ Signal:</strong> x ↦ σ_x is a bijection
+          between 𝒰^× and its frequency spectra.
+        </li>
+        <li>
+          <strong>Multiplication ↔ Spectral Superposition:</strong>
+          σ_{x∘y}=σ_x + σ_y, analogous to additive combination of spectra
+          under convolution in time domain.
+        </li>
+        <li>
+          <strong>Exponentiation ↔ Frequency Scaling:</strong>
+          σ_{x^n}=n·σ_x multiplies amplitudes, akin to harmonic reinforcement.
+        </li>
+        <li>
+          <strong>GCD/LCM ↔ Spectral Filtering:</strong>
+          σ_{gcd(x,y)} = min(σ_x,σ_y), σ_{lcm(x,y)} = max(σ_x,σ_y).
+        </li>
+        <li>
+          <strong>Zero Padding Analogue:</strong> Embedding x in a larger UFD
+          adds zero-amplitude frequencies at new primes.
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <strong>Signal → Object:</strong> The factorization spectrum
+          <code>{`{(p,a_p)}`}</code> fully characterizes the object, just as
+          Fourier coefficients characterize a signal.
+        </li>
+        <li>
+          <strong>Convolution → Multiplication:</strong> Combining objects
+          multiplies them and adds their spectra:
+          <code>φ(X·Y)=φ(X)+φ(Y)</code>.
+        </li>
+        <li>
+          <strong>Harmonics:</strong> Repeated factors <code>p², p³, …</code>
+          act like higher harmonics, increasing amplitude at frequency{' '}
+          <code>p</code>.
+        </li>
+        <li>
+          <strong>Filtering:</strong> Operations like gcd and lcm correspond to
+          componentwise min/max on the spectrum (filtering frequencies).
+        </li>
+      </ul>
+      <p>
+        <strong>Spectral Theorem (Discrete Prime Domain):</strong> The map
+        σ: 𝒰^× → ℤ^{(P)} is a spectral transform that diagonalizes the monoid
+        action: any multiplicative operation on x,y corresponds to additive
+        operations on σ(x),σ(y). This is the analogue of Fourier diagonalization
+        for the multiplicative monoid.
+      </p>
+      <p>
+        Beyond analogy, one can define <em>spectral operators</em> in prime space:
+        linear functionals f: ℤ^{(P)} → R capturing arithmetic invariants,
+        spectral convolutions modeling distribution of primes, and even
+        zeta-like transforms ζ(s) = ∑_{p} a_p p^{-s} as generating functions.
+        This confluence of number theory and harmonic analysis exemplifies the
+        unifying power of the Prime Framework.
+      </p>
+    </SubsectionTemplate>
+  )
+}
+
+export default SpectralInterpretationSubsection

@@ -1,0 +1,120 @@
+import React from 'react'
+import SubsectionTemplate from '../../../templates/SubsectionTemplate'
+import { incompletenessTheorem } from '../metadata'
+
+/**
+ * Subsection: Gödel’s Incompleteness Theorem
+ * Formal arithmetization via prime encoding and proof of inherent incompleteness.
+ */
+function IncompletenessTheoremSubsection() {
+  return (
+    <SubsectionTemplate metadata={incompletenessTheorem}>
+      <p>
+        We present the formal arithmetization of syntax using prime-coordinate encoding
+        (a special case of the UOR map) and derive Gödel’s First and Second
+        Incompleteness Theorems for any consistent, effectively axiomatizable theory
+        extending a minimal arithmetic.<
+      </p>
+      <h3>1. Arithmetization via Prime Encoding</h3>
+      <p>
+        Let \(\mathcal{L}\) be the first-order language of arithmetic with a finite
+        alphabet of symbols \(\Sigma\). Fix an effective Gödel coding
+        \(\kappa: \Sigma \to \mathbb{N}\) that assigns to each symbol a unique
+        natural number. Extend \(\kappa\) to finite strings by the prime formula:
+      </p>
+      <p style={{ textAlign: 'center' }}>
+        \[
+        \ulcorner s_1 s_2 \dots s_n\urcorner
+        = \prod_{i=1}^n p_i^{\,\kappa(s_i)},
+        \]
+      </p>
+      <p>
+        where \(p_i\) is the \(i\)-th prime. By unique factorization, each
+        string \(w\in\Sigma^*\) has a unique code
+        \(\ulcorner w\urcorner\in\mathbb{N}\). More generally, any finite
+        sequence of syntactic objects can be encoded unambiguously.
+      </p>
+      <h3>2. Provability Predicate</h3>
+      <p>
+        Let \(T\) be a consistent, recursively axiomatizable theory with axioms
+        enumerated by a primitive recursive predicate \(\mathrm{Ax}_T(x)\).
+        Define the binary predicate
+      </p>
+      <p style={{ textAlign: 'center' }}>
+        \[\mathrm{Proof}_T(y,x) \iff y \text{ encodes a finite sequence }\pi = (\varphi_1,\dots,\varphi_k)\]
+        \[\text{such that each }\varphi_i \in \Sigma^* \text{ is an axiom (}\mathrm{Ax}_T)\]
+        \[\quad\text{or follows by a finite sequence of inference rules, and }\ulcorner\varphi_k\urcorner = x.\]
+      </p>
+      <p>
+        The provability predicate is then
+      </p>
+      <p style={{ textAlign: 'center' }}>
+        \[\mathrm{Prov}_T(x) \;:=\; \exists y\,\mathrm{Proof}_T(y,x),\]
+      </p>
+      <p>
+        which is a \(\Sigma_1\)-formula in the language \(\mathcal{L}\). It
+        expresses that \(x\) is the Gödel code of a formula provable in \(T\).
+      </p>
+      <h3>3. Diagonal Lemma</h3>
+      <p>
+        For any formula \(\varphi(x)\) with one free variable, there exists a sentence
+        \(G\) such that
+      </p>
+      <p style={{ textAlign: 'center' }}>
+        \[T \vdash \; G \;\leftrightarrow\; \varphi(\ulcorner G\urcorner).\]
+      </p>
+      <p>
+        This follows from the diagonalization (fixed-point) construction using
+        the uniqueness of prime encoding and the representability of primitive
+        recursive functions in \(T\).
+      </p>
+      <h3>4. First Incompleteness Theorem</h3>
+      <p>
+        Instantiating \(\varphi(x) := \neg\mathrm{Prov}_T(x)\) in the diagonal
+        lemma yields a sentence \(G\) satisfying
+      </p>
+      <p style={{ textAlign: 'center' }}>
+        \[T \vdash \; G \;\leftrightarrow\; \neg\mathrm{Prov}_T(\ulcorner G\urcorner).\]
+      </p>
+      <p>
+        If \(T\) is consistent, \(T\) cannot prove \(G\) (else \(T\) would prove
+        \(\neg\mathrm{Prov}_T(\ulcorner G\urcorner)\) and hence \(\mathrm{Prov}_T(\ulcorner G\urcorner)\),
+        a contradiction). Also \(T\) cannot prove \(\neg G\) (else \(T\) would
+        prove \(\mathrm{Prov}_T(\ulcorner G\urcorner)\), again contradictory).
+        Thus \(G\) is independent of \(T\), proving its essential incompleteness.
+      </p>
+      <h3>5. Second Incompleteness Theorem</h3>
+      <p>
+        Define the consistency statement
+      </p>
+      <p style={{ textAlign: 'center' }}>
+        \[\mathrm{Con}_T \;:=\; \neg\exists y\,\mathrm{Proof}_T(y,\ulcorner 0=1\urcorner).\]
+      </p>
+      <p>
+        Then under mild technical conditions, one shows
+      </p>
+      <p style={{ textAlign: 'center' }}>
+        \[T \vdash \mathrm{Con}_T \;\Longrightarrow\; \mathrm{Prov}_T(\ulcorner \mathrm{Con}_T\urcorner).\]
+      </p>
+      <p>
+        If \(T\) could prove its own consistency \(\mathrm{Con}_T\), then by
+        internalizing the above implication, \(T\) would prove
+        \(\mathrm{Prov}_T(\ulcorner \mathrm{Con}_T\urcorner)\), contradicting
+        the First Incompleteness Theorem. Hence, if \(T\) is consistent, it
+        cannot prove \(\mathrm{Con}_T\).
+      </p>
+      <h3>6. Transcendence via UOR</h3>
+      <p>
+        Within the Prime Framework, each syntactic object and proof sequence is
+        assigned a unique prime-coordinate <em>spectrum</em> via the UOR map
+        \(\varphi\). Gödel’s construction exhibits that no finite, coherent bundle
+        of axioms can capture the full intrinsic spectrum of its own provability
+        relation. The unprovable sentence \(G\) is a prime-spectrum signature that
+        transcends the axiomatic bundle of \(T\), illustrating the inherent
+        limits of trilateral coherence when self-reference is admitted.
+      </p>
+    </SubsectionTemplate>
+  )
+}
+
+export default IncompletenessTheoremSubsection

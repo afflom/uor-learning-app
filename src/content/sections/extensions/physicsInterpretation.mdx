@@ -1,0 +1,60 @@
+import React from 'react'
+import SubsectionTemplate from '../../../templates/SubsectionTemplate'
+import { physicsInterpretation } from '../metadata'
+
+/**
+ * Subsection: Physics Interpretation
+ * Reinterpreting gravity, mass, and energy via coherence.
+ */
+function PhysicsInterpretationSubsection() {
+  return (
+    <SubsectionTemplate metadata={physicsInterpretation}>
+      <p>
+        By interpreting the prime-coordinate manifold (⨁_{p}ℝ) as a
+        geometric arena, UOR recasts physical quantities in terms of coherence
+        norms, curvatures, and fields:
+      </p>
+      <ul>
+        <li>
+          <strong>Coherence Curvature (Gravity):</strong> Define a connection
+          ∇ on the observer bundle E₂ with metric induced by ∥·∥₂. The curvature
+          tensor R measures noncommutativity of covariant derivatives of φ:
+          R(X,Y)φ = ∇_X∇_Yφ − ∇_Y∇_Xφ. Mass distributions induce nonzero R,
+          generating geodesic deviation in prime-space (gravity analogue).
+        </li>
+        <li>
+          <strong>Prime Density (Mass):</strong> Define m_i = ∥φ(x)∥₂ as the
+          inertial mass, resisting acceleration in coherence space, and define
+          gravitational mass via coupling term L_int = g⟨φ(x),A⟩ in a coherence
+          gauge potential A.
+        </li>
+        <li>
+          <strong>Spatial Extent (Volume):</strong> For a subset of primes S,
+          define Vol_S(x) = |supp(φ(x))∩S| or its Lebesgue measure under a continuous
+          generalization, analogously measuring the spread of coherence across
+          S.
+        </li>
+        <li>
+          <strong>Energy:</strong> The <em>potential</em> for transforming prime
+          exponents. Kinetic energy tracks active movement in prime space, while
+          potential energy measures coherence tension between configurations.
+        </li>
+        <li>
+          <strong>Material:</strong> Stable coherence patterns—distinct prime
+          spectra—for different substances. Chemical bonds align prime exponents
+          to minimize coherence cost.
+        </li>
+      </ul>
+      <p>
+        <strong>Outlook:</strong> Field theories can be formulated via an action
+        S[φ] = ∫ (½‖dφ‖² − V(φ)) dμ, where dφ encodes discrete prime gradients.
+        Spacetime emerges as a moduli space of observer frames, gravity as
+        coherence curvature, and quantum states as superpositions of spectra
+        in a Hilbert-completed prime space. This paradigm opens a path toward
+        a prime‑space quantum gravity and coherence‑driven cosmology.
+      </p>
+    </SubsectionTemplate>
+  )
+}
+
+export default PhysicsInterpretationSubsection

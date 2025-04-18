@@ -1,0 +1,108 @@
+import React from 'react'
+import SubsectionTemplate from '../../../templates/SubsectionTemplate'
+import { formalSupplement } from '../metadata'
+
+/**
+ * Subsection: Formal Supplement
+ * Rigorous mathematical appendices and proofs.
+ */
+function FormalSupplementSubsection() {
+  return (
+    <SubsectionTemplate metadata={formalSupplement}>
+      <h3>Unique Factorization Domain Axiom</h3>
+      <p>
+        <strong>Axiom (UFD):</strong> Let <code>𝒰</code> be a category with
+        finite products and a distinguished set of irreducible objects{' '}
+        <code>P</code>. We require:
+      </p>
+      <ol>
+        <li>
+          Every non‑unit object <code>X∈𝒰</code> admits a finite decomposition
+          <code>X ≅ p₁∘…∘pₖ</code> with <code>pᵢ∈P</code>.
+        </li>
+        <li>
+          This decomposition is unique: if
+          <code>X ≅ q₁∘…∘qₘ</code> is another, then m=k and there is a
+          permutation σ with <code>qᵢ≅p₍σ(i)₎</code>.
+        </li>
+      </ol>
+
+      <h3>Category-Theoretic Formalization</h3>
+      <p>
+        Model <code>𝒰</code> as a monoidal category (with ∘ as tensor product).
+        Intrinsic primes are the atoms in its subobject lattice. The prime
+        coordinate map φ is a strong monoidal functor
+        <code>{'φ: (𝒰,∘,1) → (ℤ^{(P)},+,0)'}</code>, preserving tensor and unit.
+      </p>
+      <p>
+        Precisely, φ(X∘Y)=φ(X)+φ(Y), φ(1)=0, and φ is initial among all such
+        homomorphisms (universal property): any other functor to an abelian
+        group factors uniquely through φ.
+      </p>
+
+      <h3>Sheaf & Stack Perspective</h3>
+      <p>
+        Observers form a fibered category (stack) over 𝒰: assign to each X the
+        groupoid of frames R. The total category E₂ has objects (X,r) and
+        morphisms only in frames. The canonical frame section σ: X↦(X,r₀)
+        exhibits E₂ as a trivial torsor, ensuring global coherence and flatness
+        of the bundle.
+      </p>
+
+      <h3>Extensions to Dedekind Domains</h3>
+      <p>
+        In a domain lacking unique factorization (e.g., ℤ[√−5]), one refines
+        primes to prime ideals. Working in the category of fractional ideals
+        restores the UFD axiom: every ideal factors uniquely. The UOR coordinate
+        extends to the ideal class group, encoding ideal exponents in the prime
+        ideal basis.
+      </p>
+
+      <h3>Base‑Absolute Prime Coordinates</h3>
+      <p>
+        <strong>Definition:</strong> A coordinate system is{' '}
+        <em>base‑absolute</em>
+        if it is canonical and independent of any chosen basis or chart. The UOR
+        prime coordinate φ is base‑absolute: it does not depend on numeral base,
+        vector space basis, or presentation. It is intrinsic to the object’s
+        structure.
+      </p>
+
+      <h3>Primary Decomposition in Modules</h3>
+      <p>
+        For modules over Noetherian rings, primary decomposition generalizes
+        prime factorization. Each submodule decomposes into intersections of
+        primary submodules, yielding coordinates in the lattice of primary
+        components. A coherence metric may rank decompositions by simplicity.
+      </p>
+
+      <h3>Universal Properties & Limits of UOR</h3>
+      <p>
+        φ enjoys a universal mapping property: any functor from 𝒰 to a graded
+        abelian group preserving composition factors through φ. UOR is the
+        terminal coordinate system under this constraint.
+      </p>
+
+      <h3>Case Studies in Pure Math</h3>
+      <ul>
+        <li>
+          <strong>Polynomial Rings:</strong> φ maps f(x) to exponent vector of
+          irreducible factors, enabling gcd/lcm of polynomials by componentwise
+          min/max.
+        </li>
+        <li>
+          <strong>Algebraic Number Theory:</strong> φ on ideals tracks
+          ramification exponents in Galois extensions, unifying decomposition
+          groups and Frobenius actions.
+        </li>
+        <li>
+          <strong>Group Representation:</strong> Decompose representations into
+          irreducibles; assign coordinate of multiplicities, turning tensor
+          products into vector addition.
+        </li>
+      </ul>
+    </SubsectionTemplate>
+  )
+}
+
+export default FormalSupplementSubsection

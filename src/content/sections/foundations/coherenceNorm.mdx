@@ -1,0 +1,79 @@
+import React from 'react'
+import SubsectionTemplate from '../../../templates/SubsectionTemplate'
+import { coherenceNorm } from '../metadata'
+
+/**
+ * Subsection: Coherence Norm & Metric
+ * Measuring representational simplicity via vector norms.
+ */
+function CoherenceNormSubsection() {
+  return (
+    <SubsectionTemplate metadata={coherenceNorm}>
+      <p>
+        To quantify the simplicity or “coherence” of a prime-factorization,
+        we endow the exponent lattice with ℓ<sup>2</sup> geometry. For x ∈ 𝒰^×,
+        let φ(x) = (a_p)<sub>p∈P</sub>. Define:
+      </p>
+      <p style={{ textAlign: 'center' }}>
+        <code>
+          ‖X‖<sub>coh</sub> = √(∑<sub>p∈P</sub> a_p²)
+        </code>
+      </p>
+      <p>
+        Geometrically, ‖φ(x)‖₂ is the Euclidean length in the prime-coordinate
+        space. Among all equivalent representations of x (including composite
+        intermediate groupings), the canonical prime decomposition uniquely
+        minimizes this ℓ²-norm, since any amalgamation of distinct axes adds
+        orthogonal components by Pythagoras.
+      </p>
+      <p>
+        More generally, one can consider ℓ<sup>p</sup>-norms
+        \(‖φ(x)‖_p = (∑|a_p|^p)^{1/p}\) or the maximum norm
+        \(‖φ(x)‖_∞ = max|a_p|\), each capturing different aspects of
+        complexity and coherence. The ℓ² case provides a natural inner-product
+        space.
+      </p>
+      <h4>Illustrative Computations</h4>
+      <ul>
+        <li>
+          <code>
+            ‖2³·3¹‖<sub>coh</sub> = √(3²+1²) = √10 ≈ 3.16
+          </code>
+        </li>
+        <li>
+          <code>
+            ‖2¹·3²‖<sub>coh</sub> = √(1²+2²) = √5 ≈ 2.24
+          </code>
+        </li>
+        <li>
+          Distance between 8=2³ and 18=2·3² in ℓ²:
+          <code>‖φ(8)−φ(18)‖ = √((3−1)² + (0−2)²) = √8 ≈ 2.83</code>.
+        </li>
+      </ul>
+      <p>
+        Paired with the <strong>coherence inner product</strong>,
+      </p>
+      <p style={{ textAlign: 'center' }}>
+        <code>
+          ⟨v,w⟩<sub>coh</sub> = ∑<sub>p∈P</sub> v(p)·w(p)
+        </code>
+      </p>
+      <p>
+        this yields a real Hilbert space structure (on the completion), with
+        primes as an orthonormal basis. It underlies the interpretation of
+        factorization as an orthogonal projection onto “prime subspaces”,
+        and motivates spectral decompositions, distance-based invariants,
+        and geometric flows in prime space.
+      </p>
+      <p>
+        The coherence norm also admits variational characterizations: for any
+        composite representation of x, the prime form is the unique stationary
+        point minimizing an energy functional E(φ) = ½‖φ‖₂² under the
+        constraint φ encodes x. This links UOR to optimization and physical
+        analogies of least-action principles.
+      </p>
+    </SubsectionTemplate>
+  )
+}
+
+export default CoherenceNormSubsection

@@ -1,0 +1,70 @@
+import React from 'react'
+import SubsectionTemplate from '../../../templates/SubsectionTemplate'
+import { uniqueFactorization } from '../metadata'
+
+/**
+ * Subsection: Unique Factorization.
+ */
+function UniqueFactorizationSubsection() {
+  return (
+    <SubsectionTemplate metadata={uniqueFactorization}>
+      <p>
+        <strong>Theorem (Unique Factorization Domain):</strong> Let (𝒰, ∘)
+        be a commutative monoid in which every non‑unit admits at least one
+        factorization into irreducibles, and irreducible factorizations are
+        unique up to permutation and unit factors. Such a monoid is called a
+        <em>Unique Factorization Domain (UFD)</em>. Concretely, for each x ∉ U(𝒰),
+        there exist irreducibles p₁,…,pₖ and unit u such that
+      </p>
+      <p style={{ textAlign: 'center' }}>
+        x = u ∘ p₁ ∘ p₂ ∘ … ∘ pₖ,
+      </p>
+      <p>
+        and if x = u' ∘ q₁ ∘ … ∘ q_m is any other decomposition with q_j
+        irreducible, then k = m and after reordering there exists units ε_i
+        with p_i = ε_i ∘ q_i for each i.
+      </p>
+      <p>
+        <strong>Proof Sketch:</strong> The proof splits into two parts:
+      </p>
+      <ul>
+        <li>
+          <strong>Existence:</strong> Suppose x ∉ U(𝒰). If x is irreducible,
+          we are done. Otherwise x = a ∘ b with neither a nor b a unit. By
+          well‑foundedness (no infinite descent), a and b admit factorizations
+          into irreducibles; concatenating yields a factorization of x.
+        </li>
+        <li>
+          <strong>Uniqueness:</strong> Invoke Euclid’s Lemma: if p is
+          irreducible and p ∣ (a ∘ b), then p ∣ a or p ∣ b. By induction, one
+          shows that any two irreducible decompositions of x must coincide in
+          multisets of prime factors up to unit adjustments and order.
+        </li>
+      </ul>
+      <h4>Examples & Beyond</h4>
+      <ul>
+        <li>
+          In ℤ: 12 = 2² ∘ 3; uniqueness forces that any alternative must be
+          reordering of {2,2,3} up to the unit 1.
+        </li>
+        <li>
+          In the ring ℤ[√−5], 6 = 2 ∘ 3 = (1+√−5) ∘ (1−√−5), a failure of
+          uniqueness illustrating that ℤ[√−5] is not a UFD.
+        </li>
+        <li>
+          In advanced UFDs (e.g. coordinate rings of elliptic curves), the
+          same principles prescribe unique “prime divisors” with deep geometric
+          meaning.
+        </li>
+      </ul>
+      <p>
+        The UFD axiom is the cornerstone of UOR: it guarantees that φ(x)
+        (the prime-coordinate map) is well‑defined and bijective onto
+        ⨁ₚℕ, forming the algebraic and geometric foundation for further
+        coherence and spectral constructions.
+      </p>
+    </SubsectionTemplate>
+  )
+}
+
+export default UniqueFactorizationSubsection

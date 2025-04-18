@@ -1,0 +1,71 @@
+import React from 'react'
+import SubsectionTemplate from '../../../templates/SubsectionTemplate'
+import { primeCoordinates } from '../metadata'
+
+/**
+ * Subsection: Prime Coordinates
+ * Mapping objects to exponent vectors in prime basis.
+ */
+function PrimeCoordinatesSubsection() {
+  return (
+    <SubsectionTemplate metadata={primeCoordinates}>
+      <p>
+        We define the <em>prime coordinate map</em>
+        \(φ: 𝒰^× → \bigoplus_{p∈P} \mathbb{Z}\) on the multiplicative
+        monoid 𝒰^× = 𝒰\setminus\{0\}\ (or excluding the zero object) by
+        assigning to each element x its exponent vector across all primes:
+      </p>
+      <p style={{ textAlign: 'center' }}>
+        \[ φ(x) = (v_p(x))_{p∈P}, \]
+      </p>
+      <p>
+        where v_p(x) ∈ ℤ is the valuation of x at prime p (zero for all but
+        finitely many p). Thus φ(x) ∈ ⨁_{p∈P} ℤ is a finitely supported
+        integer sequence.
+      </p>
+      <ul>
+        <li>
+          <strong>Valuation:</strong> \(v_p: 𝒰^× → \mathbb{Z}\) defined by
+          \(v_p(x) = \max\{n: p^n ∣ x\}\), yielding the coordinate along p.
+        </li>
+        <li>
+          <strong>Coordinate Representation:</strong> φ(x) can be written as
+          a finite list \([(p_i, a_i)]_{i=1}^k\) with a_i = v_{p_i}(x)
+          nonzero, or equivalently as ∑_{i=1}^k a_i e_{p_i} in the basis
+          {e_p}_{p∈P}.
+        </li>
+        <li>
+          <strong>Homomorphism:</strong> φ(x∘y) = φ(x) + φ(y);
+          φ(x^n) = n · φ(x). Thus (𝒰^×, ∘) ≅ (⨁_{p∈P}ℤ, +) as abelian groups.
+        </li>
+      </ul>
+      <h4>Examples & Interpretation</h4>
+      <ul>
+        <li>
+          \(φ(60) = (2,1,1)\) along primes (2,3,5), equivalently the list
+          [(2,2),(3,1),(5,1)] since 60 = 2² ∘ 3¹ ∘ 5¹.
+        </li>
+        <li>
+          For sign encoding, introduce orientation e_{−1}:
+          φ(−1)=e_{−1}, φ(−12)=e_{−1}+φ(12).
+        </li>
+        <li>
+          φ(1) = 0 (the identity of ⨁ₚℤ). The element 0 ∉ 𝒰^× is omitted from φ’s domain.
+        </li>
+        <li>
+          <strong>Extension to ℚ^×:</strong> Negative exponents allowed,
+          e.g. φ(3/4) = φ(3) − φ(2^2) = (−2,1) along primes (2,3).
+        </li>
+      </ul>
+      <p>
+        By establishing the group isomorphism φ, we linearize the UFD’s
+        multiplicative laws, paving the way for coherence geometry and
+        spectral analysis in the Prime Framework. This universality allows
+        seamless generalization to any UFD: the “prime axes” become the
+        coordinate scaffold for arbitrary domains.
+      </p>
+    </SubsectionTemplate>
+  )
+}
+
+export default PrimeCoordinatesSubsection

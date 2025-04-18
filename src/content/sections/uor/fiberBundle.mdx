@@ -1,0 +1,90 @@
+import React from 'react'
+import SubsectionTemplate from '../../../templates/SubsectionTemplate'
+import { fiberBundle } from '../metadata'
+
+/**
+ * Subsection: Fiber Bundle Structure
+ * Geometric formalism of structure and observer bundles.
+ */
+function FiberBundleSubsection() {
+  return (
+    <SubsectionTemplate metadata={fiberBundle}>
+      <p>
+        <strong>Definition (Fiber Bundle Structure):</strong> UOR employs two
+        nested fiber bundles to integrate object structure and observer context.
+        A fiber bundle (E,B,π,F,G) consists of a total space E, a base space B,
+        a projection π: E→B, a typical fiber F, and a structure group G acting
+        on F with local trivializations of E ≅ B×F.
+      </p>
+      <h4>Level 1: Prime Structure Bundle</h4>
+      <ul>
+        <li>
+          <strong>Base:</strong> The set of intrinsic primes <code>P</code>.
+        </li>
+        <li>
+          <strong>Fiber:</strong> The valuation group ℤ given by p-adic
+          exponents, or ℤ_{≥0} in purely integral contexts.
+        </li>
+        <li>
+          <strong>Total Space:</strong> <code>{'E₁ = ⨆_{p∈P} {p}×ℤ'}</code>,
+          pairs (p,a).
+        </li>
+        <li>
+          <strong>Projection:</strong> <code>π₁(p,a)=p</code>, forgetting the
+          exponent.
+        </li>
+        <li>
+          <strong>Section for X:</strong> <code>s_X(p) = (p,φ(X)(p))</code> for
+          each prime.
+        </li>
+      </ul>
+      <h4>Level 2: Observer (Frame) Bundle</h4>
+      <ul>
+        <li>
+          <strong>Base:</strong> The set of all objects <code>𝒰</code>.
+        </li>
+        <li>
+          <strong>Fiber:</strong> The set R of all admissible reference frames,
+          each encoding a choice of coordinate conventions, normalization, or
+          grouping rules.
+        </li>
+        <li>
+          <strong>Total Space:</strong> <code>E₂ = 𝒰 × R</code>, pairs (X,r).
+        </li>
+        <li>
+          <strong>Projection:</strong> <code>π₂(X,r)=X</code>, forgetting the
+          frame.
+        </li>
+        <li>
+          <strong>Canonical Frame Section:</strong> A global section
+          <code>σ(X)=(X,r₀)</code> picks the intrinsic prime frame for each
+          object.
+        </li>
+      </ul>
+      <p>
+        The canonical map Φ: Γ(E₁) → 𝒰^× takes each global section s_x of the
+        prime bundle (where s_x(p)=(p,v_p(x))) to x = ∏_{p∈P} p^{v_p(x)}.
+        This reconstruction is functorial and defines an isomorphism between the
+        section space and the monoid of objects. Both bundles are trivial
+        in standard UOR: level‑1 has no monodromy, level‑2’s frame bundle is
+        globally framed by the intrinsic prime frame, implying zero curvature
+        (all transition functions g_{αβ}=id).
+      </p>
+      <p>
+        <strong>Curvature & Gauge Analogy:</strong> Nontrivial frame bundles
+        (with G₂ non‑abelian) would exhibit curvature, modeling observer
+        transformations that do not commute—analogous to gauge fields in
+        principal bundles. Such enhancements lead to rich geometry and
+        potential physical applications in quantum reference frames.
+      </p>
+      <p>
+        In more elaborate contexts, nontrivial frame bundles with path-
+        dependent transition functions can model curvature or gauge-like
+        effects, capturing how observer transformations might fail to commute
+        and enriching the UOR geometry.
+      </p>
+    </SubsectionTemplate>
+  )
+}
+
+export default FiberBundleSubsection

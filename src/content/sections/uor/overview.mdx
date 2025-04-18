@@ -1,0 +1,83 @@
+import React from 'react';
+import SubsectionTemplate from '../../../templates/SubsectionTemplate';
+import { overview } from '../metadata';
+function OverviewSubsection() {
+  return (
+    <SubsectionTemplate metadata={overview}>
+      <p>
+        The Prime Framework builds on two cornerstone principles: the
+        <strong>Fundamental Theorem of Arithmetic</strong> guaranteeing
+        <strong>unique factorization</strong>, and the resulting
+        <strong>coordinate isomorphism</strong> that translates multiplicative
+        composition into vector addition. Universal Object Reference (UOR)
+        employs the prime coordinate map <code>φ</code> to embed each object
+        <code>X</code> into the free abelian group of finitely supported
+        integer functions on the set of intrinsic primes, providing a fully
+        objective and canonical description of structure.
+      </p>
+      <p>
+        This construction is <em>domain‑agnostic</em>: φ extends seamlessly to
+        rational numbers (with negative exponents for denominators), polynomials
+        (using irreducible factors), algebraic integers (via prime ideals), and
+        any Unique Factorization Domain (UFD). As a result, UOR serves as a
+        universal coordinate system across diverse mathematical settings.
+      </p>
+      <p>
+        <code>φ: X ↦ (… , φ(X)(p), …)</code>, where <code>φ(X)(p)</code> is the
+        exponent of prime <code>p</code> in <code>X</code>’s factorization (zero
+        if it does not divide <code>X</code>). For example,
+        <code>φ(60) = [(2↦2),(3↦1),(5↦1)]</code> since
+        <code>60=2²·3¹·5¹</code>.
+      </p>
+      <p>Key algebraic properties under φ include:</p>
+      <ul>
+        <li>
+          <code>φ(X·Y) = φ(X) + φ(Y)</code> (multiplication → addition)
+        </li>
+        <li>
+          <code>φ(Xᵏ) = k·φ(X)</code> (exponentiation → scalar multiplication)
+        </li>
+        <li>
+          <code>φ(1) = 0</code>, <code>φ(X⁻¹) = –φ(X)</code> (units and
+          inverses)
+        </li>
+      </ul>
+      <p>
+        These rules make φ a group isomorphism (ignoring zero): composition in
+        the domain corresponds exactly to addition in prime space.
+      </p>
+      <p>
+        Beyond multiplication and exponentiation, conventional operations admit
+        elegant vector interpretations. For example:
+      </p>
+      <ul>
+        <li>
+          <code>φ(gcd(a,b)) = min(φ(a),φ(b))</code>, taking the componentwise
+          minimum of exponent vectors.
+        </li>
+        <li>
+          <code>φ(lcm(a,b)) = max(φ(a),φ(b))</code>, via componentwise maximum.
+        </li>
+        <li>
+          The Möbius function μ(n) corresponds to (−1)^{sum φ(n)(p)} when all
+          entries are at most 1, and zero if any exponent ≥2.
+        </li>
+      </ul>
+      <p>
+        This universality and simplicity of φ not only streamlines number theory
+        but also opens pathways for geometric, spectral, and bundle-theoretic
+        analyses, which together compose the full UOR paradigm.
+      </p>
+      <p>
+        By equipping prime space with the coherence norm and inner product
+        (Euclidean metric), φ endows objects with a geometric and spectral
+        interpretation. Combined with the two‑level fiber bundle of primes and
+        observers, the Universal Object Reference unifies structure, dynamics,
+        and perspective in one coherent framework.
+      </p>
+    </SubsectionTemplate>
+  )
+}
+
+export default OverviewSubsection;
+

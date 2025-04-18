@@ -1,0 +1,39 @@
+import React from 'react'
+import SubsectionTemplate from '../../../templates/SubsectionTemplate'
+import { formalGeneralization } from '../metadata'
+
+/**
+ * Subsection: Formal Generalization
+ */
+function FormalGeneralizationSubsection() {
+  return (
+    <SubsectionTemplate metadata={formalGeneralization}>
+      <p>
+        This supplement presents the formal machinery behind UOR’s extensions:
+      </p>
+      <ol>
+        <li>
+          <strong>Topological Bundles:</strong> Modeling primes and observer frames
+          as sections of fiber bundles over topological bases, ensuring continuity
+          and invariance.
+        </li>
+        <li>
+          <strong>Monoidal Category Axioms:</strong> Framing UOR as a symmetric
+          monoidal category with factorization functors and natural transformations
+          encapsulating coherence laws.
+        </li>
+        <li>
+          <strong>Sheaf Cohomology:</strong> Employing sheaf-theoretic tools to
+          describe how local prime data glue into global factorizations and detect
+          obstructions.
+        </li>
+      </ol>
+      <p>
+        These formal methods solidify UOR’s theoretical foundations and link it
+        to algebraic topology, homotopy theory, and higher category theory.
+      </p>
+    </SubsectionTemplate>
+  )
+}
+
+export default FormalGeneralizationSubsection

@@ -17,9 +17,11 @@ jobs:
           version: 7
       - name: Install dependencies
         run: pnpm install
+      - name: Run type-check
+        run: pnpm type-check
       - name: Run ESLint
         run: pnpm lint
       - name: Run Prettier check
-        run: pnpm format:check
+        run: pnpm format
       - name: Build
         run: pnpm build

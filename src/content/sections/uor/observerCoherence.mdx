@@ -1,0 +1,74 @@
+import React from 'react'
+import SubsectionTemplate from '../../../templates/SubsectionTemplate'
+import { observerCoherence } from '../metadata'
+
+/**
+ * Subsection: Observer Reference Frames
+ * Trilateral Coherence and observer invariance.
+ */
+function ObserverCoherenceSubsection() {
+  return (
+    <SubsectionTemplate metadata={observerCoherence}>
+      <p>
+        <strong>Trilateral Coherence Axiom:</strong> For any object
+        x ∈ 𝒰^×, its complete formal description comprises three simultaneously
+        necessary components:
+      </p>
+      <ol>
+        <li>
+          <strong>Structure:</strong> The intrinsic prime coordinate vector
+          <code>φ(X)</code>—the object’s immutable identity.
+        </li>
+        <li>
+          <strong>Dynamics:</strong> The rules of composition and
+          transformation, e.g. <code>φ(X·Y)=φ(X)+φ(Y)</code>, exponentiation,
+          etc.
+        </li>
+        <li>
+          <strong>Observer:</strong> The reference frame <code>r∈R</code>{' '}
+          capturing context, units, or grouping conventions.
+        </li>
+      </ol>
+      <p>
+        Formally, let R be a group (or groupoid) of frame transformations
+        acting on 𝒰^×. Each r ∈ R defines automorphisms α_r on 𝒰^× and
+        β_r on the monoid laws. The coherence condition demands:
+      </p>
+      <p style={{ textAlign: 'center' }}>
+        φ(α_r(x)) = φ(x),
+        and
+        β_r(φ(x∘y)) = β_r(φ(x)) + β_r(φ(y)).
+      </p>
+      <p>
+        Thus frame changes preserve the prime-coordinate vector (structure) and
+        intertwine appropriately with the composition law (dynamics), ensuring
+        invariance. This captures the notion of objective truth: no matter
+        which frame r is chosen, φ(x) remains a fixed point of R’s action.
+      </p>
+      <p>
+        Formally, observers form a fiber bundle <code>E₂=𝒰×R</code> (see Fiber
+        Bundle section). A change of frame is an invertible map
+        <code>(X,r)↦(X,r')</code> that preserves <code>φ(X)</code>. Because
+        <code>φ̃(X,r)=φ(X)</code> is constant on each fiber, the intrinsic data
+        is <em>frame‑invariant</em> and the bundle has zero curvature on φ.
+      </p>
+      <p>
+        <strong>Proposition:</strong> The action of R on E₂ = 𝒰^××R is
+        flat (zero curvature) if and only if for all r,s ∈ R,
+        α_r ∘ α_s = α_{r·s}, and φ ∘ α_r = φ. Non‑commutativity of frame
+        actions (α_r ∘ α_s ≠ α_s ∘ α_r) signals intrinsic curvature in the
+        observer bundle, leading to observer‑dependent phenomena akin to
+        gauge holonomy in physics.
+      </p>
+      <p>
+        This formalization elevates the observer from epiphenomenon to an
+        intrinsic pillar of UOR. In advanced generalizations, one may consider
+        superposed or quantum frames—linear combinations of frames—yielding a
+        quantum‑like coherence theory where measurement collapses frame
+        superpositions and induces nontrivial curvature effects.
+      </p>
+    </SubsectionTemplate>
+  )
+}
+
+export default ObserverCoherenceSubsection

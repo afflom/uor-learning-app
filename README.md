@@ -26,18 +26,28 @@
          - uniqueFactorization.js ← Unique Factorization subsection stub
 
  ## Getting Started
- 1. Install dependencies:
-    ```bash
-    npm install
-    ```
- 2. Run in development mode:
-    ```bash
-    npm start
-    ```
- 3. Build for production:
-    ```bash
-    npm run build
-    ```
+> **Note**: When using pnpm you may see a warning like "Ignored build scripts: esbuild." To ensure the esbuild binary installs correctly, run:
+>
+> ```bash
+> pnpm install --ignore-scripts=false
+> # or run: pnpm approve-builds
+> ```
+1. Install dependencies:
+   ```bash
+   pnpm install
+   ```
+2. Run in development mode:
+   ```bash
+   pnpm run dev
+   ```
+3. Build for production:
+   ```bash
+   pnpm run build
+   ```
+4. (Optional) Preview the production build locally:
+   ```bash
+   pnpm run preview
+   ```
 
  ## Adding New Sections
  1. In `src/content/sections/metadata.js`, add a new entry with `id`, `title`, and `description`.

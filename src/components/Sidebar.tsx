@@ -1,7 +1,12 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import type { SectionDef } from '../content/sections'
 
-function Sidebar({ sections }) {
+interface SidebarProps {
+  sections: SectionDef[]
+}
+
+function Sidebar({ sections }: SidebarProps) {
   const location = useLocation()
   return (
     <nav className="sidebar">
@@ -10,7 +15,10 @@ function Sidebar({ sections }) {
           const isActiveSection = location.pathname.startsWith(`/${section.id}`)
           return (
             <li key={section.id}>
-              <Link to={`/${section.id}`} className={isActiveSection ? 'active' : ''}>
+              <Link
+                to={`/${section.id}`}
+                className={isActiveSection ? 'active' : ''}
+              >
                 {section.title}
               </Link>
               {isActiveSection && section.subsections && (
@@ -19,7 +27,11 @@ function Sidebar({ sections }) {
                     <li key={sub.id}>
                       <Link
                         to={`/${section.id}/${sub.id}`}
-                        className={location.pathname === `/${section.id}/${sub.id}` ? 'active' : ''}
+                        className={
+                          location.pathname === `/${section.id}/${sub.id}`
+                            ? 'active'
+                            : ''
+                        }
                       >
                         {sub.title}
                       </Link>

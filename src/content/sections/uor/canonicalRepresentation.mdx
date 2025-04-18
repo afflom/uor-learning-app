@@ -1,0 +1,81 @@
+import React from 'react'
+import SubsectionTemplate from '../../../templates/SubsectionTemplate'
+import { canonicalRepresentation } from '../metadata'
+
+/**
+ * Subsection: Canonical Representation
+ * Ensuring unique, base- and frame-independent representation.
+ */
+function CanonicalRepresentationSubsection() {
+  return (
+    <SubsectionTemplate metadata={canonicalRepresentation}>
+      <p>
+        <strong>Definition (Canonical Representation):</strong> Let (𝒰, ∘)
+        be a UFD and φ: 𝒰^× → ⨁_{p∈P}ℤ its prime-coordinate isomorphism. A
+        representation of x∈𝒰^× is <em>canonical</em> if it is given by
+        φ(x) = (v_p(x))_{p∈P}. Equivalently, x is expressed as
+        x = u ∘ ∏_{p∈P} p^{v_p(x)}, where u∈U(𝒰) is a unit and v_p(x) its valuation.
+      </p>
+      <p>
+        <strong>Theorem (Canonicity):</strong> The map φ is the unique,
+        base‑independent, unit‑adjusted factorization map satisfying:
+      </p>
+      <ol>
+        <li>Injectivity: φ(x)=φ(y) ⇒ x=y in 𝒰^×.</li>
+        <li>Minimality: φ(x) minimizes ‖φ(x)‖₂ among all finite decompositions
+            of x into irreducibles.</li>
+        <li>Frame Invariance: For any automorphism g of 𝒰 preserving UFD structure,
+            φ(g(x))=g_*(φ(x)).</li>
+      </ol>
+      <p>
+        <em>Proof Sketch:</em> Injectivity follows from unique factorization.
+        Minimality arises by Pythagorean orthogonality: any alternative grouping
+        yields additional orthogonal components. Frame invariance is ensured by
+        the functoriality of φ under UFD automorphisms.
+      </p>
+      <p>
+        Specifically, for each object <code>X</code>, its prime coordinate
+        vector <code>φ(X)</code> must satisfy the following properties:
+      </p>
+      <ul>
+        <li>
+          <strong>Unique:</strong> Exactly one exponent vector corresponds to
+          <code>X</code> (by unique factorization).
+        </li>
+        <li>
+          <strong>Base‑Independent:</strong> Unaffected by positional notation
+          (decimal, binary, etc.).
+        </li>
+        <li>
+          <strong>Frame‑Invariant:</strong> Remains the same under any valid
+          observer frame change (no ambiguity in grouping).
+        </li>
+        <li>
+          <strong>Minimally Complex:</strong> Attains the smallest possible
+          coherence norm ‖X‖₍coh₎—any grouping into composite factors strictly
+          increases the norm.
+        </li>
+        <li>
+          <strong>Lossless:</strong> φ is injective and invertible on its image,
+          so <code>X</code> can be perfectly reconstructed from φ(X).
+        </li>
+      </ul>
+      <p>
+        <strong>Example:</strong> The integer 210 can be encoded in any positional
+        system, yet its canonical form is uniquely determined:
+        φ(210) = (1,1,1,1) along p∈{2,3,5,7}. Any decomposition like 210=10∘21
+        corresponds to φ(10)+φ(21)=(1,1)+(0,1)+(…)= not minimal in ℓ²-distance,
+        illustrating the absolutism of the prime spectrum.
+      </p>
+      <p>
+        In summary, the Canonical Representation Axiom elevates φ to the
+        intrinsic normal form: it is unique, efficient (coherence‑optimal),
+        and immune to external encoding choices. This universal normal form is
+        the cornerstone for all subsequent geometric, spectral, and bundle
+        constructions in the Prime Framework.
+      </p>
+    </SubsectionTemplate>
+  )
+}
+
+export default CanonicalRepresentationSubsection

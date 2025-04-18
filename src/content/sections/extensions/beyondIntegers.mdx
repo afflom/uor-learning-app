@@ -1,0 +1,49 @@
+import React from 'react'
+import SubsectionTemplate from '../../../templates/SubsectionTemplate'
+import { beyondIntegers } from '../metadata'
+
+/**
+ * Subsection: Beyond Integers
+ * Extending UOR to rationals, polynomials, and abstract domains.
+ */
+function BeyondIntegersSubsection() {
+  return (
+    <SubsectionTemplate metadata={beyondIntegers}>
+      <p>
+        <strong>Extension Theorem:</strong> Let D be a UFD or a Dedekind domain
+        with unique factorization of ideals. Then φ extends to:
+      </p>
+      <ul>
+        <li>
+          <strong>Rationals ℚ:</strong>
+          negative exponents encode denominators:
+          <code>φ(1/3)=φ(3⁻¹)=–φ(3)</code>, so
+          <code>φ(3/4)=[(2,−2),(3,1)]</code>.
+        </li>
+        <li>
+          <strong>Polynomials k[x]:</strong>
+          irreducible polynomials as primes; exponents give factor multiplicity.
+        </li>
+        <li>
+          <strong>Algebraic Number Fields:</strong> In the ring of integers
+          𝒪_K of a number field K, nonzero prime ideals 𝔭 act as primes,
+          and φ maps each α to its ideal factor exponents: (v_𝔭(α)).
+        </li>
+        <li>
+          <strong>Combinatorial domains:</strong>
+          in set unions, singletons are primes; in graph unions, connected
+          components are primes.
+        </li>
+      </ul>
+      <p>
+        In each domain, φ: D^×→⨁_{p∈P(D)}ℤ assigns a finite exponent vector
+        consistent with UOR’s axioms. The coherence norm, spectral
+        interpretation, and fiber bundle formalism remain valid, showcasing
+        the uniform applicability of UOR across algebraic, combinatorial,
+        and arithmetic landscapes.
+      </p>
+    </SubsectionTemplate>
+  )
+}
+
+export default BeyondIntegersSubsection

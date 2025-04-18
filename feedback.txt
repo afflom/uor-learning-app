@@ -1,0 +1,39 @@
+ It looks like right now you’ve got a little Frankenstein of
+    Vite + React + React‑Router + @mdx‑js/rollup that, while perfectly serviceable, is starting to
+    break in weird places (your MDX parser failure is a tell‑tale). At that point you have two sane
+    options:
+
+        1. Keep it all on Vite + React, slim out the bits you don’t really need, fix the MDX
+    configuration in one shot, and live with a hand‑rolled router and MDX setup.
+        2. Move to a fully‑integrated React framework that first‑class supports MDX and file‑based
+    routing – e.g. Next.js (or if this really is “just docs,” Docusaurus).
+
+    Given that you’re already heavy on MDX and you need clean, battle‑tested routing, I’d reach for
+    Next.js. You get:
+
+     • File‑system routing  (no more manual <Routes> or sidebar wiring)
+     • Built‑in MDX support via @next/mdx (you drop the rollup plugin entirely)
+     • Static‑site generation & incremental builds, plus SSR/SSG out of the box
+     • Zero config vs. a hand‑tuned Vite/MDX setup that’s already showing parsing errors
+
+    Rough migration plan:
+
+        1. Remove `vite.config.mjs`, delete your MDX‐Rollup plugin and React‐Router deps.
+        2. `npm install next react react‑dom @next/mdx @types/react-router-dom` (you could even drop
+    `react-router-dom` entirely).
+        3. Add `next.config.js` at the root:      const withMDX = require('@next/mdx')({
+                 extension: /\.mdx?$/
+               });
+               module.exports = withMDX({
+                 pageExtensions: ['tsx','ts','mdx','md']
+               });
+        4. Move your MDX files into `pages/` (or `pages/uor/overview.mdx`, etc.). Next will
+    automatically turn them into routes.
+        5. Convert your `<Sidebar>` into a Layout component that lives in `pages/_app.tsx` or
+    `components/Layout.tsx`.
+        6. Tidy up your metadata and imports (you no longer need `lazy()` – Next will chunk your MDX
+    pages automatically).
+
+    If you’d prefer a lighter touch—staying on Vite—I can also show you exactly how to fix your MDX
+    plugin (it’s usually just a missing providerImportSource: '@mdx-js/react' or a tweak to your acorn
+     config). Let me know which direction feels right for you and I can drop in the needed changes.

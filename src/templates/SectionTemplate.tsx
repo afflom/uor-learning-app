@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { PropsWithChildren } from 'react'
+
+interface SectionTemplateProps {
+  metadata: {
+    title: string
+    description?: string
+  }
+}
 
 /**
  * A template wrapper for primary section pages.
- * Displays title, optional description, and content area.
  */
-function SectionTemplate({ metadata, children }) {
+function SectionTemplate({
+  metadata,
+  children
+}: PropsWithChildren<SectionTemplateProps>) {
   const { title, description } = metadata
   return (
     <div className="section">
