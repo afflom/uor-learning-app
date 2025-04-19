@@ -1,0 +1,67 @@
+import React from 'react'
+import SectionTemplate from '../../../templates/SectionTemplate'
+
+/**
+ * Intrinsic Primes Axiom
+ */
+function IntrinsicPrimesAxiom() {
+  return (
+    <SectionTemplate>
+      <h1>Intrinsic Primes</h1>
+      
+      <h2>Formal Statement</h2>
+      <p>
+        A set <code>P</code> of atomic elements exists such that no element in <code>P</code> 
+        factors further under composition in the domain.
+      </p>
+      
+      <h2>Deep Exploration</h2>
+      <p>
+        Intrinsic primes form the fundamental alphabet of reality. They are the irreducible 
+        elements that cannot be further decomposed within their domain, serving as the 
+        building blocks for all composite structures.
+      </p>
+      
+      <p>
+        This axiom establishes that in any domain with a composition operation, there exist 
+        fundamental entities that cannot be broken down further. These entities are the "atoms" 
+        of the domain, from which everything else is built.
+      </p>
+      
+      <h3>Key Insights</h3>
+      <ul>
+        <li>
+          <strong>Domain Universality:</strong> While the exact identity of primes varies across domains 
+          (numbers, polynomials, sets, etc.), the concept of irreducible elements is universal.
+        </li>
+        <li>
+          <strong>Foundational Necessity:</strong> Without intrinsic primes, there would be no 
+          "bottom level" to structure, leading to infinite regression in decomposition.
+        </li>
+        <li>
+          <strong>Information Basis:</strong> Primes represent the elementary units of information 
+          about an object's structure, establishing the fundamental dimensions of the object space.
+        </li>
+      </ul>
+      
+      <h3>Mathematical Formalization</h3>
+      <p>
+        In a monoid <code>(M, ◦)</code> with identity <code>e</code>, an element <code>p ∈ M</code> is prime if:
+      </p>
+      <ol>
+        <li><code>p ≠ e</code> (not the identity element)</li>
+        <li>If <code>p = a ◦ b</code> then either <code>a = e</code> or <code>b = e</code> (irreducibility)</li>
+      </ol>
+      
+      <h3>Connection to Other Axioms</h3>
+      <p>
+        The Intrinsic Primes axiom serves as the foundation for the Unique Factorization axiom, 
+        which ensures that every object has a unique decomposition into these prime elements. 
+        Together, they establish the basis for the Prime-Coordinate Homomorphism, mapping objects 
+        to their unique prime signature.
+      </p>
+    </SectionTemplate>
+  )
+}
+
+export default IntrinsicPrimesAxiom

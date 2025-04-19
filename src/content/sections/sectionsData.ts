@@ -44,7 +44,17 @@ export const sectionsData: SectionData[] = [
   {
     id: md.coreAxioms.id,
     title: md.coreAxioms.title,
-    description: md.coreAxioms.description
+    description: md.coreAxioms.description,
+    subsections: [
+      { id: md.intrinsicPrimesAxiom.id, title: md.intrinsicPrimesAxiom.title },
+      { id: md.uniqueFactorizationAxiom.id, title: md.uniqueFactorizationAxiom.title },
+      { id: md.primeCoordinateHomomorphism.id, title: md.primeCoordinateHomomorphism.title },
+      { id: md.canonicalRepresentationAxiom.id, title: md.canonicalRepresentationAxiom.title },
+      { id: md.coherenceNormAxiom.id, title: md.coherenceNormAxiom.title },
+      { id: md.coherenceInnerProduct.id, title: md.coherenceInnerProduct.title },
+      { id: md.trilateralCoherence.id, title: md.trilateralCoherence.title },
+      { id: md.universalMappingProperty.id, title: md.universalMappingProperty.title }
+    ]
   },
   {
     id: md.extensions.id,

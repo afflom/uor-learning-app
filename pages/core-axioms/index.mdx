@@ -1,127 +1,31 @@
 export const metadata = {
-  title: 'Core UOR Axioms'
+  title: 'Seven Core UOR Axioms'
 };
 
-# Core UOR Axioms
+# Seven Core UOR Axioms
 
-In this flagship section we present the Seven Core Axioms that form the logical and geometric foundation of the Universal Object Reference (UOR) framework. These axioms guarantee that every object in a Unique Factorization Domain (UFD) can be mapped to a unique, minimal prime-coordinate representation, while remaining invariant under observer transformations.
+The Seven Core UOR Axioms codify the essential properties ensuring that any Unique Factorization Domain (UFD) supports a fully coherent, observer‐aware, prime‐coordinate representation. These axioms act as the logical scaffolding underpinning the entire Prime Framework.
 
-## 1. Intrinsic Primes
+## Core Axioms Overview
 
-**Definition**  
-An *intrinsic prime* is an irreducible element in a composition monoid U. Concretely, P is the set of all p in U such that whenever p = x o y, either x or y is a unit (identity element).
+1. **Intrinsic Primes:** A set of atomic elements exists such that no element factors further under composition.
 
-**Key Terms**  
-- **Monoid (U)**: A set with an associative binary operation (o) and a unit element e such that e o x = x o e = x.  
-- **Unit**: An element u in U satisfying u o x = x o u = x for all x in U.  
-- **Irreducible**: A non-unit element that cannot be factored into non-unit factors.
+2. **Unique Factorization:** Every non-unit object admits a finite prime decomposition that is unique up to reordering.
 
-**Discussion**  
-Intrinsic primes serve as the atomic building blocks of U. Excluding units ensures each prime contributes essential, non-redundant structure.
+3. **Prime-Coordinate Homomorphism:** An injective map φ transforms objects into vectors of prime exponents, converting multiplication to addition.
 
-**Example**  
-In the positive integers under multiplication, P = {2, 3, 5, 7, "etc"}. In the polynomial ring R[x], linear polynomials and other non-factorable polynomials over R are primes.
+4. **Canonical Representation:** The prime coordinates φ(X) provide a unique, base-independent, frame-invariant encoding that minimizes complexity.
 
-## 2. Unique Factorization
+5. **Coherence Norm:** A metric on coordinate space proves that prime factorization achieves minimal representational complexity.
 
-**Statement**  
-Every non-unit element x in U admits a finite factorization:
-```  
-x = p1 o p2 o ... o pk,  
-```  
-where each pi is in P, and any two such factorizations differ only by insertion of units and permutation of prime factors.
+6. **Coherence Inner Product:** The prime coordinate space forms a Euclidean geometry with orthonormal prime axes.
 
-**Key Terms**  
-- **Factorization**: Expression of x as a product of primes and possibly units.  
-- **Uniqueness (up to units and permutation)**: If x = p1 o ... o pk and x = q1 o ... o ql, then k = l and there exists a permutation s such that pi is associated to q_s(i) up to a unit factor.
+7. **Trilateral Coherence:** Every valid description integrates structure (primes), dynamics (transformations), and observer perspective.
 
-**Discussion**  
-This axiom ensures each object has a single, well-defined "prime signature," which is crucial for unambiguous coordinate assignment.
+8. **Universal Mapping Property:** The prime coordinate map is the canonical bridge between multiplicative structures and additive ones.
 
-**Example**  
-In N, 12 = 2 o 2 o 3 uniquely (apart from ordering); no other set of primes multiplies to 12.
+## Mathematical Significance
 
-## 3. Prime-Coordinate Homomorphism
+These axioms establish a universal coordinate system for arbitrary objects based on their intrinsic structure. By ensuring that objects can be uniquely decomposed and encoded, the framework enables a coherent reference system that remains invariant across observer frames while capturing all essential structural information.
 
-**Statement**  
-There exists an injective monoid homomorphism:
-```  
-phi: U -> Z^P  
-```  
-mapping each object x to its exponent vector phi(x) that records the multiplicity of each prime, satisfying phi(x o y) = phi(x) + phi(y).
-
-**Key Terms**  
-- **Monoid Homomorphism**: A map preserving the operation and unit: phi(x o y) = phi(x) + phi(y), phi(e) = 0.  
-- **Exponent Vector**: The vector of integer exponents that records the count of each prime factor.
-
-**Discussion**  
-This map linearizes composition, enabling algebraic and geometric techniques by translating factorization into addition in Z^P.
-
-**Example**  
-For x = 12 in N, phi(12) has v_2 = 2, v_3 = 1, and v_p = 0 for all other primes.
-
-## 4. Canonical Representation
-
-**Statement**  
-Each phi(x) is the unique, base- and frame-independent encoding of x that minimizes a chosen coherence norm (see Axiom 5).
-
-**Discussion**  
-This fixes a "normal form" for each object, preventing ambiguities due to arbitrary ordering or numeral bases.
-
-**Example**  
-Whether written as 2 × 2 × 3 or 3 × 2 × 2, the canonical representation of 12 is the exponent vector (2, 1, 0, 0, ...).
-
-## 5. Coherence Norm
-
-**Statement**  
-Equip Z^P with a norm ||·|| measuring representational simplicity (e.g. L1 or L2 norm on exponent vectors). The canonical phi(x) is the minimizer of this norm among all representations of x.
-
-**Key Terms**  
-- **Norm (||v||)**: A function assigning length or size to vector v in Z^P, such as L1: ||v||_1 = Sum|v_p|, or L2: sqrt(Sum v_p^2).
-
-**Discussion**  
-Minimizing this norm enforces the atomic prime decomposition as the simplest form.
-
-## 6. Coherence Inner Product
-
-**Statement**  
-Define an inner product on Z^P by extending the prime basis to an orthonormal set. This makes Z^P a Euclidean space and enables geometric concepts (angles, projections).
-
-**Key Terms**  
-- **Inner Product**: A bilinear map satisfying symmetry and positive-definiteness.  
-- **Orthonormal Basis**: A set of vectors of unit length and mutual orthogonality.
-
-**Discussion**  
-This structure underlies spectral interpretations and distance-based similarity measures between objects.
-
-## 7. Trilateral Coherence
-
-**Statement**  
-A complete description of any object involves three interwoven aspects:  
-1. Its intrinsic prime-coordinate vector (structure).  
-2. The composition rules (dynamics).  
-3. The observer reference frame (context).
-
-**Discussion**  
-Modeling observers as a fiber bundle over Z^P ensures that phi and the coherence structures are invariant under frame transformations.
-
-## 8. Universal Mapping Property
-
-**Statement**  
-phi is the initial object in the category of monoid homomorphisms from U to abelian groups sending units to zero. Concretely, any such psi factors uniquely through phi.
-
-**Discussion**  
-This property shows phi generates all classical multiplicative invariants (e.g., Liouville lambda, p-adic valuations, Euler's totient phi_0) by post-composition.
-
----
-
-### Glossary
-
-- **Monoid**: A set with an associative binary operation and identity.  
-- **Unit**: Identity element in a monoid.  
-- **Irreducible**: Element that cannot be factored into non-units.  
-- **Homomorphism**: Structure-preserving map between algebraic objects.  
-- **Norm**: Function measuring vector size.  
-- **Inner Product**: Bilinear, symmetric, positive-definite form.  
-- **Fiber Bundle**: Structure modeling a family of spaces parametrized by a base space.
-
+The power of this axiomatic foundation lies in its ability to unify diverse mathematical domains under a single coherent framework, providing a common language for representing and analyzing structure across disciplines.

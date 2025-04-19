@@ -11,3 +11,5 @@ dist/
  
 # Playwright test artifacts
 playwright-report/
+
+.next/

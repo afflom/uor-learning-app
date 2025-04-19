@@ -1,0 +1,39 @@
+export const metadata = {
+  title: 'Coherence Norm'
+};
+
+# Coherence Norm
+
+## Formal Statement
+
+Equip `ℤ^(P)` with the norm `‖φ(X)‖ = √(∑_p φ(X)(p)²)`, measuring simplicity of the prime exponent vector.
+
+## Deep Exploration
+
+The Coherence Norm provides a rigorous measure of representational complexity for objects. It quantifies the intuition that simpler structures should have simpler descriptions. In the UOR framework, this norm explicitly proves that the prime factorization is the most coherent (simplest) representation of any object.
+
+By defining a length measure on prime coordinate vectors, the Coherence Norm introduces a geometric perspective on structure. Objects with fewer distinct prime factors or smaller exponents have smaller norms, reflecting their simpler composition. Crucially, this norm demonstrates why prime factorization is not just one possible representation, but the objectively minimal one.
+
+### Key Insights
+
+- **Objective Simplicity:** Provides a mathematical definition of "simplicity" that agrees with intuition - simpler structures have lower norms.
+
+- **Pythagorean Principle:** By the properties of Euclidean norms, any non-prime grouping of factors increases the total norm, proving prime factorization is minimal.
+
+- **Information Metric:** The norm can be interpreted as measuring the information content of an object's structure.
+
+### Mathematical Formalization
+
+Given the prime coordinate space `ℤ^(P)`, define the coherence norm `‖·‖: ℤ^(P) → ℝ` as:
+
+`‖v‖ = √(∑_p v(p)²)`
+
+For an object `X` with prime factorization `X = ∏_p p^(φ(X)(p))`, the coherence norm is:
+
+`‖φ(X)‖ = √(∑_p φ(X)(p)²)`
+
+This Euclidean norm on the exponent vector provides a measure of the object's representational complexity.
+
+### Connection to Other Axioms
+
+The Coherence Norm works directly with the Prime-Coordinate Homomorphism and underpins the Canonical Representation axiom by providing the metric that defines representational minimality. It also sets the stage for the Coherence Inner Product, which extends the geometric interpretation of prime coordinates.

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "postinstall": "npx playwright install",
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "preview": "next start",

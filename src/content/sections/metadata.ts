@@ -119,6 +119,47 @@ export const coreAxioms = {
   description:
     'A concise summary of the seven foundational axioms of the Universal Object Reference framework.'
 }
+
+// Core Axioms subsections
+export const intrinsicPrimesAxiom = {
+  id: 'intrinsic-primes',
+  title: 'Intrinsic Primes'
+}
+
+export const uniqueFactorizationAxiom = {
+  id: 'unique-factorization',
+  title: 'Unique Factorization (UFD Axiom)'
+}
+
+export const primeCoordinateHomomorphism = {
+  id: 'prime-coordinate-homomorphism',
+  title: 'Prime-Coordinate Homomorphism'
+}
+
+export const canonicalRepresentationAxiom = {
+  id: 'canonical-representation-axiom',
+  title: 'Canonical Representation'
+}
+
+export const coherenceNormAxiom = {
+  id: 'coherence-norm-axiom',
+  title: 'Coherence Norm'
+}
+
+export const coherenceInnerProduct = {
+  id: 'coherence-inner-product',
+  title: 'Coherence Inner Product'
+}
+
+export const trilateralCoherence = {
+  id: 'trilateral-coherence',
+  title: 'Trilateral Coherence'
+}
+
+export const universalMappingProperty = {
+  id: 'universal-mapping-property',
+  title: 'Universal Mapping Property'
+}
 // Additional UOR subsections
 export const geometryOfPrimeSpaces = {
   id: 'geometry-of-prime-spaces',
