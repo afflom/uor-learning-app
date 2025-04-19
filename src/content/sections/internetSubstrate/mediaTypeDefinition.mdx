@@ -1,0 +1,117 @@
+export const metadata = {
+  title: 'Media Type Definition'
+};
+
+# Media Type Definition
+
+## Formal Statement
+
+The Internet Substrate Protocols enable media types to define their own optimal attributes for transport, storage, and runtime within the tripartite kernel.
+
+## Deep Exploration
+
+Traditional internet architecture imposes fixed protocols that media content must adapt to, leading to inefficiencies when protocol characteristics don't align with content needs. The Internet Substrate Protocols invert this relationship, allowing each media type to specify its own optimal attributes for transport, storage, and runtime.
+
+This self-defining approach represents a fundamental shift in how internet protocols operate. Rather than forcing diverse content into predetermined formats, the system enables content to express its intrinsic requirements through the mathematical language of universal numbers. The protocol then adapts to these requirements, creating a content-centric network that optimizes for the actual characteristics of the information being communicated.
+
+Media type definitions in this framework are not merely descriptive but operationally prescriptive, specifying exact parameters like packet digest size, conversion ratios, frame arrangements, and processing requirements. These specifications are expressed in prime coordinate form, allowing them to interface coherently with the tripartite kernel.
+
+### Key Insights
+
+- **Self-Describing Content:** Media content defines its own optimal handling characteristics rather than adapting to fixed protocols.
+
+- **Transport Optimization:** Media types specify their ideal transport attributes, such as packet digest size (e.g., 32-bit) and conversion ratios (e.g., 10:1).
+
+- **Storage Coherence:** Content defines how it should be stored to maintain optimal coherence with its transport and runtime representations.
+
+- **Runtime Requirements:** Media types specify their processing needs, enabling systems to prepare appropriate computational resources.
+
+- **Adaptive Framing:** Variable-length frames optimize for transport conditions based on media-defined parameters.
+
+### Mathematical Formalization
+
+For a media type `M`, its definition in the Internet Substrate Protocols is expressed as:
+
+`Def(M) = (φ_t(M), φ_s(M), φ_r(M), R_M)`
+
+Where:
+- `φ_t(M)` defines transport attributes in prime coordinates
+- `φ_s(M)` defines storage attributes in prime coordinates
+- `φ_r(M)` defines runtime attributes in prime coordinates
+- `R_M` specifies the coherence relationships between these domains
+
+The transport definition includes parameters such as:
+
+`φ_t(M) = {d: digest_size, c: conversion_ratio, f: frame_attributes, ...}`
+
+For example, a high-definition video media type might specify:
+
+`φ_t(video_hd) = {d: 32bit, c: 10:1, f: variable_length, ...}`
+
+The coherence requirements are expressed as:
+
+`C(T_a(M), T_b(M)) > τ_M`
+
+Where `T_a` and `T_b` represent transformations between different representations, and `τ_M` is the minimum coherence threshold for media type `M`.
+
+### Media Definition Framework
+
+The Media Type Definition framework consists of several interconnected components:
+
+1. **Attribute Specification:** Formal language for describing media attributes across the tripartite kernel.
+
+2. **Coherence Requirements:** Specification of minimum coherence thresholds for transformations.
+
+3. **Optimization Parameters:** Definitions of what constitutes optimality for specific media types.
+
+4. **Transformation Rules:** Specifications for how content can be transformed between representations.
+
+5. **Resource Requirements:** Explicit declaration of resources needed for processing.
+
+### Media Type Categories
+
+The framework supports diverse media types, each with their own definitional requirements:
+
+1. **Streaming Media:** Video and audio streams with real-time delivery requirements.
+
+2. **Interactive Content:** Media requiring bidirectional communication with specific latency constraints.
+
+3. **Data Structures:** Structured data with specific integrity and relationship requirements.
+
+4. **Computational Media:** Code and executable content with specific runtime environments.
+
+5. **Sensory Data:** Input from physical sensors with specific fidelity and timing requirements.
+
+6. **Composite Media:** Media composed of multiple types with coherence requirements between components.
+
+### Practical Applications
+
+Media Type Definition enables several transformative capabilities:
+
+1. **Content-Optimized Delivery:** Network delivery optimized for the specific characteristics of the content being transmitted.
+
+2. **Format-Independent Processing:** Content processing based on intrinsic properties rather than arbitrary format conventions.
+
+3. **Adaptive Storage Optimization:** Storage systems that adapt to the specific characteristics of the content being stored.
+
+4. **Coherent Media Transformation:** Transformations between media representations that preserve essential content properties.
+
+5. **Resource Prediction:** Accurate prediction of resources needed for specific media processing.
+
+6. **Cross-Format Interoperability:** Seamless interoperation between different media formats through their universal number representations.
+
+### Beyond Traditional Media Types
+
+Media Type Definition transcends traditional approaches in several key ways:
+
+1. **Beyond MIME Types:** While MIME types simply identify format, Media Type Definitions prescribe optimal handling across the tripartite kernel.
+
+2. **Beyond Codecs:** Rather than fixed encoding/decoding algorithms, the system enables content-adaptive processing guided by intrinsic properties.
+
+3. **Beyond Container Formats:** Eliminates rigid container structures in favor of content-defined organizational principles.
+
+4. **Beyond Protocol Negotiation:** Replaces negotiation with content-driven specification of handling requirements.
+
+### Connection to Other Concepts
+
+Media Type Definition builds directly on the Tripartite Kernel and Universal Identity concepts, while providing a foundation for Distributed Compute operations. It represents the practical implementation of UOR's content-centric perspective on internet communications.

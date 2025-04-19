@@ -55,6 +55,18 @@ export const sectionsData: SectionData[] = [
     ]
   },
   {
+    id: md.internetSubstrate.id,
+    title: md.internetSubstrate.title,
+    description: md.internetSubstrate.description,
+    subsections: [
+      { id: md.digitalTwinFramework.id, title: md.digitalTwinFramework.title },
+      { id: md.tripartiteKernel.id, title: md.tripartiteKernel.title },
+      { id: md.universalIdentity.id, title: md.universalIdentity.title },
+      { id: md.mediaTypeDefinition.id, title: md.mediaTypeDefinition.title },
+      { id: md.distributedCompute.id, title: md.distributedCompute.title }
+    ]
+  },
+  {
     id: md.foundations.id,
     title: md.foundations.title,
     description: md.foundations.description,

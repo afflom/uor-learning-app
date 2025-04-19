@@ -310,3 +310,41 @@ export const pivotFields = {
   title: 'Pivot Fields',
   description: 'Formal definition of universal number pivot fields enabling cross-domain transformations.'
 }
+
+// Internet Substrate Protocols section
+export const internetSubstrate = {
+  id: 'internet-substrate',
+  title: 'Internet Substrate Protocols',
+  description: 'Formal topological model of the internet based on UOR principles.'
+}
+
+// Internet Substrate Protocol subsections
+export const digitalTwinFramework = {
+  id: 'digital-twin-framework',
+  title: 'Digital Twin Framework',
+  description: 'Formalizing the internet as an analog simulation of reality.'
+}
+
+export const tripartiteKernel = {
+  id: 'tripartite-kernel',
+  title: 'Tripartite Kernel',
+  description: 'Convergence of transport, storage, and runtime as the core internet model.'
+}
+
+export const universalIdentity = {
+  id: 'universal-identity',
+  title: 'Universal Identity',
+  description: 'Universal numbers as the foundation for internet identity systems.'
+}
+
+export const mediaTypeDefinition = {
+  id: 'media-type-definition',
+  title: 'Media Type Definition',
+  description: 'Self-defining protocols for optimal media attributes across transport, storage, and runtime.'
+}
+
+export const distributedCompute = {
+  id: 'distributed-compute',
+  title: 'Distributed Compute',
+  description: 'Block conversion through distributed computational dynamics.'
+}
