@@ -11,7 +11,13 @@ function convertIdToFilePath(id: string): string {
   const specialCases: Record<string, string> = {
     'uor-generalization': 'generalization',
     'algebraic-topological-enhancements': 'algebraicTopologicalEnhancements',
-    'category-theoretic-perspective': 'categoryTheoreticPerspective'
+    'category-theoretic-perspective': 'categoryTheoreticPerspective',
+    'time-operator-formalism': 'timeOperatorFormalism',
+    'temporal-prime-decomposition': 'temporalPrimeDecomposition',
+    'coherence-preserving-dynamics': 'coherencePreservingDynamics',
+    'temporal-observer-frames': 'temporalObserverFrames',
+    'non-local-temporal-correlations': 'nonLocalTemporalCorrelations',
+    'emergent-temporal-order': 'emergentTemporalOrder'
   };
 
   // Check for special cases first

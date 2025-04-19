@@ -89,6 +89,13 @@ export const observerCoherence = {
   description: 'Trilateral Coherence and observer invariance.'
 }
 
+// UOR: knowledge base test
+export const knowledgeBaseTest = {
+  id: 'knowledge-base-test',
+  title: 'Knowledge Base Test',
+  description: 'Testing implementation of the UOR knowledge base with IndexedDB persistence.'
+}
+
 // Extensions & Applications
 export const extensions = {
   id: 'extensions',
@@ -122,9 +129,9 @@ export const formalSupplement = {
 // Core UOR Axioms summary
 export const coreAxioms = {
   id: 'core-axioms',
-  title: 'Seven Core UOR Axioms',
+  title: 'Eight Core UOR Axioms',
   description:
-    'A concise summary of the seven foundational axioms of the Universal Object Reference framework.'
+    'A concise summary of the eight foundational axioms of the Universal Object Reference framework.'
 }
 
 // Core Axioms subsections

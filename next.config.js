@@ -16,7 +16,32 @@ const nextConfig = withMDX({
   // Enforce type checking during production builds
   typescript: { ignoreBuildErrors: false },
   // Do not ignore ESLint errors during builds
-  eslint: { ignoreDuringBuilds: false }
+  eslint: { ignoreDuringBuilds: false },
+  
+  // Simple configuration for development
+  compress: true,  // Enable compression
+  
+  // Optimize chunk loading with minimal configuration
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      // Use a simpler chunk strategy that's compatible with proxies
+      config.optimization.splitChunks = {
+        chunks: 'all',
+        cacheGroups: {
+          default: false,
+          vendors: false,
+          framework: {
+            name: 'framework',
+            chunks: 'all',
+            test: /[\\/]node_modules[\\/](@next|next|react|react-dom)[\\/]/,
+            priority: 40,
+            enforce: true,
+          },
+        },
+      };
+    }
+    return config;
+  }
 });
 
 module.exports = nextConfig;

@@ -1,0 +1,30 @@
+{
+  "@context": "https://schema.org",
+  "@type": "MathematicalObject",
+  "@id": "prime-coordinates",
+  "name": "Prime Coordinates",
+  "description": "The representation of objects as vectors of exponents in a prime basis, enabling a direct mapping between objects and their prime decomposition.",
+  "author": {
+    "@type": "Person",
+    "name": "UOR Research Team"
+  },
+  "mathExpression": "φ: D → Z^P, φ(x)(p) = α_p where x = ∏_(p∈P) p^(α_p)",
+  "isPartOf": {
+    "@type": "MathematicalObject",
+    "@id": "foundations"
+  },
+  "isRelatedTo": [
+    {
+      "@type": "MathematicalObject",
+      "@id": "intrinsic-primes"
+    },
+    {
+      "@type": "MathematicalObject",
+      "@id": "unique-factorization"
+    },
+    {
+      "@type": "MathematicalObject",
+      "@id": "coherence-norm"
+    }
+  ]
+}

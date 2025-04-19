@@ -26,7 +26,8 @@ export const sectionsData: SectionData[] = [
       { id: md.geometryOfPrimeSpaces.id, title: md.geometryOfPrimeSpaces.title },
       { id: md.algebraicEnhancements.id, title: md.algebraicEnhancements.title },
       { id: md.categoryTheoryPerspective.id, title: md.categoryTheoryPerspective.title },
-      { id: md.uorGeneralization.id, title: md.uorGeneralization.title }
+      { id: md.uorGeneralization.id, title: md.uorGeneralization.title },
+      { id: md.knowledgeBaseTest.id, title: md.knowledgeBaseTest.title }
     ]
   },
   {
@@ -76,7 +77,8 @@ export const sectionsData: SectionData[] = [
       { id: md.tripartiteKernel.id, title: md.tripartiteKernel.title },
       { id: md.universalIdentity.id, title: md.universalIdentity.title },
       { id: md.mediaTypeDefinition.id, title: md.mediaTypeDefinition.title },
-      { id: md.distributedCompute.id, title: md.distributedCompute.title }
+      { id: md.distributedCompute.id, title: md.distributedCompute.title },
+      { id: md.uorNetworkMapping.id, title: md.uorNetworkMapping.title }
     ]
   },
   {
