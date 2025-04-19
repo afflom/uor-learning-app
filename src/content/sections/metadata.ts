@@ -272,3 +272,41 @@ export const applicationsDomains = {
   title: 'Applications and Domains',
   description: 'Practical applications in cryptography, quantum computing, and computational mathematics.'
 }
+
+// Signal Processing section
+export const signalProcessing = {
+  id: 'signal-processing',
+  title: 'Signal Processing',
+  description: 'Mathematical foundations of UOR signal processing and transform operations.'
+}
+
+// Signal Processing subsections
+export const universalTransforms = {
+  id: 'universal-transforms',
+  title: 'Universal Transforms',
+  description: 'Transformation properties of universal numbers across dimensional representations.'
+}
+
+export const blockConversion = {
+  id: 'block-conversion',
+  title: 'Block Conversion',
+  description: 'Lossless conversion methods between different bit-width representations.'
+}
+
+export const signalCompression = {
+  id: 'signal-compression',
+  title: 'Signal Compression',
+  description: 'Compact digest representations using prime coordinate optimization.'
+}
+
+export const informationPreservation = {
+  id: 'information-preservation',
+  title: 'Information Preservation',
+  description: 'Mathematical principles ensuring lossless data transformation across representations.'
+}
+
+export const pivotFields = {
+  id: 'pivot-fields',
+  title: 'Pivot Fields',
+  description: 'Formal definition of universal number pivot fields enabling cross-domain transformations.'
+}

@@ -43,6 +43,18 @@ export const sectionsData: SectionData[] = [
     ]
   },
   {
+    id: md.signalProcessing.id,
+    title: md.signalProcessing.title,
+    description: md.signalProcessing.description,
+    subsections: [
+      { id: md.universalTransforms.id, title: md.universalTransforms.title },
+      { id: md.blockConversion.id, title: md.blockConversion.title },
+      { id: md.signalCompression.id, title: md.signalCompression.title },
+      { id: md.informationPreservation.id, title: md.informationPreservation.title },
+      { id: md.pivotFields.id, title: md.pivotFields.title }
+    ]
+  },
+  {
     id: md.foundations.id,
     title: md.foundations.title,
     description: md.foundations.description,
