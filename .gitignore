@@ -21,3 +21,6 @@ test-results/
 err.log
 build_*.log
 build_log.txt
+
+# TypeScript build info
+tsconfig.tsbuildinfo
