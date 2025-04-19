@@ -122,42 +122,42 @@ export const coreAxioms = {
 
 // Core Axioms subsections
 export const intrinsicPrimesAxiom = {
-  id: 'intrinsic-primes',
+  id: 'intrinsicPrimes',
   title: 'Intrinsic Primes'
 }
 
 export const uniqueFactorizationAxiom = {
-  id: 'unique-factorization',
+  id: 'uniqueFactorization',
   title: 'Unique Factorization (UFD Axiom)'
 }
 
 export const primeCoordinateHomomorphism = {
-  id: 'prime-coordinate-homomorphism',
+  id: 'primeCoordinateHomomorphism',
   title: 'Prime-Coordinate Homomorphism'
 }
 
 export const canonicalRepresentationAxiom = {
-  id: 'canonical-representation-axiom',
+  id: 'canonicalRepresentation',
   title: 'Canonical Representation'
 }
 
 export const coherenceNormAxiom = {
-  id: 'coherence-norm-axiom',
+  id: 'coherenceNorm',
   title: 'Coherence Norm'
 }
 
 export const coherenceInnerProduct = {
-  id: 'coherence-inner-product',
+  id: 'coherenceInnerProduct',
   title: 'Coherence Inner Product'
 }
 
 export const trilateralCoherence = {
-  id: 'trilateral-coherence',
+  id: 'trilateralCoherence',
   title: 'Trilateral Coherence'
 }
 
 export const universalMappingProperty = {
-  id: 'universal-mapping-property',
+  id: 'universalMappingProperty',
   title: 'Universal Mapping Property'
 }
 // Additional UOR subsections

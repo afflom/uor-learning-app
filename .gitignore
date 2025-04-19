@@ -11,5 +11,13 @@ dist/
  
 # Playwright test artifacts
 playwright-report/
+test-results/
 
+# Next.js build directory
 .next/
+
+# Log files
+*.log
+err.log
+build_*.log
+build_log.txt
