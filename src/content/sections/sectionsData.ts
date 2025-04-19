@@ -26,8 +26,7 @@ export const sectionsData: SectionData[] = [
       { id: md.geometryOfPrimeSpaces.id, title: md.geometryOfPrimeSpaces.title },
       { id: md.algebraicEnhancements.id, title: md.algebraicEnhancements.title },
       { id: md.categoryTheoryPerspective.id, title: md.categoryTheoryPerspective.title },
-      { id: md.uorGeneralization.id, title: md.uorGeneralization.title },
-      { id: md.knowledgeBaseTest.id, title: md.knowledgeBaseTest.title }
+      { id: md.uorGeneralization.id, title: md.uorGeneralization.title }
     ]
   },
   {

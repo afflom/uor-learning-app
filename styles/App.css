@@ -1,7 +1,15 @@
 /* Layout for the app container */
 .app {
   display: flex;
+  flex-direction: column;
   height: 100vh;
+}
+
+/* App container for sidebar and content */
+.app-container {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
 }
 
 /* Sidebar styles */
@@ -52,6 +60,16 @@
   overflow-y: auto;
 }
 
+/* Full width content when sidebar is hidden */
+.content.full-width {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
 /* Section and subsection wrappers */
 .section h1,
 .subsection h2 {
@@ -65,7 +83,7 @@
 
 /* Responsive design */
 @media (max-width: 768px) {
-  .app {
+  .app-container {
     flex-direction: column;
   }
   
