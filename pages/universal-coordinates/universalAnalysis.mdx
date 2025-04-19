@@ -14,7 +14,7 @@ Universal analysis begins with a generalized concept of differentiation that uni
 
 **Definition 1 (Universal Derivative):** For a function f: 𝕌 → 𝕌, the universal derivative at a point α ∈ 𝕌 is defined as:
 
-`f'(α) = lim_{h→0} (f(α+h) - f(α))/h`
+`f'(α) = lim(h→0) [f(α+h) - f(α)]/h`
 
 where the limit is taken with respect to the universal metric.
 
@@ -58,7 +58,7 @@ Universal analytic functions extend complex and p-adic analytic functions:
 
 **Definition 3 (Universal Analyticity):** A function f: 𝕌 → 𝕌 is universally analytic if it can be represented locally by a power series:
 
-`f(η) = ∑_{n=0}^∞ a_n (η - α)^n`
+`f(η) = ∑ a_n (η - α)^n`
 
 that converges in both the Archimedean and all non-Archimedean metrics.
 
@@ -76,7 +76,7 @@ Universal analysis includes powerful series methods:
 
 **Theorem 5 (Universal Taylor Expansion):** Every universally analytic function f admits a Taylor expansion around any point α ∈ 𝕌:
 
-`f(η) = ∑_{n=0}^∞ f^(n)(α)/n! · (η - α)^n`
+`f(η) = ∑ f^(n)(α)/n! · (η - α)^n`
 
 where the convergence is uniform in the universal metric within the domain of analyticity.
 
@@ -85,7 +85,7 @@ where the convergence is uniform in the universal metric within the domain of an
 1. The series converges absolutely for all η with d_𝕌(η, α) < R_𝕌
 2. The series diverges for all η with d_𝕌(η, α) > R_𝕌
 3. The radius R_𝕌 can be computed from the coefficients using the formula:
-   `R_𝕌 = 1/limsup |a_n|^{1/n}`
+   `R_𝕌 = 1/limsup |a_n|^(1/n)`
    where the limsup is taken with respect to the universal norm
 
 ## Function Spaces and Analysis
@@ -94,17 +94,11 @@ Universal analysis supports rich function spaces:
 
 **Definition 4 (Universal Hilbert Space):** The space L²(𝕌) of square-integrable universal functions forms a Hilbert space with inner product:
 
-`⟨f, g⟩ = ∫_𝕌 f(η)·g̅(η) dμ_𝕌(η)`
+`<f, g> = ∫ f(η)·g*(η) dμ(η)`
 
 where μ_𝕌 is the universal measure and g̅ denotes the universal conjugate of g.
 
-**Theorem 7 (Universal Fourier Analysis):** Every function f ∈ L²(𝕌) admits a generalized Fourier expansion:
-
-`f(η) = ∑_{χ} c_χ·χ(η)`
-
-where {χ} is the system of universal characters on 𝕌 (functions satisfying χ(α+β) = χ(α)·χ(β)), and the coefficients are given by:
-
-`c_χ = ⟨f, χ⟩`
+**Theorem 7 (Universal Fourier Analysis):** Every function f ∈ L²(𝕌) admits a generalized Fourier expansion in terms of universal characters.
 
 This theorem unifies classical Fourier analysis and p-adic harmonic analysis.
 
@@ -124,9 +118,9 @@ there exists a unique universally analytic solution in a neighborhood of any non
 
 Universal analysis establishes profound connections between complex and p-adic analysis:
 
-**Theorem 10 (Universal Residue Theorem):** For a universally meromorphic function f and a closed contour γ encircling isolated singularities {α_1, ..., α_n} exactly once:
+**Theorem 10 (Universal Residue Theorem):** For a universally meromorphic function f and a closed contour γ encircling isolated singularities:
 
-`∫_γ f(η) dη = 2πi·∑_{j=1}^n Res(f, α_j)`
+`Integral_γ f(η) dη = 2πi × Sum of Res(f, α_j)`
 
 where the residues have both complex and p-adic interpretations.
 
@@ -160,7 +154,7 @@ Universal analysis includes a theory of operations directly on coordinate repres
 
 **Definition 6 (Coordinate Derivatives):** For a function F operating on prime-coordinate space:
 
-`D_p[F](φ(η)) = ∂F/∂e_p|_{φ(η)}`
+`D_p[F](φ(η)) = ∂F/∂e_p at φ(η)`
 
 representing the partial derivative with respect to the p-th prime coordinate.
 
@@ -176,7 +170,7 @@ Universal analysis provides the theoretical foundation for universal transforms 
 
 **Theorem 16 (Analytical Foundation of Transforms):** Universal transforms between dimensional spaces can be expressed as integral transforms:
 
-`(Tf)(ξ) = ∫_𝕌 f(η)·K(ξ,η) dμ_𝕌(η)`
+`(Tf)(ξ) = ∫ f(η)·K(ξ,η) dμ(η)`
 
 where K is a universal kernel function satisfying appropriate analyticity conditions.
 

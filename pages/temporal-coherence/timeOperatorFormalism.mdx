@@ -107,9 +107,9 @@ The time operator takes specific forms in different domains, illustrating its ve
 
 In quantum systems, the time operator relates to the Hamiltonian:
 
-$$\mathcal{T}_{\Delta t}[\phi_Q] = e^{-i\hat{H}\Delta t/\hbar} \phi_Q$$
+`T_Δt[φ_Q] = e^(-iĤΔt/ℏ) φ_Q`
 
-Where $\hat{H}$ is the Hamiltonian operator in prime coordinate representation.
+Where Ĥ is the Hamiltonian operator in prime coordinate representation.
 
 This formulation addresses the long-standing challenge of defining a rigorous time operator in quantum mechanics.
 
@@ -117,9 +117,9 @@ This formulation addresses the long-standing challenge of defining a rigorous ti
 
 For relativistic systems, the time operator incorporates Lorentz transformations:
 
-$$\mathcal{T}_{\Lambda}[\phi_R] = U(\Lambda)\phi_R$$
+`T_Λ[φ_R] = U(Λ)φ_R`
 
-Where $\Lambda$ is a Lorentz transformation and $U(\Lambda)$ is its representation in prime coordinate space.
+Where Λ is a Lorentz transformation and U(Λ) is its representation in prime coordinate space.
 
 This unifies relativistic time dilation with the UOR framework.
 
@@ -127,9 +127,9 @@ This unifies relativistic time dilation with the UOR framework.
 
 For complex adaptive systems, the time operator includes feedback mechanisms:
 
-$$\mathcal{T}_{\Delta t}[\phi_C] = \mathcal{F}(\phi_C, \nabla \phi_C, \mathcal{E}[\phi_C])$$
+`T_Δt[φ_C] = F(φ_C, ∇φ_C, E[φ_C])`
 
-Where $\mathcal{F}$ captures the system's dynamics and $\mathcal{E}$ represents environmental coupling.
+Where F captures the system's dynamics and E represents environmental coupling.
 
 This formulation enables analysis of emergent temporal behaviors in complex systems.
 
@@ -139,23 +139,23 @@ The Time Operator Formalism can be implemented through several mathematical appr
 
 1. **Differential Equations**: For continuous systems, the time operator generates flow equations in prime coordinate space:
 
-   $$\frac{d\phi(O)}{dt} = \mathcal{L}[\phi(O)]$$
+   `dφ(O)/dt = L[φ(O)]`
 
 2. **Discrete Maps**: For discrete-time systems, the time operator generates iterated maps:
 
-   $$\phi_{n+1} = \mathcal{M}[\phi_n]$$
+   `φ_(n+1) = M[φ_n]`
 
 3. **Path Integrals**: For systems with uncertain paths, the time operator generates path integral formulations:
 
-   $$\phi(O(t)) = \int \mathcal{D}[\gamma] e^{iS[\gamma]} \phi(O(0))$$
+   `φ(O(t)) = ∫ D[γ] e^(iS[γ]) φ(O(0))`
 
-   Where $\mathcal{D}[\gamma]$ is the path measure and $S[\gamma]$ is the action functional.
+   Where D[γ] is the path measure and S[γ] is the action functional.
 
 4. **Renormalization Group**: For multi-scale systems, the time operator connects to renormalization flows:
 
-   $$\mathcal{T}_{\lambda}[\phi] = \mathcal{R}_\lambda[\phi]$$
+   `T_λ[φ] = R_λ[φ]`
 
-   Where $\mathcal{R}_\lambda$ is the renormalization operator at scale $\lambda$.
+   Where R_λ is the renormalization operator at scale λ.
 
 These implementations enable practical application of the Time Operator Formalism across diverse systems.
 
@@ -165,21 +165,21 @@ The time operator connects directly to observer reference frames within the UOR 
 
 1. **Observer-Dependent Time**: Each observer experiences a specific realization of the time operator:
 
-   $$\mathcal{T}_{\mathcal{O}}[\phi] = \mathcal{U}_{\mathcal{O}} \circ \mathcal{T} \circ \mathcal{U}_{\mathcal{O}}^{-1}[\phi]$$
+   `T_O[φ] = U_O ∘ T ∘ U_O^(-1)[φ]`
 
-   Where $\mathcal{U}_{\mathcal{O}}$ is the transformation to observer $\mathcal{O}$'s reference frame.
+   Where U_O is the transformation to observer O's reference frame.
 
 2. **Coherent Time Transformations**: Transformations between different observers' time operators preserve coherence:
 
-   $$C(\mathcal{T}_{\mathcal{O}_1}[\phi], \mathcal{T}_{\mathcal{O}_2}[\phi]) \geq C_{\min}$$
+   `C(T_(O_1)[φ], T_(O_2)[φ]) ≥ C_min`
 
-   Where $C_{\min}$ is the minimum coherence threshold for valid observations.
+   Where C_min is the minimum coherence threshold for valid observations.
 
 3. **Temporal Trilateral Coherence**: The relationship between object, observer, and temporal evolution forms a coherent trilateral structure:
 
-   $$C_3(O, \mathcal{O}, \mathcal{T}) \geq C_{3,\min}$$
+   `C_3(O, O, T) ≥ C_3,min`
 
-   Where $C_3$ is the trilateral coherence measure.
+   Where C_3 is the trilateral coherence measure.
 
 These connections ensure that temporal evolution remains coherent across different observer perspectives.
 
