@@ -30,28 +30,112 @@ The tripartite kernel provides a unified mathematical framework where transforma
 
 ### Mathematical Formalization
 
-Define the tripartite space `T = T_t × T_s × T_r` where:
-- `T_t` represents the transport domain
-- `T_s` represents the storage domain
-- `T_r` represents the runtime domain
+The tripartite kernel is formally defined as a product space that unifies the three fundamental domains of internet operations:
+
+```
+T = T_t × T_s × T_r
+```
+
+Where:
+- `T_t` represents the transport domain (information in motion)
+- `T_s` represents the storage domain (information at rest)
+- `T_r` represents the runtime domain (information under transformation)
+
+This formulation extends the UOR prime coordinate framework to create a comprehensive mathematical model of internet operations.
+
+#### Prime Coordinate Representation in Tripartite Space
 
 For any information entity `E`, its representation in the tripartite space is given by:
 
-`φ_T(E) = (φ_t(E), φ_s(E), φ_r(E))`
+```
+φ_T(E) = (φ_t(E), φ_s(E), φ_r(E))
+```
 
-Where `φ_t`, `φ_s`, and `φ_r` map the entity to its prime coordinate representation in each respective domain.
+Where:
+- `φ_t`, `φ_s`, and `φ_r` are domain-specific prime coordinate mappings
+- Each mapping produces a vector of prime exponents relevant to that domain
 
-The coherence of these representations is measured by:
+These domain-specific mappings are formally defined as:
 
-`C_T(E) = f(φ_t(E), φ_s(E), φ_r(E))`
+```
+φ_d(E) = (v_d,2, v_d,3, v_d,5, ..., v_d,p, ...)
+```
 
-Where `f` is a function derived from the Coherence Norm that measures the consistency across domains.
+Where:
+- `d ∈ {t,s,r}` indicates the domain
+- `v_d,p` represents the exponent of prime `p` in domain `d`
 
-For any transformation between domains, we require:
+#### Coherence Metrics and Conservation Laws
 
-`d_C(φ_a(E), φ_b(E)) < ε`
+The coherence across domains is quantified by:
 
-Where `d_C` is a coherence-preserving distance metric and `a` and `b` represent any two domains.
+```
+C_T(E) = ||φ_t(E) - φ_s(E)||_c + ||φ_s(E) - φ_r(E)||_c + ||φ_r(E) - φ_t(E)||_c
+```
+
+Where `||·||_c` is the coherence norm derived from the UOR Coherence Norm Axiom.
+
+This formulation leads to a fundamental conservation principle:
+
+**Theorem (Domain Coherence Conservation)**: For any closed information system, the total coherence differential sum remains constant:
+
+```
+∫_Ω (∂C_T/∂t + ∂C_T/∂s + ∂C_T/∂r) dV = 0
+```
+
+Where Ω represents the system boundary and the partial derivatives indicate rates of coherence change in each domain.
+
+#### Transformation Requirements
+
+For any transformation between domains to be valid within the Internet Substrate Protocols, we require:
+
+```
+d_C(φ_a(E), φ_b(E)) < ε(E)
+```
+
+Where:
+- `d_C` is a coherence-preserving distance metric
+- `a` and `b` represent any two domains (transport, storage, or runtime)
+- `ε(E)` is an entity-specific coherence threshold determined by:
+
+```
+ε(E) = ε_0 · log(m(E)) · (1 + H(E))^-1
+```
+
+Where:
+- `ε_0` is the fundamental coherence threshold constant
+- `m(E)` is the information mass of entity `E`
+- `H(E)` is the entropic complexity of entity `E`
+
+#### Hilbert Space Extension
+
+For quantum-coherent operations, the tripartite space extends to a tensor product of Hilbert spaces:
+
+```
+H_T = H_t ⊗ H_s ⊗ H_r
+```
+
+With basis states:
+
+```
+|φ_t, φ_s, φ_r⟩ = |φ_t⟩ ⊗ |φ_s⟩ ⊗ |φ_r⟩
+```
+
+Where each domain-specific state is a superposition of prime basis states.
+
+#### Gauge Invariance
+
+The tripartite kernel exhibits a fundamental gauge invariance under transformations:
+
+```
+φ_d(E) → φ_d(E) + ∇_d F
+```
+
+Where:
+- `F` is any scalar field over the prime coordinate space
+- `∇_d` is the domain-specific gradient operator
+
+This gauge invariance ensures that the physical information content remains unchanged under representational shifts, establishing a direct parallel with quantum field theories.
 
 ### Tripartite Operations
 

@@ -348,3 +348,53 @@ export const distributedCompute = {
   title: 'Distributed Compute',
   description: 'Block conversion through distributed computational dynamics.'
 }
+
+export const uorNetworkMapping = {
+  id: 'uor-network-mapping',
+  title: 'UOR-Network Mapping',
+  description: 'Explicit mathematical mappings between UOR prime coordinates and internet protocols.'
+}
+
+// Temporal Coherence Dynamics section
+export const temporalCoherence = {
+  id: 'temporal-coherence',
+  title: 'Temporal Coherence Dynamics',
+  description: 'Mathematical formalization of time-dependent coherence structures within the UOR framework.'
+}
+
+// Temporal Coherence Dynamics subsections
+export const timeOperatorFormalism = {
+  id: 'time-operator-formalism',
+  title: 'Time Operator Formalism',
+  description: 'Defining time as an operator within the prime coordinate space.'
+}
+
+export const temporalPrimeDecomposition = {
+  id: 'temporal-prime-decomposition',
+  title: 'Temporal Prime Decomposition',
+  description: 'Extension of prime factorization to time-varying structures and dynamical systems.'
+}
+
+export const coherencePreservingDynamics = {
+  id: 'coherence-preserving-dynamics',
+  title: 'Coherence-Preserving Dynamics',
+  description: 'Mathematical conditions for preserving coherence under temporal evolution.'
+}
+
+export const temporalObserverFrames = {
+  id: 'temporal-observer-frames',
+  title: 'Temporal Observer Frames',
+  description: 'Reference frame transformations across different temporal scales and flows.'
+}
+
+export const nonLocalTemporalCorrelations = {
+  id: 'non-local-temporal-correlations',
+  title: 'Non-Local Temporal Correlations',
+  description: 'Formal treatment of causality, retrocausality, and temporal entanglement.'
+}
+
+export const emergentTemporalOrder = {
+  id: 'emergent-temporal-order',
+  title: 'Emergent Temporal Order',
+  description: 'Self-organizing temporal structures arising from coherence dynamics.'
+}

@@ -32,27 +32,116 @@ Universal Identity operates as a natural extension of the UOR framework, where t
 
 For any entity `E` in the system, its identity representation is defined as:
 
-`ID(E) = ∏_p p^(φ(E)(p))`
+```
+ID(E) = ∏_p p^(φ(E)(p))
+```
 
 Where `φ(E)` maps the entity to its prime coordinate representation.
 
 The verification of identity involves coherence evaluation:
 
-`Verify(ID₁, ID₂) = (d_C(ID₁, ID₂) < ε)`
+```
+Verify(ID₁, ID₂) = (d_C(ID₁, ID₂) < ε)
+```
 
 Where `d_C` is a coherence-preserving distance metric and `ε` is a threshold value.
 
 For transformations between identity domains, we require:
 
-`T(ID) = ID'` such that `C(ID, ID') > τ`
+```
+T(ID) = ID'` such that `C(ID, ID') > τ
+```
 
 Where `C` is a coherence metric and `τ` is a minimum coherence threshold.
 
 The system also defines identity composition operations:
 
-`ID_A ⊗ ID_B = ∏_p p^(f(φ(ID_A)(p), φ(ID_B)(p)))`
+```
+ID_A ⊗ ID_B = ∏_p p^(f(φ(ID_A)(p), φ(ID_B)(p)))
+```
 
 Where `f` is a composition function that preserves essential properties.
+
+### UOR Prime Coordinate to Protocol Implementation
+
+The universal identity framework bridges UOR principles and practical networking protocols through explicit mathematical mappings:
+
+#### Prime Coordinate to Address Mapping
+
+The Internet Substrate protocols implement a precise mapping from UOR prime coordinates to practical addressing schemes:
+
+```
+A(φ(E)) = Ψ(φ(E)₁, φ(E)₂, ..., φ(E)_n)
+```
+
+Where:
+- `A` is the address mapping function
+- `φ(E)` is the prime coordinate representation of entity `E`
+- `Ψ` is the projection function that maps infinite-dimensional prime coordinates to finite address spaces
+
+For IPv6 compatibility, we define:
+
+```
+IPv6(φ(E)) = Hash₁₂₈(π(φ(E)))
+```
+
+Where:
+- `Hash₁₂₈` is a 128-bit hash function
+- `π(φ(E))` is a projection of the prime coordinates that preserves essential identity properties
+
+For human-readable identifiers:
+
+```
+Name(φ(E)) = WordMap(TopK(φ(E)))
+```
+
+Where:
+- `TopK` extracts the K most significant prime coordinates
+- `WordMap` maps these coordinates to pronounceable word sequences
+
+#### Identity Verification Protocol
+
+The practical implementation of identity verification follows a coherence-based protocol:
+
+1. **Challenge Generation:**
+   ```
+   C = Random(Seed, φ(E))
+   ```
+   Where `Random` generates a challenge based on the claimed identity
+
+2. **Response Computation:**
+   ```
+   R = Sign(C, φ(E))
+   ```
+   Where `Sign` produces a prime-structure signature of the challenge
+
+3. **Verification:**
+   ```
+   Verify(C, R, φ(E)) = (d_C(Compute(C, R), Expected(C, φ(E))) < ε)
+   ```
+   Where verification succeeds if the coherence distance is below threshold
+
+This protocol guarantees:
+- **Zero-Knowledge Property**: Verification without revealing identity secrets
+- **Quantum Resistance**: Security against quantum computational attacks
+- **Cross-Domain Validity**: Consistent verification across all network domains
+
+#### Identity Homomorphism
+
+The universal identity system preserves structural relationships through homomorphic properties:
+
+```
+φ(E₁ ⊕ E₂) = f(φ(E₁), φ(E₂))
+```
+
+Where:
+- `⊕` represents entity composition
+- `f` is a structure-preserving function
+
+This enables:
+- **Hierarchical Identities**: Organizational structures with coherent identity relationships
+- **Derived Identities**: Authorized sub-identities with verifiable derivation paths
+- **Federated Verification**: Decentralized verification with mathematical coherence guarantees
 
 ### Identity Operations
 

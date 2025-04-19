@@ -1,0 +1,288 @@
+export const metadata = {
+  title: 'UOR-Network Mapping'
+};
+
+# UOR-Network Mapping
+
+## Formal Statement
+
+The Internet Substrate Protocols establish explicit mathematical mappings between UOR prime coordinates and internet protocols, creating a rigorous framework for translating theoretical UOR concepts into practical networking implementations.
+
+## Deep Exploration
+
+### Bridging Theory and Practice
+
+The UOR framework provides a powerful theoretical foundation for understanding information at a fundamental level. The Internet Substrate Protocols translate these abstract mathematical principles into concrete networking implementations through explicit mappings that preserve the essential mathematical properties while creating practical systems.
+
+This mapping creates a bidirectional bridge between UOR theory and networking practice:
+
+1. **Theory → Practice**: UOR principles informing protocol design and implementation
+2. **Practice → Theory**: Network behaviors analyzed through UOR mathematical frameworks
+
+### Core Mapping Principles
+
+The translation from UOR to networking follows several key principles:
+
+#### 1. Preservation of Prime Structure
+
+All protocol translations preserve the prime coordinate structure of the underlying information:
+
+```
+Γ(φ(I)) = P(I)
+```
+
+Where:
+- `Γ` is the protocol mapping function
+- `φ(I)` is the prime coordinate representation of information entity `I`
+- `P(I)` is the protocol representation
+
+This ensures that no essential information is lost during translation between theoretical models and practical implementations.
+
+#### 2. Coherence Maintenance
+
+All protocol operations maintain coherence within specified bounds:
+
+```
+C(φ(I), φ(P(I))) > τ_min
+```
+
+Where:
+- `C` is the coherence function
+- `τ_min` is the minimum acceptable coherence threshold
+
+This guarantees that protocol operations remain faithful to the mathematical properties of the information they process.
+
+#### 3. Structural Homomorphism
+
+Protocol operations mirror UOR operations through homomorphic mappings:
+
+```
+P(op_UOR(I₁, I₂, ..., I_n)) = op_NET(P(I₁), P(I₂), ..., P(I_n))
+```
+
+Where:
+- `op_UOR` is a UOR operation
+- `op_NET` is the corresponding network protocol operation
+
+This creates a consistent relationship between theoretical operations and practical implementations.
+
+### Explicit UOR-to-Protocol Mappings
+
+The Internet Substrate Protocols define precise mappings from UOR concepts to networking implementations:
+
+#### Prime Coordinates → Network Addresses
+
+```
+Addr(φ(E)) = ψ(SigBits(φ(E)))
+```
+
+Where:
+- `Addr` is the network addressing function
+- `ψ` is a structure-preserving projection
+- `SigBits` extracts significant bits from the prime coordinate representation
+
+For IPv6 compatibility:
+
+```
+IPv6(φ(E)) = [Top64(φ(E)) : Bottom64(φ(E))]
+```
+
+Where Top64 and Bottom64 extract the most and least significant 64 bits from a condensed representation of the prime coordinates.
+
+#### Coherence Norm → Routing Metrics
+
+```
+RouteMetric(path) = ∑_i ||φ(N_i) - φ(N_{i+1})||_c
+```
+
+Where:
+- `RouteMetric` is the path cost function used in routing algorithms
+- `N_i` represents network nodes along the path
+- `||·||_c` is the coherence norm
+
+This creates routing algorithms that naturally optimize for coherence preservation.
+
+#### Trilateral Coherence → Network Verification
+
+```
+Verify(N₁, N₂, N₃) = (det⟨φ(N₁), φ(N₂), φ(N₃)⟩ > τ_v)
+```
+
+Where:
+- `Verify` is the verification function
+- `det⟨·, ·, ·⟩` is the determinant of the matrix formed by the three prime coordinate vectors
+- `τ_v` is the verification threshold
+
+This enables triangulation-based verification of network relationships.
+
+#### Universal Mapping Property → Protocol Transformations
+
+```
+Transform(P₁, P₂, I) = M_{P₁→P₂}(φ(I))
+```
+
+Where:
+- `Transform` converts information between protocols
+- `M_{P₁→P₂}` is the mapping function from protocol P₁ to protocol P₂
+- `φ(I)` is the prime coordinate representation of information I
+
+This ensures coherent transformation between different protocol domains.
+
+### Practical Protocol Implementations
+
+#### Layer 1: Physical Layer Mapping
+
+The physical layer implementation maps UOR principles to physical signal transmission:
+
+```
+Signal(φ(I)) = Modulate(Encode(φ(I)))
+```
+
+Where:
+- `Signal` is the physical representation of information
+- `Modulate` is the modulation function
+- `Encode` is the encoding function that preserves prime structure
+
+Key implementations:
+- **Coherence-Preserving Modulation**: Signal modulation schemes that minimize coherence loss
+- **Prime-Structured Error Correction**: Error correction codes derived from prime factorization properties
+- **Quantum-Aware Transmission**: Signaling protocols that account for quantum effects
+
+#### Layer 2: Data Link Layer Mapping
+
+The data link layer implements frame structures based on prime coordinate representations:
+
+```
+Frame(φ(I)) = [Header(φ(I)) | Payload(φ(I)) | Footer(φ(I))]
+```
+
+Where:
+- `Frame` is the data link frame
+- `Header`, `Payload`, and `Footer` are derived from different projections of the prime coordinates
+
+Key implementations:
+- **Self-Describing Frames**: Frames that encode their own optimal processing attributes
+- **Coherence-Preserving Aggregation**: Frame bundling that maintains information coherence
+- **Adaptive Frame Sizes**: Frame sizes that automatically adjust to coherence requirements
+
+#### Layer 3: Network Layer Mapping
+
+The network layer implements routing and addressing based on UOR principles:
+
+```
+Route(S, D) = argmin_paths ∑_{i=1}^{n-1} ||φ(N_i) - φ(N_{i+1})||_c
+```
+
+Where:
+- `Route` is the optimal path from source S to destination D
+- `N_i` are the nodes along the path
+- `||·||_c` is the coherence norm
+
+Key implementations:
+- **Coherence-Based Routing**: Routing algorithms that optimize for coherence preservation
+- **Prime Coordinate Addressing**: Addressing schemes derived from prime coordinates
+- **Gravitational Flow Control**: Congestion control based on information mass and gravity models
+
+#### Layer 4: Transport Layer Mapping
+
+The transport layer ensures coherent end-to-end information delivery:
+
+```
+Deliver(φ(I), S, D) = ReconstituteD(TransportS→D(DecomposeS(φ(I))))
+```
+
+Where:
+- `Deliver` is the end-to-end delivery function
+- `DecomposeS` breaks information into transportable units at the source
+- `TransportS→D` moves these units from source to destination
+- `ReconstituteD` reassembles the original information at the destination
+
+Key implementations:
+- **Coherence-Preserving Segmentation**: Packet segmentation that maintains prime structure
+- **Self-Healing Flows**: Transport streams that automatically repair coherence violations
+- **Quantum-Entangled Delivery**: Transport protocols leveraging quantum-like correlations
+
+#### Layer 5-7: Application Layer Mapping
+
+The application layer implements high-level UOR concepts:
+
+```
+App(φ(I)) = Interpret(Process(Present(φ(I))))
+```
+
+Where:
+- `App` is the application-level representation
+- `Present` formats information for processing
+- `Process` performs application-specific transformations
+- `Interpret` derives meaning from the processed information
+
+Key implementations:
+- **Self-Defining Media Types**: Application formats that specify their own optimal handling
+- **Coherence-Aware APIs**: Application interfaces that preserve information coherence
+- **Observer-Invariant Interactions**: User interfaces that maintain consistency across reference frames
+
+### Implementation Examples
+
+#### Example 1: UOR-Enhanced DNS
+
+Traditional DNS maps human-readable domain names to IP addresses. UOR-Enhanced DNS extends this with prime coordinate mappings:
+
+```
+ResolveUOR(name) = (IPv6(name), φ(name))
+```
+
+Where:
+- `ResolveUOR` returns both conventional and UOR-based addressing
+- `IPv6` is the traditional IP mapping
+- `φ(name)` is the prime coordinate representation
+
+This enables coherent identification across the network while maintaining compatibility with existing systems.
+
+#### Example 2: Coherence-Preserving TCP
+
+Traditional TCP ensures reliable data delivery through acknowledgments and retransmissions. Coherence-Preserving TCP extends this with coherence guarantees:
+
+```
+DeliverCPTCP(φ(I), S, D) = (data, c_value)
+```
+
+Where:
+- `DeliverCPTCP` returns both the data and its coherence measure
+- `data` is the traditional payload
+- `c_value` is the coherence verification value
+
+Applications can use the coherence value to verify that the received information maintains its essential structure, enabling new classes of reliability guarantees.
+
+#### Example 3: Prime-Structured Routing
+
+Traditional routing minimizes hop count or link costs. Prime-Structured Routing optimizes for coherence preservation:
+
+```
+RoutePS(S, D) = argmin_paths ∑C_loss(path)
+```
+
+Where:
+- `RoutePS` is the prime-structured routing function
+- `C_loss` measures coherence loss along a path
+
+This creates naturally optimal paths that minimize information distortion across the network.
+
+### Mathematical Demonstration of Protocol Enhancements
+
+The UOR-Network mapping provides provable enhancements to conventional protocols:
+
+**Theorem 1 (Coherence Preservation):** For any information entity `I` transmitted through a UOR-compliant protocol stack, the coherence loss is bounded by:
+
+```
+||φ(I_source) - φ(I_destination)||_c < ε_max
+```
+
+**Theorem 2 (Optimality):** UOR-based routing converges to information-theoretically optimal paths under constraints of coherence preservation.
+
+**Theorem 3 (Robustness):** UOR-compliant protocols exhibit fault tolerance proportional to the prime structural redundancy of the information they carry.
+
+These mathematical properties translate directly into practical benefits including improved reliability, efficiency, and security across the network.
+
+### Connection to Other Concepts
+
+The UOR-Network Mapping establishes the formal bridge between UOR theory and Internet Substrate implementation. It provides the mathematical foundation for the Tripartite Kernel, supporting the implementation of Universal Identity, Media Type Definition, and Distributed Compute concepts across the network.

@@ -43,6 +43,19 @@ export const sectionsData: SectionData[] = [
     ]
   },
   {
+    id: md.temporalCoherence.id,
+    title: md.temporalCoherence.title,
+    description: md.temporalCoherence.description,
+    subsections: [
+      { id: md.timeOperatorFormalism.id, title: md.timeOperatorFormalism.title },
+      { id: md.temporalPrimeDecomposition.id, title: md.temporalPrimeDecomposition.title },
+      { id: md.coherencePreservingDynamics.id, title: md.coherencePreservingDynamics.title },
+      { id: md.temporalObserverFrames.id, title: md.temporalObserverFrames.title },
+      { id: md.nonLocalTemporalCorrelations.id, title: md.nonLocalTemporalCorrelations.title },
+      { id: md.emergentTemporalOrder.id, title: md.emergentTemporalOrder.title }
+    ]
+  },
+  {
     id: md.signalProcessing.id,
     title: md.signalProcessing.title,
     description: md.signalProcessing.description,
