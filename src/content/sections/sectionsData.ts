@@ -30,6 +30,19 @@ export const sectionsData: SectionData[] = [
     ]
   },
   {
+    id: md.universalCoordinates.id,
+    title: md.universalCoordinates.title,
+    description: md.universalCoordinates.description,
+    subsections: [
+      { id: md.universalNumbersFoundation.id, title: md.universalNumbersFoundation.title },
+      { id: md.computabilityAspects.id, title: md.computabilityAspects.title },
+      { id: md.algebraicStructure.id, title: md.algebraicStructure.title },
+      { id: md.topologicalProperties.id, title: md.topologicalProperties.title },
+      { id: md.universalAnalysis.id, title: md.universalAnalysis.title },
+      { id: md.applicationsDomains.id, title: md.applicationsDomains.title }
+    ]
+  },
+  {
     id: md.foundations.id,
     title: md.foundations.title,
     description: md.foundations.description,

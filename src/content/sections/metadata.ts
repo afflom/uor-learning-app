@@ -8,6 +8,13 @@ export const uor = {
     'Foundations of the Prime Framework and Universal Object Reference.'
 }
 
+// Universal Coordinates section
+export const universalCoordinates = {
+  id: 'universal-coordinates',
+  title: 'Universal Coordinates',
+  description: 'Exploration of universal numbers as computable complex numbers beyond p-adic numbers.'
+}
+
 export const overview = {
   id: 'overview',
   title: 'Overview and Motivation',
@@ -225,6 +232,43 @@ export const ultimateImplication = {
 // Extensions: Logical Foundations
 export const incompletenessTheorem = {
   id: 'incompleteness-theorem',
-  title: 'Gödel’s Incompleteness Theorem',
+  title: 'Gödel\'s Incompleteness Theorem',
   description: 'Formal arithmetization of syntax via prime encoding and proof of inherent incompleteness in recursively axiomatizable theories.'
+}
+
+// Universal Coordinates subsections
+export const universalNumbersFoundation = {
+  id: 'universalNumbersFoundation',
+  title: 'Foundations of Universal Numbers',
+  description: 'Theoretical basis for universal numbers as an extension beyond p-adic and complex number systems.'
+}
+
+export const computabilityAspects = {
+  id: 'computabilityAspects',
+  title: 'Computability Aspects',
+  description: 'Algorithmic properties of universal numbers and their computable representations.'
+}
+
+export const algebraicStructure = {
+  id: 'algebraicStructure',
+  title: 'Algebraic Structure',
+  description: 'Field properties, operations, and algebraic closure of universal number systems.'
+}
+
+export const topologicalProperties = {
+  id: 'topologicalProperties',
+  title: 'Topological Properties',
+  description: 'Metric spaces, completeness, and connection to p-adic and complex topologies.'
+}
+
+export const universalAnalysis = {
+  id: 'universalAnalysis',
+  title: 'Universal Analysis',
+  description: 'Calculus, function theory, and analytical methods in the universal number domain.'
+}
+
+export const applicationsDomains = {
+  id: 'applicationsDomains',
+  title: 'Applications and Domains',
+  description: 'Practical applications in cryptography, quantum computing, and computational mathematics.'
 }

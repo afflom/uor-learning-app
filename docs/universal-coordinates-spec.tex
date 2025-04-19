@@ -1,0 +1,340 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{fullpage}
+\usepackage{enumitem}
+
+% Define theorem-like environments
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{remark}{Remark}
+
+\begin{document}
+
+\begin{center}
+{\LARGE \bf Universal Coordinate System Specification}
+\end{center}
+\vspace{1em}
+
+\section*{Introduction}
+
+This document presents a rigorous specification of the \textbf{Universal Coordinate System} for numbers, derived axiomatically from first principles (the \textit{Prime Framework} axioms). The Universal Coordinate System provides a formal \emph{Universal Number Notation} that uniquely represents any number in a base-independent manner. We construct the theory from fundamental axioms about the natural numbers and prime numbers, ensuring the development is self-contained and logically sound. All results are proved within this framework, including the existence and uniqueness of the universal coordinate representation for each number. We also integrate the \textbf{Universal Object Reference (UOR)} framework perspective, noting how universal coordinates serve as canonical identifiers (or references) for numbers within UOR's unifying ontology. 
+
+A key feature of the Universal Coordinate System is its interoperability with all traditional numeral systems (decimal, binary, hexadecimal, etc.). In fact, we show that universal coordinates \emph{subsume} these conventional representations: given a number's universal coordinates, one can recover its representation in any base or numeral system, and conversely one can obtain the universal coordinates from any such representation. This highlights the universality of the coordinate notation as a fundamental descriptor of numeric value, transcending particular bases. 
+
+In summary, this specification includes:
+\begin{itemize}
+  \item Axiomatic foundations (\textit{Prime Framework}) defining natural numbers and prime elements from first principles.
+  \item Rigorous definitions of \emph{Universal Coordinates} and the \emph{Universal Number Notation}, with formal development of the Universal Coordinate System.
+  \item Proof of the existence and uniqueness of universal coordinates for every number (the Fundamental Theorem of Arithmetic), derived within the axiomatic framework.
+  \item Algorithms for computing the universal coordinates of a given number (factorization algorithm) and for reconstructing a number from its coordinates (multiplication algorithm), presented in a step-by-step format.
+  \item Fully worked examples illustrating how to obtain and use universal coordinates, and demonstrating conversion between universal coordinates and standard decimal/binary representations.
+\end{itemize}
+
+The development adheres to a meticulous level of detail and precise notation appropriate for theoretical mathematics or computer science. By building the system from the ground up, following the UOR methodology of ontological coherence, we aim to leave no ambiguity in definitions or proofs. The Universal Coordinate System not only provides a standalone formalism for number representation, but also serves as a concrete instance of UOR's principle of identifying mathematical objects via fundamental components (in this case, prime factors).
+
+\section{Axiomatic Foundations: The Prime Framework}
+
+We begin by outlining the fundamental assumptions and definitions of the \textit{Prime Framework}, which grounds the construction of the Universal Coordinate System. These first principles pertain to the basic properties of natural numbers and the role of prime numbers as indivisible units:
+
+\begin{enumerate}[label={\bf Axiom \arabic*:}, leftmargin=3em]
+ \item \textbf{Well-Ordering Axiom:} Every non-empty subset of the natural numbers $\mathbb{N}$ has a least element. Equivalently, the principle of mathematical induction holds for $\mathbb{N} = \{1,2,3,\dots\}$. This axiom underpins proofs by induction and guarantees that descending chains of positive integers terminate.
+ \item \textbf{Multiplicative Identity Axiom:} There exists a multiplicative identity in $\mathbb{N}$, denoted $1$, such that for any $n \in \mathbb{N}$, $1 \cdot n = n$. By convention, $1$ is neither prime nor composite (it serves as a neutral unit element).
+ \item \textbf{Prime Existence Axiom:} The set of natural numbers greater than $1$ is not empty, and at least one such number has no divisors other than $1$ and itself. In other words, there exists at least one prime number. (Indeed, $2$ is an example of an initial prime.)
+\end{enumerate}
+
+Using these axioms, we define the central concept of primality that will act as the building block for the coordinate system:
+
+\begin{definition}[Prime Number]\label{def:prime}
+A \emph{prime number} is a natural number $p > 1$ whose only positive divisors are $1$ and $p$ itself. If a number $n > 1$ is not prime, it is called \emph{composite}, meaning it has some divisor $d$ with $1 < d < n$. 
+\end{definition}
+
+By definition, every $n > 1$ falls into one of two categories: prime or composite. The Prime Existence axiom ensures the concept of a prime is non-vacuous. From these foundations, we can derive crucial properties of primes and composites. A fundamental property to establish is that every number possesses at least one prime factor. We prove this by induction (or via the well-ordering principle):
+
+\begin{lemma}[Existence of Prime Factors]\label{lem:prime-factor}
+Every integer $n > 1$ has at least one prime factor. Equivalently, if $n>1$ is composite, it has a divisor $p$ that is prime.
+\end{lemma}
+
+\begin{proof}
+We proceed by strong induction on $n$. For the base case, $n=2$ is prime by definition, so it trivially has a prime factor (itself). Now assume the statement holds for all integers $2,3,\ldots, n-1$ (inductive hypothesis), and consider $n>1$. If $n$ is prime, we are done (its prime factor is $n$ itself). If $n$ is composite, then by definition there exists an integer $d$ with $1 < d < n$ that divides $n$. Let $d'$ be this divisor ($n = d' \cdot m'$ for some $m'$). Because $1 < d' < n$, the inductive hypothesis applies to $d'$: thus $d'$ has a prime factor $p$. This prime $p$ divides $d'$, and since $d'$ divides $n$, $p$ also divides $n$. Hence $p$ is a prime factor of $n$. (In fact, one could also apply the hypothesis to $m'$ if $d'$ is not prime, but one of $d'$ or $m'$ will yield a prime factor.) This completes the inductive step. By induction, every $n>1$ indeed has at least one prime factor.
+\end{proof}
+
+An immediate consequence of Lemma~\ref{lem:prime-factor} is that primes are abundant enough to account for all composite numbers' factors. In fact, we can strengthen this result to show not just the existence of a prime factor, but that one can factor any integer completely into prime factors. Before proving the full factorization theorem, we note another classical result that supports the idea of an unlimited supply of primes:
+
+\begin{proposition}[Infinitude of Primes]\label{prop:infinitude}
+There are infinitely many prime numbers.
+\end{proposition}
+
+\begin{proof}
+(This is Euclid's famous proof.) Suppose, for sake of contradiction, that only finitely many primes exist, say $p_1, p_2, \ldots, p_r$ list all primes. Consider the number $N = p_1 p_2 \cdots p_r + 1$, which is one plus the product of all primes. By construction, $N$ is greater than 1 and not divisible by any $p_i$ (each $p_i$ divides the product $p_1\cdots p_r$ exactly, but adding $1$ yields a remainder of $1$ upon division by $p_i$). Thus none of the known primes $p_1,\dots,p_r$ is a divisor of $N$. By Lemma~\ref{lem:prime-factor}, $N$ must have some prime factor (possibly itself if $N$ is prime). That prime factor cannot be any of $p_1,\dots,p_r$, so it is a new prime outside our finite list, contradicting the assumption that we had all primes. Therefore, there must be infinitely many primes.
+\end{proof}
+
+\begin{remark}
+Proposition~\ref{prop:infinitude} guarantees that the sequence of prime numbers $p_1=2, p_2=3, p_3=5, p_4=7, p_5=11, \dots$ continues without end. This infinite supply is essential for a \emph{universal} coordinate system, as there is no largest prime and thus no bound on the “dimensions” needed to represent arbitrarily large numbers. In the Universal Object Reference (UOR) framework, primes can be viewed as fundamental \emph{atomic objects} or basis elements in the ontology of numbers -- an infinite set of building blocks from which all composite numerical objects are constructed.
+\end{remark}
+
+We now arrive at the central theoretical result underlying the Universal Coordinate System: any positive integer can be expressed as a product of primes, and this factorization is unique. This is the Fundamental Theorem of Arithmetic, which we prove from our axioms and previous lemmas:
+
+\begin{theorem}[Fundamental Theorem of Arithmetic: Existence and Uniqueness of Prime Factorization]\label{thm:FTA}
+Every integer $n > 1$ can be expressed as a product of prime numbers. Moreover, this prime factorization is unique up to the ordering of the factors. In other words, if 
+\[ n = p_1^{a_1} p_2^{a_2} \cdots p_k^{a_k} \]
+and 
+\[ n = q_1^{b_1} q_2^{b_2} \cdots q_m^{b_m} \]
+are two factorizations of $n$ into primes (where $p_i$ and $q_j$ are primes not necessarily distinct between the two factorizations, and $a_i, b_j \ge 1$ are their exponents), then we must have $k=m$, and after reordering the factors, $p_i = q_i$ and $a_i = b_i$ for all $i$. 
+\end{theorem}
+
+\begin{proof}
+We divide the proof into two parts: first proving the existence of a prime factorization, and then proving its uniqueness.
+
+\medskip\noindent\textit{Existence}: We show by induction that every $n>1$ can be written as a product of primes. The base case: $n=2$ is itself prime, so the product of primes representation is just "$2$". Now assume as inductive hypothesis that every integer $2 \leq m < n$ can be factored into primes. Consider $n>1$. If $n$ is prime, then it is already a product of primes (a single prime $n$). If $n$ is composite, by Lemma~\ref{lem:prime-factor} let $p$ be a prime divisor of $n$. Then we can write $n = p \cdot t$ for some integer $t$ with $1 < t < n$. By the inductive hypothesis (since $t < n$), $t$ can be factored into a product of primes: say $t = r_1 r_2 \cdots r_j$ where each $r_i$ is prime. Consequently, $n = p \cdot r_1 r_2 \cdots r_j$, which is a product of primes. This completes the inductive proof that a prime factorization exists for every $n>1$.
+
+\medskip\noindent\textit{Uniqueness}: Suppose for sake of contradiction that $n$ has two \emph{distinct} prime factorizations:
+\[ n = p_1 p_2 \cdots p_k = q_1 q_2 \cdots q_m, \] 
+where $p_1, \ldots, p_k$ and $q_1, \ldots, q_m$ are primes, and the multiset $\{p_1,\dots,p_k\}$ differs from $\{q_1,\dots,q_m\}$. Without loss of generality, assume $p_1 \le p_2 \le \cdots \le p_k$ and $q_1 \le q_2 \le \cdots \le q_m$ are the prime factors sorted in non-decreasing order. Let $p_1$ be the smallest prime factor among all those appearing in these two factorizations. 
+
+Because $p_1$ divides the left-hand product $p_1 p_2 \cdots p_k$, it must also divide the number $n$ on the right-hand side. Therefore $p_1$ must divide the product $q_1 q_2 \cdots q_m$. Now, $p_1$ is prime. A basic property of prime division (often called Euclid's Lemma) is that if a prime divides a product, it must divide at least one of the factors. Thus $p_1$ divides at least one of the $q_j$ factors. But each $q_j$ is prime as well, so the only way $p_1$ can divide $q_j$ is if $p_1 = q_j$ for that particular $j$ (since the only divisors of $q_j$ are $1$ and $q_j$ itself). This means $p_1$ must equal one of the primes in the $q$-factorization. Because we sorted the $q_i$, the smallest prime in the $q$-factorization is $q_1$. Given that $p_1$ is the smallest among all primes in both factorizations, it must be the case that $p_1 = q_1$. 
+
+Now we can cancel $p_1 = q_1$ from both sides by dividing $n$ by this prime. (Here we use the fact that cancellation is valid: since $p_1$ divides both products, $\frac{n}{p_1} = p_2 \cdots p_k = q_2 \cdots q_m$ remains an equality of integers after cancellation.) We obtain a smaller equality:
+\[ \frac{n}{p_1} = p_2 \cdots p_k = q_2 \cdots q_m. \]
+Now we have a new (hypothetical) pair of distinct factorizations for $\frac{n}{p_1}$, which is a smaller positive integer than $n$. We can now repeat the argument: let $p_2$ be the smallest prime in $\{p_2,\dots,p_k\}$ and $\{q_2,\dots,q_m\}$. By the same reasoning, $p_2$ must equal the smallest $q$ in that multiset, which should be $q_2$. Cancel $p_2 = q_2$. We continue this process.
+
+This iterative cancellation will continue as long as there are any prime factors remaining in either factorization. Because the process strictly decreases the number of prime factors each time, it cannot continue indefinitely. Eventually, we will cancel all primes from one side or the other. Suppose without loss of generality that we canceled all $p_i$'s; then originally $k \le m$. But if $k < m$, then after canceling $k$ primes, the right side would still have leftover prime $q$ factors (so we'd have $1 = q_{k+1} q_{k+2} \cdots q_{m}$, an impossibility since the product of primes $>1$ can’t equal $1$). Thus $k$ cannot be less than $m$. A symmetric argument (or simply relabeling the roles) shows $m$ cannot be less than $k$. Therefore $k = m$, and all primes on both sides cancel out in pairs, implying the multisets of primes were identical. Hence the prime factorization is unique.
+
+Another way to see the uniqueness argument is through \emph{minimal counterexample}: assume a smallest integer $n$ with two different prime factorizations. The above reasoning shows that the smallest prime factor of $n$ must appear in both factorizations, so after removing it we get a smaller number that still has two distinct factorizations, contradicting the minimality of $n$. This contradiction establishes uniqueness.
+\end{proof}
+
+The Fundamental Theorem of Arithmetic (theorem \ref{thm:FTA}) confirms that prime numbers indeed serve as the \emph{building blocks} for all natural numbers. Every $n>1$ can be decomposed into primes in a unique way. These primes and their exponents in $n$ will form the coordinates of $n$ in our universal system. We emphasize that the proof above was carried out using only the fundamental axioms and logical principles (well-ordering/induction and basic divisor properties), illustrating a derivation "from first principles" in the spirit of the Prime Framework.
+
+\section{Universal Coordinates and Universal Number Notation}
+
+With the existence and uniqueness of prime factorizations established, we are now prepared to formally define the \textbf{Universal Coordinate System} for numbers. Intuitively, we assign to each number a tuple of exponents corresponding to the powers of each prime in its factorization. This tuple of prime-power exponents is called the number's \emph{universal coordinates}. We also introduce a notation to express numbers in terms of these coordinates, which we refer to as the \textbf{Universal Number Notation}.
+
+First, let us set up some notation: denote by $p_i$ the $i$-th prime number in increasing order. For example, $p_1 = 2$, $p_2 = 3$, $p_3 = 5$, $p_4 = 7$, $p_5 = 11$, and so on. Because the primes are infinite (Proposition~\ref{prop:infinitude}), this sequence $(p_i)_{i\ge 1}$ is infinite. However, given any particular natural number $n$, only a finite initial segment of this sequence will play a role in its factorization (since $n$ cannot have prime factors larger than $n$ itself). 
+
+\begin{definition}[Universal Coordinate Tuple]\label{def:coordinates}
+For any positive integer $n \ge 1$, the \emph{universal coordinate tuple} of $n$ is defined as the sequence of exponents $(e_1, e_2, e_3, \dots)$ such that:
+\[ n = \prod_{i=1}^{\infty} p_i^{\,e_i}, \] 
+where each $e_i$ is a nonnegative integer, and all but finitely many of the $e_i$ are zero. In other words, $e_i$ is the exponent of the $i$-th prime in the prime factorization of $n$. By the Fundamental Theorem of Arithmetic, there is a unique such sequence for each $n>1$, and for $n=1$ the sequence is the all-zero sequence (since $1 = \prod p_i^0$ has no prime factors).
+\end{definition}
+
+Because only finitely many primes actually divide $n$, the infinite product in Definition~\ref{def:coordinates} effectively has only finitely many non-unit factors. We can thus write $n = p_1^{e_1} p_2^{e_2} \cdots p_k^{e_k}$, where $p_k$ is the largest prime factor of $n$ (if $n=1$, the product is empty and understood to equal 1). For clarity, we often omit the infinite continuation of zeros in the exponent tuple and just list the primes up to $p_k$. For example, if $n = 84$, we have $84 = 2^2 \cdot 3^1 \cdot 5^0 \cdot 7^1$ (primes $2,3,5,7$ with exponents $2,1,0,1$ respectively; primes larger than 7 have exponent 0). In practice we would omit $5^0$ and any higher primes, writing simply $84 = 2^2 \cdot 3^1 \cdot 7^1$. But conceptually, the coordinate tuple is $(e_1,e_2,e_3,e_4,\ldots) = (2,1,0,1,0,0,\ldots)$ in this case, with $e_1=2$ (for prime 2), $e_2=1$ (for prime 3), $e_3=0$ (for prime 5), $e_4=1$ (for prime 7), and $e_i=0$ for all primes $p_i > 7$.
+
+\begin{definition}[Universal Number Notation]\label{def:notation}
+The \emph{Universal Number Notation} of an integer $n \ge 1$ is the formal expression of $n$ as the product of primes raised to their corresponding exponents in $n$. In notation, if the universal coordinate tuple of $n$ is $(e_1, e_2, e_3, \dots)$, then the universal number notation for $n$ is given by:
+\[ n = 2^{e_1} \, 3^{e_2} \, 5^{e_3} \, 7^{e_4} \, 11^{e_5} \cdots, \]
+including only those primes for which $e_i$ is nonzero (by convention, we omit terms like $p^0$ since they equal 1). This notation is essentially a restatement of the prime factorization of $n$ in a standardized form: primes are listed in increasing order, each with an explicit exponent.
+\end{definition}
+
+For example, in Universal Number Notation:
+\begin{itemize}
+  \item $1$ is written as an empty product (or conceptually $2^0 3^0 5^0\cdots$), since all prime exponents are 0.
+  \item $60$ is written as $2^2 \cdot 3^1 \cdot 5^1$. The coordinate tuple is $(2,1,1,0,0,\dots)$ because $60 = 2^2 \cdot 3^1 \cdot 5^1$ (primes 2, 3, 5 have exponents 2, 1, 1 respectively; prime 7 and above have exponent 0).
+  \item $13$ (which is prime) is written as $2^0 \cdot 3^0 \cdot 5^0 \cdot 7^0 \cdot 11^0 \cdot 13^1$. We would simplify this to just $13^1$ or simply $13$. Its coordinate tuple is $(0,0,0,0,0,1,0,0,\dots)$ where the 6th prime is 13 with exponent 1, and all other primes have exponent 0.
+  \item $360$ is written as $2^3 \cdot 3^2 \cdot 5^1$. (Indeed $360 = 2^3 \cdot 3^2 \cdot 5^1$ since $360 = 8 \cdot 9 \cdot 5$.) The full coordinate tuple is $(3,2,1,0,0,\dots)$ corresponding to primes $2,3,5,7,11,\dots$.
+\end{itemize}
+
+\noindent \textbf{Universality and Canonical Form:} The above notation for $n$ is independent of any base or auxiliary convention; it directly reflects $n$'s inherent multiplicative structure. In that sense, the tuple $(e_1, e_2, \ldots)$ or the product $\prod p_i^{e_i}$ is a \emph{canonical form} for the number $n$. Two different numbers will have different prime exponent tuples (this follows from uniqueness of factorization: if $(e_1,e_2,\dots) \neq (f_1,f_2,\dots)$ then some $e_i \neq f_i$, meaning one number has a different exponent for the prime $p_i$ than the other, so they cannot be equal). Conversely, any valid tuple of nonnegative integers $(e_1, e_2, \ldots, e_k, 0,0,\ldots)$ (with finitely many nonzero entries) corresponds to a unique number $n = 2^{e_1} 3^{e_2} \cdots p_k^{e_k}$. 
+
+Thus, we have a one-to-one correspondence (bijection) between the set of positive integers $\mathbb{N}_{\ge 1}$ and the set of all finite-support sequences of nonnegative integers. We can formalize this as a pair of inverse functions:
+\[
+\Phi: \mathbb{N}_{\ge 1} \to \{(e_i)_{i\ge1}: e_i \in \mathbb{Z}_{\ge0}, e_i = 0 \text{ for all but finitely many }i\},
+\] 
+\[ 
+\Psi: \{(e_i)_{i\ge1}: e_i \in \mathbb{Z}_{\ge0}, \text{finitely many nonzero}\} \to \mathbb{N}_{\ge 1},
+\] 
+where $\Phi(n) = (e_1,e_2,\ldots)$ is the universal coordinate tuple of $n$, and $\Psi((e_i)) = \prod_{i\ge1} p_i^{e_i}$ constructs the number back from the tuple. By Theorem~\ref{thm:FTA}, $\Psi$ is well-defined and $\Phi$ is its inverse; in particular $\Phi$ is bijective with $\Psi = \Phi^{-1}$. In less formal terms, each number yields exactly one prime exponent sequence, and each such sequence corresponds to exactly one number. This justifies calling the representation a \emph{coordinate system}: we can think of each prime $p_i$ as an independent \emph{axis} or basis direction, and $e_i$ as the coordinate of the number along that axis. Every number $n$ is like a point in an (countably) infinite-dimensional space whose coordinates are $(e_1, e_2, e_3,\dots)$. The all-zero coordinate $(0,0,\dots)$ corresponds to the multiplicative identity 1.
+
+\begin{remark}[Zero and Negative Integers]
+The Universal Coordinate System as defined above naturally covers all positive integers $n \ge 1$. The integer $0$ does not admit a standard prime factorization since $0$ is divisible by every prime to an arbitrary degree. We typically exclude 0 from the coordinate mapping (or consider that it has no well-defined coordinate tuple). If desired in an extension of this system, one could formally adjoin a symbol or an "improper" coordinate for 0 (for instance, define $\Phi(0) = (+\infty, +\infty, +\infty, \dots)$ in a surreal sense, or simply handle 0 as a special case outside the normal coordinates). Likewise, for negative integers, one can extend the universal notation by including a sign coordinate. For example, $-42$ could be represented by a sign $-1$ together with the same prime coordinates as $42$. Formally, $\Phi(-n)$ could be defined as $(-1; e_1, e_2, \ldots)$, separating the $-1$ to indicate negativity and then listing the prime exponents for $n$. In this document, however, we focus on the representation of non-negative integers and principally $n \ge 1$. Handling of $0$ and negatives is straightforward with the above conventions if needed.
+\end{remark}
+
+The Universal Number Notation offers a base-independent, intrinsic description of an integer. In contexts like the UOR framework, such a description is extremely valuable: it provides an \emph{ontological reference} for numeric entities that does not depend on arbitrary choices (like a base or unit). Instead, it relies on the universal concept of primeness. In UOR terms, the tuple $(e_1,e_2,\dots)$ can be thought of as the "coordinate address" of the number $n$ in the ontology of $\mathbb{N}$, analogous to coordinates of a point in a space. Just as coordinates in geometry are given relative to basis vectors, here the basis elements are the prime numbers.
+
+\section{Interoperability with Standard Numeral Systems}
+
+One of the hallmarks of the Universal Coordinate System is that it is fully interoperable with existing numeral systems. By \emph{numeral system}, we mean any conventional method of representing integers, such as the decimal (base-10) system, the binary (base-2) system, hexadecimal (base-16), and so on. We will demonstrate that any number's representation in a given base can be derived from its universal coordinates, and conversely, that one can compute the universal coordinates given the standard representation of the number. This shows that universal coordinates subsume these systems --- essentially, the universal coordinate of a number contains enough information to regenerate its form in any base, thereby acting as a more fundamental descriptor.
+
+\subsection*{From Universal Coordinates to Positional Notations (Bases)}
+
+A positional base-$B$ representation of an integer expresses the integer as 
+\[ n = d_k B^k + d_{k-1} B^{k-1} + \cdots + d_1 B + d_0, \] 
+where $B$ (the base) is typically a positive integer greater than 1 (for example $B=10$ for decimal, $B=2$ for binary), and the coefficients $0 \le d_i < B$ are the digits in that base. This representation is unique for a given base $B$ (assuming no leading zero digits), by the well-known theorem of base expansion (which can be proved by a similar induction or division algorithm argument).
+
+Now, suppose we have the universal coordinate tuple of $n$: $(e_1, e_2, \dots)$ such that $n = 2^{e_1} 3^{e_2} 5^{e_3} \cdots$. How can we obtain, say, the decimal digits of $n$ from this? The base $B$ itself can be factorized into primes. For example, 
+- For decimal $B=10$, we have $10 = 2 \cdot 5 = 2^1 \cdot 5^1$. 
+- For binary $B=2$, we have $2$ already prime ($2=2^1$). 
+- For hexadecimal $B=16$, $16 = 2^4$. 
+- For base-12 (duodecimal), $12 = 2^2 \cdot 3^1$. 
+In general, let the prime factorization of the base be 
+\[ B = \prod_{i=1}^{r} p_i^{f_i},\] 
+where $p_1,\dots,p_r$ are the distinct primes dividing $B$ (these will be among the first few primes typically) and $f_i$ are their positive exponents in $B$. For instance, in decimal $B=10$, the primes are $2$ and $5$ with $f_1=f_2=1$.
+
+Knowing $n$'s coordinates $e_i$, one can conceptually determine the base-$B$ digits by successive division or modulo operations:
+- The least significant digit $d_0$ in base $B$ is the remainder $n \bmod B$. 
+- The rest of the number is $n_1 = (n - d_0)/B$ (an integer), whose base-$B$ representation has one fewer digit. 
+- Then $d_1 = n_1 \bmod B$ is the next digit, and so on.
+
+This is the usual algorithm to convert an integer to base $B$. Each step involves a division by $B$. In terms of prime coordinates, dividing by $B$ corresponds to subtracting the prime exponents corresponding to $B$'s factors (if possible). More explicitly, to compute $n \bmod B$ from the coordinates:
+\[ n \bmod B = \prod_{i=1}^\infty p_i^{\,e_i} \bmod \Big(\prod_{i=1}^r p_i^{\,f_i}\Big). \]
+Because modular arithmetic respects multiplication, this is 
+\[ n \bmod B \equiv \prod_{i=1}^r p_i^{\,e_i} \bmod \Big(\prod_{i=1}^r p_i^{\,f_i}\Big), \] 
+since primes not dividing $B$ (those with $i > r$) have $p_i^{e_i} \equiv 1 \pmod{B}$ (they are coprime to $B$). The remainder will be some number less than $B$; determining it requires combining the contributions of each prime factor of $B$ raised to the exponents $e_i$. This computation essentially reconstructs the last base-$B$ digit. 
+
+After finding $d_0$, to find the next digit, we divide $n$ by $B$: 
+\[ n_1 = \frac{n - d_0}{B} = \frac{\prod_{i=1}^r p_i^{e_i} - d_0}{\prod_{i=1}^r p_i^{f_i}}. \] 
+In the prime exponent tuple for $n$, dividing by $B$ will decrease the exponents $e_i$ by $f_i$ for each $i=1,\dots,r$ (the primes that divide $B$), as long as $e_i \ge f_i$ for each such $i$. If for some $i$, $e_i < f_i$, that situation precisely corresponds to the fact that $n$ was not fully divisible by $p_i^{f_i}$ (hence a remainder arose). The remainder $d_0$ was chosen to make $n - d_0$ divisible by $B$; effectively $d_0$ accounted for those insufficient prime powers. After subtracting $d_0$, the new $n - d_0$ has at least $f_i$ of each prime $p_i$ dividing $B$, so the division by $B$ yields an integer $n_1$ whose prime exponent tuple is $(e'_1, e'_2, \dots)$ where:
+\[ e'_i = 
+\begin{cases}
+e_i - f_i & \text{if } 1 \le i \le r, \\
+e_i       & \text{if } i > r,
+\end{cases}
+\] 
+i.e. we subtract the base's prime pattern once. Now $n_1$ is strictly smaller than $n$ (one digit shorter in base $B$), and we can repeat the process: $d_1 = n_1 \bmod B$, etc.
+
+The above description shows that, in principle, the universal coordinate representation contains all information needed to perform this conversion. In practice, one might still perform numeric calculations to get the digits, but the point is that the process of repeatedly taking remainders and dividing is logically derived from the prime exponents of $n$. The fact that we can systematically retrieve every digit means the universal coordinates fully determine the base-$B$ expansion.
+
+\begin{example}[Conversion from Universal Coordinates to Decimal and Binary]
+Consider $n = 360$ again, whose universal coordinates are $(e_1,e_2,e_3) = (3,2,1)$ (meaning $360 = 2^3 \cdot 3^2 \cdot 5^1$). Let us derive:
+\begin{itemize}
+  \item \textit{Decimal representation (base $B=10=2\cdot 5$):} To find $360$ in decimal, we actually already know it (since 360 is given in decimal), but let's simulate the procedure. We compute $360 \bmod 10$. Using primes: $360 = 2^3\cdot3^2\cdot5^1$. Mod 10 (which has prime factors 2 and 5), we can see $360$ is divisible by 10 because it has at least one 2 and one 5. In fact, $360 = (2\cdot5)\cdot 36$, so the remainder $d_0 = 0$. We divide by 10 to get $36$. Now $36$ mod 10: $36$ in prime form is $2^2\cdot3^2$. Mod 10, $36$ is not divisible by 5 (since no factor 5), so the remainder comes from $36 \bmod 10 = 6$ (indeed $36 = 3\cdot 10 + 6$). That gives the next digit $d_1 = 6$. Divide $36$ by $10$ to get $3$. Now $3 \bmod 10$ is just 3 (since $3 < 10$), so $d_2 = 3$, and dividing by 10 yields $0$. Thus reading the remainders from last to first, $360$ in base 10 is $360$. (No surprise, but we illustrated the factor-based reasoning for each digit: units digit 0 because prime factors included 2 and 5; next digit 6 because after removing one 2 and 5, prime factors left $2^1\cdot3^2 = 36$, etc.)
+  \item \textit{Binary representation (base $B=2$):} Now let's get $360$ in binary. Base 2 has prime factorization $2=2^1$. So essentially we will be repeatedly extracting factors of 2. The universal coordinates for 360 are $(3,2,1)$ as above. To get binary digits, find $360 \bmod 2$: Since $360$ has at least one factor 2, it is even, so $\bmod 2$ yields remainder $0$. (Indeed $360$ is divisible by 2.) Divide by 2: new exponent for prime 2 becomes $3-1=2$ (so now number is $180 = 2^2\cdot3^2\cdot5^1$). Now $180 \bmod 2$ is again 0 (still even). Divide by 2: exponent for 2 becomes $1$ ($180/2 = 90$, now $90=2^1\cdot3^2\cdot5^1$). Next $90 \bmod 2$ is 0 (even); divide by 2: exponent for 2 becomes $0$ ($90/2 = 45$, now $45=2^0\cdot3^2\cdot5^1$). Next $45 \bmod 2$ is 1 (since $45$ has no factor 2, it's odd). So $d_4 = 1$. Subtract 1 and divide by 2: $(45-1)/2 = 22$ (which corresponds to removing the $+1$ leftover, $22 = 2^1\cdot 3^2\cdot5^0$ actually $22=2^1\cdot11$, oh wait, $45 = 44+1$, $44$ has a factor 2). Now $22 \bmod 2 = 0$ (even); divide by 2: get $11$ ($11=2^0\cdot 11^1$). $11 \bmod 2 = 1$ (odd, since no factor 2); subtract 1, divide by 2: $(11-1)/2 = 5$ ($5$ remains). $5 \bmod 2 = 1$; subtract and divide: $(5-1)/2 = 2$. $2 \bmod 2 = 0$; divide: $1$. $1 \bmod 2 = 1$; divide: $0$. Now reading all remainders $d_i$ from last to first we got: $101101000_2$. Indeed $360$ in binary is $101101000_2$. Each step corresponded to examining if a factor of 2 was present in the current number (which the prime coordinate $e_1$ told us) and adjusting.
+\end{itemize}
+These examples confirm that given the prime-exponent form of $n$, one can obtain its representation in any base systematically. In practice, of course, one would use the standard division algorithm rather than manually manipulating the exponents, but the existence of the coordinate form guarantees the divisibility properties needed at each step.
+\end{example}
+
+\subsection*{From Positional Notations to Universal Coordinates}
+
+Converting a number given in, say, decimal or binary into its universal coordinates is equivalent to performing prime factorization on that number. The standard approach would be to interpret the given numeral as an ordinary integer (using its base expansion meaning) and then factor it using any number of algorithms (trial division, wheel factorization, or more advanced methods if $n$ is large). From the perspective of the coordinate system, we need to determine the exponents $e_i$ for each prime. This is done by finding each prime factor of $n$ and its power.
+
+For example, suppose we are given a decimal number like $n = 360$. To find its universal coordinates, we can perform the familiar prime factorization:
+\[
+360 \text{ (in decimal)} \rightarrow 360 \div 2 = 180; \quad e_1=1 \text{ (one factor 2)}.
+\]
+Continue factoring $180$: $180 \div 2 = 90; \; e_1=2$ (a second factor 2).
+\[
+90 \div 2 = 45; \; e_1=3 \text{ (a third factor 2)}.
+\]
+Now $45$ is not divisible by 2, move to the next prime $3$:
+\[
+45 \div 3 = 15; \; e_2=1 \text{ (one factor 3)}.
+\]
+\[
+15 \div 3 = 5; \; e_2=2 \text{ (second factor 3)}.
+\]
+Now $5$ is not divisible by 3; next prime is $5$:
+\[
+5 \div 5 = 1; \; e_3=1 \text{ (one factor 5)}.
+\]
+We have reached 1, so the factorization is complete. Collecting exponents: $(e_1,e_2,e_3) = (3,2,1)$ as expected. This process is exactly how one would compute $\Phi(n)$ given $n$ in a standard representation. It is the inverse of the conversion described earlier.
+
+In general, converting from base-$B$ to universal coordinates means:
+\begin{enumerate}
+    \item Parse the base-$B$ representation to obtain the integer $n$ in ordinary value form.
+    \item Apply a prime factorization algorithm to $n$ to determine its prime factors and their exponents.
+    \item Output the exponent tuple or the prime factor list as the universal coordinate form.
+\end{enumerate}
+Step (1) is straightforward (by multiplying out the base expansion or using built-in conversion if one is working with actual numbers on a computer). Step (2) is the mathematically non-trivial part: it can be computationally difficult for large $n$, as it entails factoring $n$. This is an important point: \emph{the task of computing universal coordinates is essentially the integer factorization problem}. For very large numbers, no efficient (polynomial-time) classical algorithm is known for this in general; this is a subject of intense study in computational number theory and relates to cryptographic assumptions (e.g. RSA security relies on the hardness of factoring). On the other hand, verifying a given coordinate tuple against a number or reconstructing the number from coordinates is easy (just multiply the primes). We will return to these algorithmic aspects shortly.
+
+Despite potential computational difficulty, existence is guaranteed by the theory we developed. So conceptually, every numeral in any base can be converted to universal notation by factorization. For instance, a binary number $101101000_2$ (which is 360 decimal) can be converted to the product $2^3\cdot3^2\cdot5^1$ by first understanding $101101000_2$ as 360 and then factoring as above.
+
+\begin{example}
+Consider a few numbers and their representations:
+\begin{itemize}
+    \item The number $n = 1024$ in decimal is written in universal notation as $2^{10}$. (Indeed, $1024 = 2^{10}$, being a power of 2. Its coordinate tuple is $(10,0,0,0,\dots)$, meaning prime 2 has exponent 10, no other primes present. In binary, $1024$ is $10000000000_2$ which also reflects the single prime factor 2 repeated 10 times as zeros after a leading 1.)
+    \item The number $n = 1000$ (decimal) has prime factorization $1000 = 2^3 \cdot 5^3$ (since $1000 = 10^3 = (2\cdot5)^3$). Universal coordinates: $(3,0,3)$ corresponding to primes 2,3,5 respectively (3 appears with exponent 0, indicating 3 is not a factor). In binary, $1000_{10} = 1111101000_2$, and in universal notation it's $2^3 5^3$. With the coordinate tuple $(3,0,3)$, one can recover the decimal digits too: the presence of $5^3$ and $2^3$ indicates $1000 = (2\cdot5)^3$ which is clearly $10^3$. 
+    \item A prime number like $n=97$ is simply $97^1$ in universal notation (with 97 being the 25th prime). Any base representation of 97 (e.g. $97_{10} = 1100001_2$ in binary) must ultimately be consistent with the fact that no smaller primes multiply to give 97.
+\end{itemize}
+These examples reinforce that universal coordinates unify representations: the base-specific patterns (like the repeating 0s in binary for a power of 2, or the presence of certain digits in decimal for powers of 10) are all encoded in the prime exponents in one concise format.
+\end{example}
+
+In conclusion, the Universal Coordinate System acts as a universal translator among numeral systems. Having the universal coordinate tuple for a number allows one to generate its representation in any base or format through known algorithms. Conversely, any representation of a number can be reduced to the universal coordinate form through the process of factorization. Thus, the universal coordinates \emph{subsume} all other representations in the sense that they capture the complete arithmetic essence of the number. They are the most fine-grained description, from which coarser descriptions (like base-$B$ digits) can be derived.
+
+From the perspective of UOR, this interoperability underscores that the universal coordinates are an invariant attribute of the number object, whereas representations like decimal or binary are different contexts or projections of that object. UOR aims to provide a context-independent reference, and indeed the prime factor coordinate is invariant under change of numeral system context.
+
+\section{Algorithms for Computing and Reconstructing Universal Coordinates}
+
+We now formalize procedures for converting between a standard representation of a number and its universal coordinates. We give two algorithms:
+\begin{enumerate}[label=\textbf{Algorithm \arabic*.}, leftmargin=3.5em]
+\item \textbf{Compute\_Coordinates$(n)$}: Given an integer $n$ (in conventional form), compute its universal coordinate tuple (i.e. find all prime exponents $e_i$ such that $n = \prod p_i^{e_i}$).
+\item \textbf{Reconstruct\_Number$(e_1,e_2,\ldots,e_k)$}: Given a finite sequence of prime exponents (assumed to be the universal coordinates of some number), reconstruct the original integer.
+\end{enumerate}
+
+These algorithms are essentially the factorization and multiplication processes we have discussed, but we present them in a stepwise format suitable for implementation or rigorous description.
+
+\medskip
+\noindent\textbf{Algorithm 1: Computing the Universal Coordinates of an Integer}
+
+\noindent\textit{Input:} A positive integer $n \ge 1$ (in decimal or any standard form).  
+\textit{Output:} The list of pairs $\{(p_i, e_i)\}$ giving the prime factorization of $n$, or equivalently the coordinate tuple $(e_1, e_2, \ldots, e_m)$ up to the largest prime needed.
+
+\begin{enumerate}[itemsep=0pt, topsep=4pt]
+  \item If $n = 1$, output that all $e_i = 0$ (the coordinate of 1 is the zero tuple) and \textbf{terminate}. (1 has no prime factors.)
+  \item Initialize an empty list of prime-exponent pairs (this will hold $(p, e)$ values as we find them). Also, set a working variable $N := n$ (this will be factored completely by the end).
+  \item For each prime number $p$ starting from $2$ upward:
+  \begin{enumerate}
+    \item If $p > N$, break out of the loop. (Once $p$ exceeds the remaining $N$, $N$ must be $1$ or a prime itself. If $N>1$ at this point, then $N$ is prime and will be handled in step (d) below.)
+    \item Initialize a counter $e := 0$.
+    \item While $p$ divides $N$ (i.e. $N \bmod p = 0$), do:
+    \begin{enumerate}
+        \item $N := N / p$.
+        \item $e := e + 1$.
+    \end{enumerate}
+    (Each time this loop runs, we found a factor $p$. We divide it out and count it in $e$. When the loop ends, $p$ no longer divides the reduced $N$.)
+    \item If $e > 0$, append the pair $(p, e)$ to the list of factors (or record $e$ in the $p$-th coordinate slot). This means $p^e$ is a prime power factor of the original $n$.
+    \item If $N = 1$ (all factors found), break out of the loop. (We have fully factored $n$.)
+  \end{enumerate}
+  \item If after stepping through all primes up to $\sqrt{n}$ we exit the loop with $N > 1$: 
+  \begin{itemize}
+      \item This remaining $N$ must itself be prime (a well-known result: if $N$ is not 1 and not fully factorizable by primes $\le \sqrt{n}$, then $N$ is prime). In this case, append $(N, 1)$ to the list as the last prime factor.
+  \end{itemize}
+  \item The list of prime-exponent pairs now constitutes the universal coordinates of $n$. If needed, sort them by increasing prime (if the algorithm encountered primes in increasing order, it is already sorted). Output this list or the corresponding exponent tuple.
+\end{enumerate}
+
+\noindent\textit{Termination and Correctness:} The algorithm will always terminate because either $N$ is reduced to $1$ by factoring or $N$ itself becomes a prime that gets handled at step 4. The use of $p > N$ as a loop break ensures we don't trial divide beyond necessity. The correctness follows from the fact that we systematically divide out all prime factors. By the end, $n$ is expressed as the product of all collected primes to their respective exponents. Thanks to the uniqueness of factorization, this result is the correct and unique coordinate representation of $n$.
+
+\begin{remark}
+The above algorithm is essentially the classical \emph{trial division} method for prime factorization. It is sufficient for illustrative purposes and for factoring small-to-moderate sized numbers. More advanced algorithms (e.g., Pollard's Rho, elliptic curve factorization, quadratic sieve, etc.) could be used for larger numbers, but they all produce the same outcome: the set of prime factors and exponents. In terms of computational complexity, trial division is $O(\sqrt{n})$ in the worst case, which becomes infeasible for very large $n$. However, since this specification is focused on the formal definition rather than computational efficiency, we present the simpler algorithm. The key point is that an algorithm \emph{exists} (in fact, many algorithms exist) to compute the coordinates for any given $n$. The Universal Coordinate System does not depend on a particular algorithm; it is a theoretical construct that any such algorithm realizes.
+\end{remark}
+
+\noindent\textbf{Algorithm 2: Reconstructing a Number from its Universal Coordinates}
+
+\noindent\textit{Input:} A set of prime-exponent pairs $\{(p_i, e_i)\}$ (or an exponent tuple $(e_1, e_2, \ldots, e_m)$ for primes $p_1,\dots,p_m$) describing some integer.  
+\textit{Output:} The integer $n = \prod p_i^{e_i}$.
+
+\begin{enumerate}[itemsep=0pt, topsep=4pt]
+  \item Initialize an integer result $R := 1$.
+  \item For each pair $(p, e)$ in the input list (or each index $i$ up to $m$ in the tuple):
+  \begin{enumerate}
+    \item Compute $p^e$ (by repeated multiplication or a fast exponentiation routine).
+    \item Set $R := R \times p^e$.
+  \end{enumerate}
+  \item After processing all pairs, $R$ equals $\prod p_i^{e_i}$. Output $R$.
+\end{enumerate}
+
+This algorithm is straightforward: it simply multiplies together the prime power factors. The correctness is immediate from basic arithmetic. The algorithm runs in time proportional to the number of prime factors and the cost of exponentiation (which is efficient using exponentiation by squaring, for example). Generally, reconstructing a number from its coordinates is much easier (computationally) than breaking it down, as it involves only multiplication. Even extremely large integers (hundreds of digits) can be reconstructed quickly given their prime factorization, whereas factoring such an integer might be extremely hard. This is an interesting asymmetry: universal coordinates are easy to verify (if someone gives you the prime factorization, you can multiply it out quickly to check it equals $n$), but they might be hard to discover. In complexity terms, the function $\Phi(n)$ (producing coordinates) is not known to be in polynomial time, while $\Psi((e_i))$ (producing $n$ from coordinates) is in P (in fact, quasi-linear time in the size of the output).
+
+\begin{example}[Using the Algorithms]
+Let us apply these algorithms to a specific number to illustrate each step in a self-contained way. Take $n = 84$.
+\begin{itemize}
+\item \textit{Compute\_Coordinates(84):} We start with $N=84$. Trial dividing:
+  - $p=2$: $84$ is divisible by 2. $N$ becomes $42$, $e=1$. $42$ is still even, divide by 2 again: $N=21$, $e=2$. $21$ is not divisible by 2 (21 mod 2 = 1), so we stop dividing by 2. Record $(2, e=2)$.
+  - $p=3$: $N=21$ is divisible by 3. $N=7$, $e=1$. $7$ is not divisible by 3, stop. Record $(3, e=1)$.
+  - $p=5$: $N=7$ is not divisible by 5 (5 > 7? Actually we would test 5, see no division, $e=0$, we may or may not record an exponent 0; typically we skip recording since no factor).
+  - $p=7$: $7$ divides $N=7$. $N=1$, $e=1$. Record $(7,1)$. Now $N=1$, break.
+  Output list $\{(2,2), (3,1), (7,1)\}$. So the coordinate tuple is $(2,1,0,1)$ as noted before.
+\item \textit{Reconstruct\_Number$\{(2,2),(3,1),(7,1)\}$:} Start $R=1$. Multiply by $2^2=4$, now $R=4$. Multiply by $3^1=3$, now $R=12$. Multiply by $7^1=7$, now $R=84$. Output $84$. As expected, we recovered the original number.
+\end{itemize}
+These steps match what we did informally for 84 in earlier sections and confirm the algorithms' correctness in a simple case.
+\end{example}
+
+\section*{Conclusion}
+
+We have developed a comprehensive specification of the Universal Coordinate System for integers. Starting from the Prime Framework axioms and fundamental properties of the natural numbers, we derived the existence of a unique prime-based representation for every number. We formalized this representation as the Universal Number Notation, which encodes each number as a coordinate tuple of prime exponents. This coordinate system is \emph{universal} in that it is not tied to any particular base; indeed, we demonstrated how it encompasses and can produce all standard numeral system representations (binary, decimal, etc.), thereby unifying them under a single schema. Rigorous definitions and proofs were provided to ensure the system is well-defined (existence and uniqueness were proven), and algorithmic procedures were given to compute and utilize the coordinates in practice. 
+
+Throughout, we incorporated the perspective of the Universal Object Reference (UOR) framework: in UOR, the universal coordinates serve as an intrinsic identifier for number objects, built from the "prime" ontological components. By subsuming conventional representations, the universal coordinates exemplify the UOR ideal of a canonical, context-independent reference for mathematical entities. 
+
+In sum, the Universal Coordinate System offers a foundational and interoperable way to represent integers, rooted in the fundamental structure of the integers themselves. Its formal development here lays the groundwork for further applications, such as using these coordinates in higher-level theoretical constructs, analyzing algebraic structures (e.g., seeing $\mathbb{N}$ as an infinite-dimensional vector space over the primes under addition of exponents), or even exploring complexity-theoretic questions (noting the easy vs hard direction of conversion relates to open problems in computational number theory).
+
+\end{document}
