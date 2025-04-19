@@ -93,8 +93,8 @@ const KnowledgeBaseLoader = () => {
       const { IndexedDBKnowledgeBase } = await import('../knowledgebase/indexedDbKnowledgeBase')
       
       console.log('Creating knowledge base...')
-      // Use version 2 to match the existing database version
-      const kb = new IndexedDBKnowledgeBase('uor-kb', 2)
+      // Use version 0 to automatically use the existing version
+      const kb = new IndexedDBKnowledgeBase('uor-kb', 0)
       const encoder = new UOREncoder(kb)
       
       // Process each item sequentially

@@ -2,10 +2,12 @@
  * Knowledge Base Test Page
  * 
  * This page tests the UOR Knowledge Base implementation with IndexedDB
+ * and demonstrates the Model Provider system
  */
 import React, { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import KnowledgeBaseLoader from '../../components/KnowledgeBaseLoader'
+import ModelProviderDemo from '../../components/ModelProviderDemo'
 
 // Create a client-side only component
 const ClientKnowledgeBaseTest = () => {
@@ -49,7 +51,7 @@ const ClientKnowledgeBaseTest = () => {
   
   return (
     <div className="knowledge-base-container">
-      <h1>UOR Knowledge Base IndexedDB Test</h1>
+      <h1>UOR Knowledge Base Test</h1>
       
       {!isClient ? (
         <div>Loading knowledge base test...</div>
@@ -58,7 +60,7 @@ const ClientKnowledgeBaseTest = () => {
           <div className="test-status-section" data-testid="test-status">
             <h2>IndexedDB Support Test Status:</h2>
             <p>
-              Status: <span>{testStatus}</span>
+              Status: <span className={testStatus}>{testStatus}</span>
             </p>
           </div>
 
@@ -99,6 +101,18 @@ const ClientKnowledgeBaseTest = () => {
           <div className="loader-section">
             <KnowledgeBaseLoader />
           </div>
+          
+          <hr className="section-divider" />
+          
+          <div className="model-provider-section">
+            <h2>Model Provider System</h2>
+            <p>
+              The Model Provider system allows different models to process the same content 
+              and create their own UOR records that link to model artifacts. This demonstrates
+              the content-addressed nature of the knowledge base.
+            </p>
+            <ModelProviderDemo />
+          </div>
         </div>
       )}
       
@@ -121,17 +135,17 @@ const ClientKnowledgeBaseTest = () => {
           border-left: 5px solid #333;
         }
         
-        .test-status-section .passed {
+        .passed {
           color: #2e7d32;
           font-weight: bold;
         }
         
-        .test-status-section .failed {
+        .failed {
           color: #c62828;
           font-weight: bold;
         }
         
-        .test-status-section .pending {
+        .pending {
           color: #f57c00;
           font-weight: bold;
         }
@@ -154,6 +168,18 @@ const ClientKnowledgeBaseTest = () => {
         
         .loader-section {
           margin-top: 30px;
+          margin-bottom: 30px;
+        }
+        
+        .section-divider {
+          margin: 40px 0;
+          border: 0;
+          height: 1px;
+          background-color: #ddd;
+        }
+        
+        .model-provider-section {
+          margin: 30px 0;
         }
         
         h1 {

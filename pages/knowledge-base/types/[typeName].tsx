@@ -35,7 +35,7 @@ const ResourceTypePage = () => {
         const { IndexedDBKnowledgeBase } = await import('../../../knowledgebase/indexedDbKnowledgeBase')
         
         // Create knowledge base instance
-        const kb = new IndexedDBKnowledgeBase('uor-kb', 2)
+        const kb = new IndexedDBKnowledgeBase('uor-kb', 0)
         
         // Get resources of the specified type
         try {

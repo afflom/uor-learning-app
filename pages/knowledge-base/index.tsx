@@ -30,8 +30,8 @@ const KnowledgeBasePage = () => {
         // Import knowledge base components
         const { IndexedDBKnowledgeBase } = await import('../../knowledgebase/indexedDbKnowledgeBase')
         
-        // Create knowledge base instance
-        const kb = new IndexedDBKnowledgeBase('uor-kb', 2)
+        // Create knowledge base instance - use 0 to automatically use the existing version
+        const kb = new IndexedDBKnowledgeBase('uor-kb', 0)
         
         // Get resource types
         try {
@@ -102,6 +102,22 @@ const KnowledgeBasePage = () => {
           )}
         </div>
       )}
+      
+      <div className="model-provider-section">
+        <h2>Model Providers</h2>
+        <p>
+          Model providers process content and create their own UOR records that link to model 
+          artifacts. Different model providers can create different interpretations of the same content.
+        </p>
+        <div className="action-buttons">
+          <Link href="/knowledge-base/models">
+            <button className="action-button models-button">Manage Model Providers</button>
+          </Link>
+          <Link href="/knowledge-base/process">
+            <button className="action-button process-button">Process Content</button>
+          </Link>
+        </div>
+      </div>
       
       <div className="kb-actions">
         <h2>Knowledge Base Actions</h2>
@@ -218,7 +234,7 @@ const KnowledgeBasePage = () => {
           background-color: #0051a2;
         }
         
-        .kb-actions {
+        .kb-actions, .model-provider-section {
           margin-top: 2rem;
           padding: 1.5rem;
           background: #f5f7fa;
@@ -226,10 +242,15 @@ const KnowledgeBasePage = () => {
           box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         
-        .kb-actions h2 {
+        .kb-actions h2, .model-provider-section h2 {
           margin-top: 0;
           color: #0c1e35;
           font-size: 1.4rem;
+        }
+        
+        .model-provider-section p {
+          color: #555;
+          margin-bottom: 1.5rem;
         }
         
         .action-buttons {
@@ -252,6 +273,22 @@ const KnowledgeBasePage = () => {
         
         .test-button:hover {
           background-color: #0084c8;
+        }
+        
+        .models-button {
+          background-color: #0070f3;
+        }
+        
+        .models-button:hover {
+          background-color: #0051a2;
+        }
+        
+        .process-button {
+          background-color: #4caf50;
+        }
+        
+        .process-button:hover {
+          background-color: #3d8b40;
         }
       `}</style>
     </div>

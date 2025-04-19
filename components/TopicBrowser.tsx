@@ -217,7 +217,7 @@ const TopicBrowser: React.FC<TopicBrowserProps> = ({ initialTopicId }) => {
         setError(null)
         
         // Create the knowledge base and schema manager
-        const kb = new IndexedDBKnowledgeBase('uor-kb', 1)
+        const kb = new IndexedDBKnowledgeBase('uor-kb', 0)
         
         // Import sample content if not already initialized
         try {
@@ -282,7 +282,7 @@ const TopicBrowser: React.FC<TopicBrowserProps> = ({ initialTopicId }) => {
       setIsLoading(true)
       setError(null)
       
-      const kb = new IndexedDBKnowledgeBase('uor-kb', 1)
+      const kb = new IndexedDBKnowledgeBase('uor-kb', 0)
       const schemaManager = new SchemaReferenceManager(kb)
       
       // Get the topic

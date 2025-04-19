@@ -31,13 +31,50 @@ const SettingsPage = () => {
         const { IndexedDBKnowledgeBase } = await import('../../knowledgebase/indexedDbKnowledgeBase')
         
         // Create knowledge base instance
-        const kb = new IndexedDBKnowledgeBase('uor-kb', 2)
+        const kb = new IndexedDBKnowledgeBase('uor-kb', 0)
         
         // Get resource types
         try {
           // @ts-ignore - Property exists on our implementation
-          const types = await kb.getResourceTypes()
-          setResourceTypes(types)
+          const allTypes = await kb.getResourceTypes()
+          
+          // Filter and organize types by namespace
+          const organizedTypes = allTypes.map(type => {
+            // Already has a namespace prefix
+            if (type.includes('/')) {
+              return type;
+            }
+            
+            // Handle schema.org types
+            if (type.startsWith('schema.org')) {
+              return type;
+            }
+            
+            // Handle model output types
+            if (type.startsWith('model-outputs')) {
+              return type;
+            }
+            
+            // For known system types
+            if (['primitives', 'MathematicalObject'].includes(type)) {
+              return `uor/${type}`;
+            }
+            
+            // For content hash IDs, assign to content namespace
+            if (/^[0-9a-f]{32,}$/i.test(type)) {
+              return `content/${type}`;
+            }
+            
+            // For remaining types, add a generic namespace
+            return `types/${type}`;
+          });
+          
+          // Filter out content types from the settings view
+          const filteredTypes = organizedTypes.filter(type => 
+            !type.startsWith('content/')
+          );
+          
+          setResourceTypes(filteredTypes)
         } catch (err: any) {
           console.error('Error getting resource types:', err)
           setError(`Error getting resource types: ${err?.message || 'Unknown error'}`)
