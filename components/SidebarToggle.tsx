@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 interface SidebarToggleProps {
-  onToggle: (isExpanded: boolean) => void
+  onToggle: (expanded: boolean) => void
   defaultExpanded?: boolean
 }
 
