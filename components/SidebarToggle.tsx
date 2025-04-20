@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 
 interface SidebarToggleProps {
-  onToggle: (expanded: boolean) => void
+  // eslint-disable-next-line no-unused-vars
+  onToggle: (state: boolean) => void
   defaultExpanded?: boolean
 }
 
