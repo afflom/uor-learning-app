@@ -42,7 +42,7 @@ jobs:
           echo "NEXT_PUBLIC_BASE_PATH=/$REPO_NAME" >> $GITHUB_ENV
           
       - name: Build
-        run: npm run build
+        run: npm run build:gh-pages
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
