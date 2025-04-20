@@ -1,15 +1,27 @@
 /**
  * UOR Encoder - Core Implementation
  * 
- * Minimal implementation focusing on resource/resourceType model.
+ * Implementation focusing on resource/resourceType model with identity support.
  */
+
+/**
+ * UOR Signature - Identity signature for a record
+ */
+interface UORSignature {
+  identityId: string;  // Identity that signed the record
+  timestamp: string;   // When the record was signed
+  signature: string;   // The actual signature value
+}
 
 /**
  * UOR Record - The fundamental unit in the UOR system
  */
 interface UORRecord {
-  resource: any;       // The actual data
+  resource: any;        // The actual data
   resourceType: string; // The type identifier
+  createdBy?: string;   // Identity that created the record
+  signatures?: UORSignature[]; // Signatures on this record
+  imported?: boolean;   // Flag indicating if this record was imported
 }
 
 /**
@@ -57,17 +69,55 @@ class UOREncoder {
    * Encode a resource with its type
    * @param resource - The resource to encode
    * @param resourceType - The type of the resource
+   * @param identityId - Identity ID of the creator (required for created records)
+   * @param options - Additional options for encoding
    * @returns The ID of the encoded resource
    */
-  async encode(resource: any, resourceType: string): Promise<string> {
+  async encode(
+    resource: any, 
+    resourceType: string, 
+    identityId?: string,
+    options: { 
+      imported?: boolean,
+      signed?: boolean 
+    } = {}
+  ): Promise<string> {
     // Extract or generate an ID for the resource
     const resourceId = resource.id || resource['@id'] || `${resourceType}_${Date.now()}`;
+    
+    // Set defaults for options
+    const isImported = options.imported ?? false;
+    const shouldSign = options.signed ?? !isImported; // Sign by default if not imported
     
     // Create a UOR record
     const record: UORRecord = {
       resource,
-      resourceType
+      resourceType,
+      imported: isImported
     };
+    
+    // A record must have a creator identity unless it's imported
+    if (!isImported && !identityId) {
+      throw new Error('Created records must have a creator identity');
+    }
+    
+    // Add creator identity if provided
+    if (identityId) {
+      record.createdBy = identityId;
+      
+      // Sign the record if it should be signed
+      if (shouldSign) {
+        if (!record.signatures) {
+          record.signatures = [];
+        }
+        
+        record.signatures.push({
+          identityId,
+          timestamp: new Date().toISOString(),
+          signature: `signed-by-${identityId}-${Date.now()}`
+        });
+      }
+    }
     
     // Process any references to other resources
     await this.processReferences(record);
@@ -76,6 +126,62 @@ class UOREncoder {
     await this.knowledgeBase.set(resourceType, resourceId, record);
     
     return resourceId;
+  }
+  
+  /**
+   * Sign a record with an identity
+   * @param resourceType - Type of the resource
+   * @param resourceId - ID of the resource
+   * @param identityId - ID of the signing identity
+   * @param signature - Signature value
+   * @returns The updated record
+   */
+  async signRecord(
+    resourceType: string, 
+    resourceId: string, 
+    identityId: string, 
+    signature: string
+  ): Promise<UORRecord | null> {
+    // Get the record
+    const record = await this.knowledgeBase.get(resourceType, resourceId);
+    if (!record) return null;
+    
+    // Add signature
+    if (!record.signatures) {
+      record.signatures = [];
+    }
+    
+    // Add the new signature
+    record.signatures.push({
+      identityId,
+      timestamp: new Date().toISOString(),
+      signature
+    });
+    
+    // Update the record
+    await this.knowledgeBase.set(resourceType, resourceId, record);
+    
+    return record;
+  }
+  
+  /**
+   * Check if a record is signed by a specific identity
+   * @param resourceType - Type of the resource
+   * @param resourceId - ID of the resource
+   * @param identityId - ID of the identity to check
+   * @returns True if signed by the identity
+   */
+  async isSignedBy(
+    resourceType: string, 
+    resourceId: string, 
+    identityId: string
+  ): Promise<boolean> {
+    // Get the record
+    const record = await this.knowledgeBase.get(resourceType, resourceId);
+    if (!record || !record.signatures) return false;
+    
+    // Check if signed by the identity
+    return record.signatures.some(sig => sig.identityId === identityId);
   }
 
   /**
@@ -366,7 +472,8 @@ export {
 export type {
   KnowledgeBase,
   UORRecord,
-  UORPointer
+  UORPointer,
+  UORSignature
 };
 
 // Don't auto-run the test - we'll run it from runTest.js

@@ -638,7 +638,7 @@ const TypeSettingsPage = () => {
         ) : resources.length === 0 ? (
           <div className="empty-state">
             <p>No resources found for this type.</p>
-            <Link href="/uor/knowledgeBaseTest">
+            <Link href="/uor/identity">
               <button className="action-button">Load Sample Data</button>
             </Link>
           </div>

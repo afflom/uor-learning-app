@@ -5,6 +5,7 @@
  */
 import React, { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
+import Link from 'next/link'
 import KnowledgeBaseLoader from '../../../components/KnowledgeBaseLoader'
 
 // Create a client-side only component
@@ -96,6 +97,17 @@ const ClientKnowledgeBaseTest = () => {
             </div>
           )}
           
+          <div className="info-section">
+            <div className="info-message">
+              <h3>Identity Integration</h3>
+              <p>
+                The Knowledge Base now integrates with the identity system. When loading or creating content, 
+                you can choose to sign records with your active identity. To manage your identities, visit the 
+                <Link href="/settings/identity" className="identity-link"> Identity Settings</Link> page.
+              </p>
+            </div>
+          </div>
+          
           <div className="loader-section">
             <KnowledgeBaseLoader />
           </div>
@@ -150,6 +162,32 @@ const ClientKnowledgeBaseTest = () => {
           background-color: #f9f9f9;
           border-radius: 5px;
           border-left: 5px solid #0070f3;
+        }
+        
+        .info-section {
+          margin: 20px 0;
+        }
+        
+        .info-message {
+          background: #e8f5e9;
+          border-left: 4px solid #4caf50;
+          padding: 15px;
+          border-radius: 5px;
+        }
+        
+        .info-message h3 {
+          margin-top: 0;
+          color: #2e7d32;
+        }
+        
+        .identity-link {
+          color: #0070f3;
+          text-decoration: none;
+          font-weight: 500;
+        }
+        
+        .identity-link:hover {
+          text-decoration: underline;
         }
         
         .loader-section {

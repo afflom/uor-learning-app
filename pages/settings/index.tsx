@@ -126,7 +126,7 @@ const SettingsPage = () => {
         ) : resourceTypes.length === 0 ? (
           <div className="empty-state">
             <p>No resource types found in the knowledge base.</p>
-            <Link href="/uor/knowledgeBaseTest">
+            <Link href="/knowledge-base/loader">
               <button className="action-button">Load Sample Data</button>
             </Link>
           </div>
@@ -150,11 +150,14 @@ const SettingsPage = () => {
       <div className="settings-actions">
         <h2>System Settings</h2>
         <div className="settings-grid">
-          <div className="settings-card system-card">
-            <h3>User Preferences</h3>
-            <p>Configure appearance and behavior</p>
+          <Link 
+            href="/settings/identity"
+            className="settings-card system-card"
+          >
+            <h3>Identity Management</h3>
+            <p>Manage users and digital identities</p>
             <div className="card-icon">👤</div>
-          </div>
+          </Link>
           
           <div className="settings-card system-card">
             <h3>Knowledge Base</h3>

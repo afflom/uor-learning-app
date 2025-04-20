@@ -8,17 +8,19 @@ const KnowledgeBasePage = () => {
   const [resourceTypes, setResourceTypes] = useState<string[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [currentUser, setCurrentUser] = useState<any>(null)
+  const [currentIdentity, setCurrentIdentity] = useState<any>(null)
 
   // Set isClient to true when the component mounts on the client
   useEffect(() => {
     setIsClient(true)
   }, [])
 
-  // Load resource types when component mounts
+  // Load resource types and identity info when component mounts
   useEffect(() => {
     if (!isClient) return
 
-    async function loadResourceTypes() {
+    async function loadData() {
       try {
         // Check if IndexedDB is supported
         if (typeof window === 'undefined' || !('indexedDB' in window)) {
@@ -42,15 +44,51 @@ const KnowledgeBasePage = () => {
           console.error('Error getting resource types:', err)
           setError(`Error getting resource types: ${err?.message || 'Unknown error'}`)
         }
+        
+        // Get identity information
+        try {
+          // Get the identity provider
+          const identityProvider = (window as any).identityProvider
+          
+          if (identityProvider) {
+            // Get current user and identity
+            const user = identityProvider.getCurrentUser()
+            const identity = identityProvider.getCurrentIdentity()
+            
+            if (user) setCurrentUser(user)
+            if (identity) setCurrentIdentity(identity)
+          } else {
+            // Check if identity provider can be initialized
+            const { IdentityProvider } = await import('../../knowledgebase/IdentityProvider')
+            const provider = new IdentityProvider()
+            await provider.initialize()
+            ;(window as any).identityProvider = provider
+            
+            // Try to restore session
+            const savedUserId = localStorage.getItem('uorCurrentUserId')
+            if (savedUserId) {
+              try {
+                const { user, identity } = await provider.login(savedUserId)
+                setCurrentUser(user)
+                setCurrentIdentity(identity)
+              } catch (err) {
+                console.error('Failed to restore session:', err)
+              }
+            }
+          }
+        } catch (err: any) {
+          console.error('Error getting identity information:', err)
+          // Non-critical error, don't set the main error state
+        }
       } catch (err: any) {
-        console.error('Error in loadResourceTypes:', err)
+        console.error('Error in loadData:', err)
         setError(err?.message || 'An unknown error occurred')
       } finally {
         setIsLoading(false)
       }
     }
 
-    loadResourceTypes()
+    loadData()
   }, [isClient])
 
   // If we're still on the server, return a loading message
@@ -67,6 +105,35 @@ const KnowledgeBasePage = () => {
         used in the Universal Object Reference framework. All content is stored locally in your
         browser using IndexedDB.
       </p>
+      
+      {currentUser && currentIdentity ? (
+        <div className="identity-card">
+          <div className="identity-info">
+            <div className="identity-avatar">
+              {currentIdentity.name.charAt(0)}
+            </div>
+            <div className="identity-details">
+              <div className="identity-name">{currentIdentity.name}</div>
+              <div className="user-name">User: {currentUser.displayName || currentUser.username}</div>
+            </div>
+          </div>
+          <Link href="/settings/identity">
+            <button className="manage-identity-button">Manage Identities</button>
+          </Link>
+        </div>
+      ) : (
+        <div className="identity-card signin-prompt">
+          <div className="prompt-info">
+            <div className="prompt-icon">🔑</div>
+            <div className="prompt-text">
+              Sign in to create and manage signed knowledge base content
+            </div>
+          </div>
+          <Link href="/settings/identity">
+            <button className="signin-button">Sign In / Register</button>
+          </Link>
+        </div>
+      )}
       
       {isLoading ? (
         <div className="loading">Loading knowledge base data...</div>
@@ -95,9 +162,14 @@ const KnowledgeBasePage = () => {
                 ))}
               </ul>
               
-              <Link href="/knowledge-base/loader">
-                <button className="load-button">Load More Sample Data</button>
-              </Link>
+              <div className="action-buttons">
+                <Link href="/knowledge-base/loader">
+                  <button className="load-button">Load More Sample Data</button>
+                </Link>
+                <Link href="/settings/identity/records">
+                  <button className="signed-button">View Signed Records</button>
+                </Link>
+              </div>
             </>
           )}
         </div>
@@ -218,6 +290,13 @@ const KnowledgeBasePage = () => {
           margin: 1rem 0;
         }
         
+        .action-buttons {
+          display: flex;
+          gap: 1rem;
+          margin-top: 1rem;
+          flex-wrap: wrap;
+        }
+        
         .load-button, .action-button {
           background-color: #0070f3;
           color: white;
@@ -232,6 +311,119 @@ const KnowledgeBasePage = () => {
         
         .load-button:hover, .action-button:hover {
           background-color: #0051a2;
+        }
+        
+        .signed-button {
+          background-color: #4caf50;
+          color: white;
+          border: none;
+          border-radius: 4px;
+          padding: 0.8rem 1.2rem;
+          font-size: 1rem;
+          cursor: pointer;
+          transition: background-color 0.2s;
+          font-weight: 500;
+        }
+        
+        .signed-button:hover {
+          background-color: #388e3c;
+        }
+        
+        .identity-card {
+          margin: 1.5rem 0;
+          padding: 1rem;
+          background: #f0f7ff;
+          border-radius: 8px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .identity-info {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+        }
+        
+        .identity-avatar {
+          width: 40px;
+          height: 40px;
+          background: #4a7eff;
+          color: white;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.2rem;
+          font-weight: bold;
+        }
+        
+        .identity-details {
+          display: flex;
+          flex-direction: column;
+        }
+        
+        .identity-name {
+          font-weight: bold;
+          color: #0c1e35;
+        }
+        
+        .user-name {
+          font-size: 0.9rem;
+          color: #666;
+        }
+        
+        .manage-identity-button {
+          background: rgba(74, 126, 255, 0.1);
+          color: #4a7eff;
+          border: 1px solid rgba(74, 126, 255, 0.3);
+          border-radius: 4px;
+          padding: 0.5rem 1rem;
+          font-size: 0.9rem;
+          cursor: pointer;
+          transition: all 0.2s;
+          font-weight: 500;
+        }
+        
+        .manage-identity-button:hover {
+          background: rgba(74, 126, 255, 0.2);
+          border-color: rgba(74, 126, 255, 0.5);
+        }
+        
+        .signin-prompt {
+          background: #fff8e1;
+        }
+        
+        .prompt-info {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+        }
+        
+        .prompt-icon {
+          font-size: 1.5rem;
+        }
+        
+        .prompt-text {
+          font-weight: 500;
+          color: #795548;
+        }
+        
+        .signin-button {
+          background: #ff9800;
+          color: white;
+          border: none;
+          border-radius: 4px;
+          padding: 0.6rem 1.2rem;
+          font-size: 0.95rem;
+          cursor: pointer;
+          transition: background-color 0.2s;
+          font-weight: 500;
+        }
+        
+        .signin-button:hover {
+          background: #f57c00;
         }
         
         .kb-actions, .model-provider-section {

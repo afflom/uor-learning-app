@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { SectionData, sectionsData } from '../src/content/sections/sectionsData'
+import dynamic from 'next/dynamic'
+
+// Import UserAccount component with SSR disabled
+const UserAccount = dynamic(() => import('./UserAccount'), { ssr: false })
 
 // Helper function to convert kebab-case IDs to camelCase for file paths
 function convertIdToFilePath(id: string): string {
@@ -181,7 +185,24 @@ export default function Navbar({ showSidebarToggle }: NavbarProps) {
                 Settings
               </Link>
             </div>
+            
+            {/* Identity management link */}
+            <div className={`navbar-item-wrapper ${isActive('/settings/identity') ? 'active' : ''}`}>
+              <Link href="/settings/identity" className="navbar-item" onClick={() => setMenuOpen(false)}>
+                Identity
+              </Link>
+            </div>
+            
+            {/* Mobile account section */}
+            <div className="mobile-account">
+              <UserAccount />
+            </div>
           </div>
+        </div>
+        
+        {/* Desktop account section */}
+        <div className="desktop-account">
+          <UserAccount />
         </div>
       </div>
 
@@ -447,6 +468,18 @@ export default function Navbar({ showSidebarToggle }: NavbarProps) {
           background: rgba(255, 255, 255, 0.2);
           transform: rotate(180deg);
         }
+        
+        /* User account styles */
+        .desktop-account {
+          display: flex;
+          align-items: center;
+        }
+        
+        .mobile-account {
+          display: none;
+          margin-top: 1rem;
+          width: 100%;
+        }
 
         /* Sections Menu Styles */
         .sections-menu {
@@ -688,6 +721,16 @@ export default function Navbar({ showSidebarToggle }: NavbarProps) {
             width: 4px;
             height: 100%;
             border-radius: 0 3px 3px 0;
+          }
+          
+          /* Show mobile account and hide desktop account */
+          .desktop-account {
+            display: none;
+          }
+          
+          .mobile-account {
+            display: block;
+            margin-top: 1rem;
           }
         }
       `}</style>

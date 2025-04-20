@@ -89,11 +89,11 @@ export const observerCoherence = {
   description: 'Trilateral Coherence and observer invariance.'
 }
 
-// UOR: knowledge base test
-export const knowledgeBaseTest = {
-  id: 'knowledge-base-test',
-  title: 'Knowledge Base Test',
-  description: 'Testing implementation of the UOR knowledge base with IndexedDB persistence.'
+// UOR: identity system
+export const uorIdentity = {
+  id: 'identity',
+  title: 'Identity System',
+  description: 'Identity management for the Universal Object Reference framework.'
 }
 
 // Extensions & Applications
