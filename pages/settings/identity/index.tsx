@@ -221,7 +221,7 @@ const IdentityManagementPage = () => {
           }
         }
       `}</style>
-    </Layout>
+    </div>
   )
 }
 
