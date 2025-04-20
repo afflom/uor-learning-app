@@ -49,6 +49,24 @@
    pnpm run preview
    ```
 
+## GitHub Pages Deployment
+
+This project is configured to automatically deploy to GitHub Pages using GitHub Actions.
+
+1. The deployment is triggered automatically when changes are pushed to the `main` branch
+2. You can also manually trigger a deployment from the Actions tab in the repository
+
+The deployment workflow:
+1. Checks out the code
+2. Sets up Node.js and installs dependencies
+3. Builds the Next.js app with the correct base path
+4. Deploys the static output to GitHub Pages
+
+To test the GitHub Pages build locally:
+```bash
+npm run build:gh-pages
+```
+
  ## Adding New Sections
  1. In `src/content/sections/metadata.js`, add a new entry with `id`, `title`, and `description`.
  2. In `src/content/sections`, create a new `[id].js` file that exports a React component using `SectionTemplate`.

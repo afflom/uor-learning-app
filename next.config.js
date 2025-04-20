@@ -21,6 +21,11 @@ const nextConfig = withMDX({
   // Simple configuration for development
   compress: true,  // Enable compression
   
+  // GitHub Pages configuration
+  output: 'export',
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
+  assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH || '',
+  
   // Optimize chunk loading with minimal configuration
   webpack: (config, { isServer }) => {
     if (!isServer) {

@@ -16,7 +16,8 @@
     "format:check": "prettier --check .",
     "compile:kb": "tsc -p knowledgebase/tsconfig.json",
     "test:browser": "npx playwright test",
-    "test:kb": "npm run compile:kb && npx playwright test tests/indexeddb.spec.ts"
+    "test:kb": "npm run compile:kb && npx playwright test tests/indexeddb.spec.ts",
+    "build:gh-pages": "cross-env NEXT_PUBLIC_BASE_PATH=/uor-learning-app next build"
   },
   "dependencies": {
     "@mdx-js/react": "^3.1.0",
@@ -37,6 +38,7 @@
     "@types/react-dom": "^19.1.2",
     "@typescript-eslint/eslint-plugin": "^8.30.1",
     "@typescript-eslint/parser": "^8.30.1",
+    "cross-env": "^7.0.3",
     "eslint": "^9.24.0",
     "eslint-config-next": "^15.3.1",
     "eslint-config-prettier": "^10.1.2",
