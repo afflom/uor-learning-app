@@ -23,7 +23,7 @@ const IdentityManagementPage = () => {
   }, [])
   
   return (
-    <div className="identity-container">
+    <div className="container">
       <div className="identity-page">
         <div className="page-header">
           <h1>Identity Management</h1>
@@ -82,12 +82,11 @@ const IdentityManagementPage = () => {
           </div>
         </div>
       </div>
-    </div>
       
-    <style jsx>{`
-        .identity-container {
-          padding: 1.5rem;
+      <style jsx>{`
+        .container {
           width: 100%;
+          padding: 1.5rem;
         }
         
         .identity-page {
