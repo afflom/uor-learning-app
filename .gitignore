@@ -15,6 +15,10 @@ test-results/
 
 # Next.js build directory
 .next/
+out/
+
+# Lock files (use pnpm-lock.yaml instead)
+package-lock.json
 
 # Log files
 *.log

@@ -6,7 +6,6 @@
 import React, { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import Layout from '../../../components/Layout'
 
 // Import identity management components (client-side only)
 const IdentityManager = dynamic(
@@ -24,7 +23,6 @@ const IdentityManagementPage = () => {
   }, [])
   
   return (
-    <Layout>
       <div className="identity-page">
         <div className="page-header">
           <h1>Identity Management</h1>

@@ -186,13 +186,6 @@ export default function Navbar({ showSidebarToggle }: NavbarProps) {
               </Link>
             </div>
             
-            {/* Identity management link */}
-            <div className={`navbar-item-wrapper ${isActive('/settings/identity') ? 'active' : ''}`}>
-              <Link href="/settings/identity" className="navbar-item" onClick={() => setMenuOpen(false)}>
-                Identity
-              </Link>
-            </div>
-            
             {/* Mobile account section */}
             <div className="mobile-account">
               <UserAccount />

@@ -5,6 +5,7 @@
  */
 import React, { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
+import Link from 'next/link'
 import { UserImpl } from '../knowledgebase/models/User'
 import { IdentityImpl } from '../knowledgebase/models/Identity'
 
@@ -167,16 +168,15 @@ const UserAccount = () => {
               </div>
               
               <div className="menu-items">
-                <form action="/settings/identity" method="get" target="_top" style={{ width: '100%' }}>
+                <Link href="/settings/identity" passHref style={{ width: '100%' }}>
                   <button 
-                    type="submit"
                     className="menu-item identity"
                     onClick={() => setMenuOpen(false)}
                   >
                     <span className="icon">🔑</span>
                     Manage Identities
                   </button>
-                </form>
+                </Link>
                 <button className="menu-item logout" onClick={handleLogout}>
                   <span className="icon">🚪</span>
                   Sign Out
@@ -187,11 +187,11 @@ const UserAccount = () => {
         </div>
       ) : (
         // Logged out state
-        <form action="/settings/identity" method="get" target="_top">
-          <button type="submit" className="login-button">
+        <Link href="/settings/identity" passHref>
+          <button className="login-button">
             Sign In / Register
           </button>
-        </form>
+        </Link>
       )}
       
       <style jsx>{`
