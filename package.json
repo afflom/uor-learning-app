@@ -20,6 +20,7 @@
     "build:gh-pages": "cross-env NEXT_PUBLIC_BASE_PATH=/uor-learning-app next build"
   },
   "dependencies": {
+    "@mdx-js/loader": "^3.1.0",
     "@mdx-js/react": "^3.1.0",
     "@next/mdx": "^15.3.1",
     "better-react-mathjax": "^2.3.0",

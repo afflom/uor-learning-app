@@ -1,13 +1,17 @@
-import type { GetServerSideProps } from 'next';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
-// Redirect root to the welcome page
+// Client-side redirect to the welcome page
 export default function Home() {
-  return null;
-}
+  const router = useRouter();
+  
+  useEffect(() => {
+    router.replace('/welcome');
+  }, [router]);
 
-export const getServerSideProps: GetServerSideProps = async () => ({
-  redirect: {
-    destination: '/welcome',
-    permanent: false
-  }
-});
+  return (
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+      <p>Redirecting to welcome page...</p>
+    </div>
+  );
+}
