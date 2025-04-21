@@ -28,3 +28,16 @@ build_log.txt
 
 # TypeScript build info
 tsconfig.tsbuildinfo
+
+# Removed functionality
+/knowledgebase/
+/pages/knowledge-base/
+/pages/settings/
+/components/KnowledgeBaseLoader.tsx
+/components/ModelProviderDemo.tsx
+/components/IdentityManager.tsx
+/components/UserAccount.tsx
+/pages/uor/identity.tsx
+
+# Backup of removed files
+/backup/

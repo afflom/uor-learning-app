@@ -14,9 +14,7 @@
     "type-check": "tsc --noEmit",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "compile:kb": "tsc -p knowledgebase/tsconfig.json",
     "test:browser": "npx playwright test",
-    "test:kb": "npm run compile:kb && npx playwright test tests/indexeddb.spec.ts",
     "build:gh-pages": "cross-env NEXT_PUBLIC_BASE_PATH=/uor-learning-app next build"
   },
   "dependencies": {
